@@ -32,7 +32,7 @@ const styles = {
     },
 };
 
-const CardLabels = ({  }) => {
+const CardFeature = ({  }) => {
     return (
         <div style={styles.container}>
             <div style={styles.item}>
@@ -42,4 +42,4 @@ const CardLabels = ({  }) => {
     );
 };
 
-export default CardLabels;
+export default CardFeature;

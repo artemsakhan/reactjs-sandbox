@@ -1,9 +1,9 @@
 import {useState} from "react";
 import GiftButton from "./GiftButton";
 import ImageProgressBar from "./ImageProgressBar";
-import CardName from "./CardName";
+import CardHeader from "./CardHeader";
 
-const ImageSlider = ({ card: { images, name, age, aboutMe} }) => {
+const CardContent = ({ card: { images, name, age, aboutMe} }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const nextImage = () => {
@@ -45,7 +45,7 @@ const ImageSlider = ({ card: { images, name, age, aboutMe} }) => {
                     style={imageStyle}
                 />
             </div>
-            <CardName
+            <CardHeader
                 name={name}
                 age={age}
                 aboutMe={aboutMe}
@@ -60,7 +60,7 @@ const sliderStyles = {
     justifyContent: 'center',
     position: 'relative',
     width: '100%',
-    height: 'calc(100% - 130px)',
+    height: 'calc(100% - 70px)',
     overflow: 'hidden',
     cursor: 'pointer',
     borderRadius: '35px',
@@ -81,4 +81,4 @@ const imageStyle = {
     objectFit: 'cover',
 };
 
-export default ImageSlider;
+export default CardContent;

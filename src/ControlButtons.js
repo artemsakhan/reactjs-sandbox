@@ -4,14 +4,14 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const ControlButtons = () => {
     return (
-        <div style={styles}>
+        <div style={styles} className='cardControlButtons'>
             <motion.div
                 style={{
                     background: 'white',
                     marginLeft: '11px',
                     ...buttonStyle,
                 }}
-                whileTap={{ scale: 0.9 }} // Scale down on tap
+                whileTap={{ scale: 0.9 }}
             >
                 <i className="fa-solid fa-xmark"></i>
             </motion.div>
@@ -21,7 +21,7 @@ const ControlButtons = () => {
                     marginRight: '11px',
                     ...buttonStyle,
                 }}
-                whileTap={{ scale: 0.9 }} // Scale down on tap
+                whileTap={{ scale: 0.9 }}
             >
                 <i className="fa-solid fa-check"></i>
             </motion.div>
@@ -38,17 +38,18 @@ const styles = {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     borderBottomLeftRadius: '35px', // Rounded top-left corner
     borderBottomRightRadius: '35px', // Rounded top-right corner
     border: '1px solid #d3c9c966',
     borderTop: 'none',
+    marginTop: '10px',
 };
 
 // Button styles with reset
 const buttonStyle = {
     width: '45%',
-    height: '80%',
+    height: '60px',
     color: 'black', // Set text color
     border: 'none', // Remove border
     borderRadius: '35px', // Optional: rounded corners
@@ -61,6 +62,7 @@ const buttonStyle = {
     outline: 'none', // Remove outline on focus
     textAlign: 'center', // Center the text/icon
     appearance: 'none', // Remove default browser styling
+    // marginTop: '10px',
 };
 
 export default ControlButtons;
