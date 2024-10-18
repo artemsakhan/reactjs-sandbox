@@ -4,13 +4,13 @@ export const dummyData =  {
         {
             id: 1,
             images: [
-                'https://kyivdate.app/photos/MXBLOrA/ff8n4.624abdb9cb508.800x600.webp',
+                'https://kyivdate.app/photos/dbE7a4n/4h2m7.624c1e9412706.800x600.webp',
                 'https://kyivdate.app/photos/MXBLOrA/3e23b.624abe1af4d18.800x600.webp',
                 'https://kyivdate.app/photos/MXBLOrA/ob9dd.624abe7577647.800x600.webp',
             ],
             aboutMe: "Lifelong learner who loves exploring new cultures and trying new foods.",
             name: "Kitty",
-            age: 27,
+            age: 27,//dbE7a4n/4h2m7.624c1e9412706.jpeg
         },
         {
             id: 2,
@@ -28,7 +28,7 @@ export const dummyData =  {
             images: [
                 'https://kyivdate.app/photos/MXBLOrA/d9rc7.624abfb7cbc27.800x600.webp',
                 'https://kyivdate.app/photos/MXBLOrA/bb7xp.624abfe7a3993.800x600.webp',
-                'https://kyivdate.app/photos/MXBLOrA/ff8n4.624abdb9cb508.800x600.webp',
+                'https://kyivdate.app/photos/dbE7a4n/4h2m7.624c1e9412706.800x600.webp',
             ],
             aboutMe: "Exploring the world one adventure at a time. Love hiking, photography, and meeting new people.",
             name: "Olga",
@@ -61,7 +61,7 @@ export const dummyData =  {
             images: [
                 'https://kyivdate.app/photos/MXBLOrA/d9rc7.624abfb7cbc27.800x600.webp',
                 'https://kyivdate.app/photos/MXBLOrA/bb7xp.624abfe7a3993.800x600.webp',
-                'https://kyivdate.app/photos/MXBLOrA/ff8n4.624abdb9cb508.800x600.webp',
+                'https://kyivdate.app/photos/dbE7a4n/4h2m7.624c1e9412706.800x600.webp',
             ],
             aboutMe: "Ashley, look at me",
             name: "Beyonce",
@@ -70,7 +70,7 @@ export const dummyData =  {
         {
             id: 7,
             images: [
-                'https://kyivdate.app/photos/MXBLOrA/ff8n4.624abdb9cb508.800x600.webp',
+                'https://kyivdate.app/photos/dbE7a4n/4h2m7.624c1e9412706.800x600.webp',
                 'https://kyivdate.app/photos/MXBLOrA/3e23b.624abe1af4d18.800x600.webp',
                 'https://kyivdate.app/photos/MXBLOrA/ob9dd.624abe7577647.800x600.webp',
             ],
