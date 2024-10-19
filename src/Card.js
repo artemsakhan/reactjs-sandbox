@@ -1,56 +1,51 @@
-import React, {useRef} from 'react';
-import { motion, useMotionValue, useAnimationControls } from 'framer-motion';
+import React, {useEffect, useRef} from 'react';
+import {motion, useAnimationControls, useMotionValue} from 'framer-motion';
 import './index.css';
 import CardContent from "./CardContent";
 import ControlButtons from "./ControlButtons";
-import CardLabelStack from "./CardLabelStack";
 import CardFeature from "./CardFeature";
 
 const likeOverlayColor = '#ff0000'
 const passOverlayColor = '#2cd868';
 
 // Card component
-const Card = ({ card, onSwipe }) => {
+const Card = ({matchCandidate, handleLike, handlePass}) => {
     const animControls = useAnimationControls();
     const x = useMotionValue(0);
 
-    const onDrag = (event, info) => {
-        event.preventDefault();
-        event.stopPropagation();
-
-        const offsetX = Math.min(Math.abs(info.offset.x), 500);
-        const opacity = (offsetX / 500) * 0.5;
-
-        const color = info.offset.x > 0 ? passOverlayColor : likeOverlayColor;
-
-        if (overlayRef.current) {
-            overlayRef.current.style.opacity = opacity;
-            overlayRef.current.style.background = color;
-        }
-    };
-
-    const onDragEnd = (event, info) => {
-
-        if (Math.abs(info.offset.x) > 150) {
-            window.Telegram.WebApp.HapticFeedback.impactOccurred('rigid')
-
-            const direction = info.offset.x < 0 ? -1 : 1;
-            animControls.start({
-                x: direction * 500,
-                rotate: direction * 20,
-                transition: { duration: 0.4 },
-                transitionEnd: { display: 'none' },
-            }).then(() => onSwipe(card.id))
-        } else {
-            if (overlayRef.current) {
-                overlayRef.current.style.opacity = 0;
-            }
-
-            animControls.start({ x: 0, transition: { duration: 0.3 } });
-        }
-    };
-
     const overlayRef = useRef(null);
+
+    useEffect(bodyScrollControl, []);
+
+    const swipeRight = (id) => {
+        window.Telegram.WebApp.HapticFeedback.impactOccurred('rigid')
+
+        animControls.start({
+            x: 500,
+            rotate: 20,
+            transition: {duration: 0.4},
+            transitionEnd: {display: 'none'},
+        }).then(() => handleLike(id))
+    }
+
+    const swipeLeft = (id) => {
+        window.Telegram.WebApp.HapticFeedback.impactOccurred('rigid')
+
+        animControls.start({
+            x: -500,
+            rotate: -20,
+            transition: {duration: 0.4},
+            transitionEnd: {display: 'none'},
+        }).then(() => handlePass(id))
+    }
+
+    const snapBack = () => {
+        if (overlayRef.current) {
+            overlayRef.current.style.opacity = 0;
+        }
+
+        animControls.start({ x: 0, transition: { duration: 0.3 } });
+    }
 
     return (
         <motion.div
@@ -62,19 +57,61 @@ const Card = ({ card, onSwipe }) => {
             animate={animControls}
             dragConstraints={{left: 0, right: 0, top: 0, bottom: 0}}
             dragSnapToOrigin
-            onDrag={onDrag}
-            onDragEnd={onDragEnd}
+            onDrag={(event, info) => {
+                const offsetX = Math.min(Math.abs(info.offset.x), 500);
+                const opacity = (offsetX / 500) * 0.5;
+
+                const color = info.offset.x > 0 ? passOverlayColor : likeOverlayColor;
+
+                if (overlayRef.current) {
+                    overlayRef.current.style.opacity = opacity;
+                    overlayRef.current.style.background = color;
+                }
+            }}
+            onDragEnd={(event, info) => {
+                if (Math.abs(info.offset.x) > 150) {
+                    window.Telegram.WebApp.HapticFeedback.impactOccurred('rigid')
+
+                    if (info.offset.x > 0) {
+                        swipeRight(matchCandidate.id)
+                    } else {
+                        swipeLeft(matchCandidate.id)
+                    }
+                } else {
+                    snapBack()
+                }
+            }}
         >
             <div className="card-content" style={styles.contentStyle}>
                 <div ref={overlayRef} style={styles.overlayStyles}/>
-                <CardContent card={card}/>
+                <CardContent card={matchCandidate}/>
                 <CardFeature/>
-                {/*<CardLabelStack/>*/}
-                <ControlButtons/>
+                <ControlButtons
+                    handleLike={() => swipeRight(matchCandidate.id)}
+                    handlePass={() => swipeLeft(matchCandidate.id)}
+                />
             </div>
         </motion.div>
     );
 };
+
+const bodyScrollControl = () => {
+    // Disable scrolling in the entire app
+    document.body.style.overflow = 'hidden';
+
+    // Disable scrolling on touch devices
+    const preventScroll = (e) => {
+        e.preventDefault();
+    };
+
+    window.addEventListener('touchmove', preventScroll, {passive: false});
+
+    return () => {
+        // Re-enable scrolling when the component unmounts
+        document.body.style.overflow = '';
+        window.removeEventListener('touchmove', preventScroll);
+    };
+}
 
 const styles = {
     overlayStyles: {

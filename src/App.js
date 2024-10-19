@@ -5,30 +5,15 @@ import EmptyCard from "./EmptyCard";
 import Card from "./Card";
 
 const App = () => {
-    const [cards, setCards] = useState(dummyData.MatchCandidates);
+    const [matchCandidates, setMatchCandidates] = useState(dummyData.MatchCandidates);
 
-    const handleSwipe = (id) => {
-        console.log('remove id', id)
-        setCards((prevCards) => prevCards.filter(card => card.id !== id)); // Remove the card with the specified id
+    const handleLike = (id) => {
+        setMatchCandidates((prevCandidates) => prevCandidates.filter(card => card.id !== id));
     };
 
-    useEffect(() => {
-        // Disable scrolling in the entire app
-        document.body.style.overflow = 'hidden';
-
-        // Disable scrolling on touch devices
-        const preventScroll = (e) => {
-            e.preventDefault();
-        };
-
-        window.addEventListener('touchmove', preventScroll, { passive: false });
-
-        return () => {
-            // Re-enable scrolling when the component unmounts
-            document.body.style.overflow = '';
-            window.removeEventListener('touchmove', preventScroll);
-        };
-    }, []);
+    const handlePass = (id) => {
+        setMatchCandidates((prevCandidates) => prevCandidates.filter(card => card.id !== id));
+    }
 
     return (
         <div className="App" style={{
@@ -42,12 +27,13 @@ const App = () => {
                 overflow:"hidden",
                 position: "relative",
             }}>
-                {cards.length > 0 ? (
-                    cards.map((card, index) => (
+                {matchCandidates.length > 0 ? (
+                    matchCandidates.map((candidate, index) => (
                         <Card
                             key={index}
-                            card={card}
-                            onSwipe={handleSwipe}
+                            matchCandidate={candidate}
+                            handleLike={handleLike}
+                            handlePass={handlePass}
                         />
                     ))
                 ) : (
