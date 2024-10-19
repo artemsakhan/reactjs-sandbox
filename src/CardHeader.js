@@ -1,11 +1,13 @@
 import React from 'react';
 import CardLabelStack from "./CardLabelStack";
 
-const CardHeader = ({ name, age, aboutMe }) => {
+const CardHeader = ({matchCandidate}) => {
+    const {name, age, aboutMe, cityName, geoProximity} = matchCandidate;
+
     return (
         <div style={styles.container}>
             <div className="item" style={styles.item}>
-                <div>
+                <div className="cardHeaderName">
                     <p style={styles.name}>
                 <span style={{
                     fontStyle: 'italic',
@@ -13,18 +15,28 @@ const CardHeader = ({ name, age, aboutMe }) => {
                         <i className="fa fa-check-circle" style={styles.verifiedIcon}/>
                     </p>
                 </div>
-                <div>
-                    <p style={styles.aboutMe}>{aboutMe}</p> {/* Limited to 2 lines */}
+                <div className="cardHeaderAboutMe">
+                    <p style={styles.aboutMe}>{aboutMe}</p>
                 </div>
-                <CardLabelStack/>
+                <CardLabelStack
+                    cityName={cityName}
+                    geoProximity={geoProximity}
+                />
             </div>
         </div>
     );
 };
 
 const styles = {
+    labelItem: {
+        height: '30px',
+        display: 'flex',
+        alignItems: 'center',
+        fontSize: '16px',
+        fontWeight: 500,
+    },
     item: {
-        width: 'calc(100% - 100px)',
+        width: 'calc(100% - 105px)',
         marginLeft: '15px',
         marginBottom: '5px',
     },
@@ -50,7 +62,7 @@ const styles = {
     aboutMe: {
         display: '-webkit-box',
         WebkitBoxOrient: 'vertical',
-        WebkitLineClamp: 4, // Limit to 2 lines
+        WebkitLineClamp: 3, // Limit to 2 lines
         overflow: 'hidden',
         textOverflow: 'ellipsis',
         whiteSpace: 'normal',
@@ -58,7 +70,7 @@ const styles = {
         color: 'white',
         marginTop: '5px',
         textAlign: 'left', // Optional for better alignment
-        marginBottom: '5px',
+        marginBottom: '8px',
     },
 };
 

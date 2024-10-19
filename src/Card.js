@@ -82,10 +82,10 @@ const Card = ({matchCandidate, handleLike, handlePass}) => {
                 }
             }}
         >
-            <div className="card-content" style={styles.contentStyle}>
+            <div className="cardContent" style={styles.contentStyle}>
                 <div ref={overlayRef} style={styles.overlayStyles}/>
-                <CardContent card={matchCandidate}/>
-                <CardFeature/>
+                <CardContent matchCandidate={matchCandidate}/>
+                {matchCandidate.isActive ? <CardFeature text="ACTIVE NOW"/> : null}
                 <ControlButtons
                     handleLike={() => swipeRight(matchCandidate.id)}
                     handlePass={() => swipeLeft(matchCandidate.id)}
@@ -140,7 +140,7 @@ const styles = {
         height: 'calc(100% - 30px)',
         background: '#272e3a',
         borderRadius: '35px',
-        border: '1px solid #d3c9c966',
+        // border: '1px solid #d3c9c966',
         position: "relative",
         marginTop: '0px',
         display: 'flex',

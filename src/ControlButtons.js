@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion"; // Import Framer Motion
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
-const ControlButtons = () => {
+const ControlButtons = ({ handleLike, handlePass }) => {
     return (
         <div style={styles} className='cardControlButtons'>
             <motion.div
@@ -11,6 +11,7 @@ const ControlButtons = () => {
                     marginLeft: '11px',
                     ...buttonStyle,
                 }}
+                onClick={handlePass}
                 whileTap={{ scale: 0.9 }}
             >
                 <i className="fa-solid fa-xmark"></i>
@@ -22,6 +23,7 @@ const ControlButtons = () => {
                     ...buttonStyle,
                 }}
                 whileTap={{ scale: 0.9 }}
+                onClick={handleLike}
             >
                 <i className="fa-solid fa-check"></i>
             </motion.div>
@@ -41,7 +43,7 @@ const styles = {
     alignItems: 'flex-start',
     borderBottomLeftRadius: '35px', // Rounded top-left corner
     borderBottomRightRadius: '35px', // Rounded top-right corner
-    border: '1px solid #d3c9c966',
+    // border: '1px solid #d3c9c966',
     borderTop: 'none',
     marginTop: '10px',
 };

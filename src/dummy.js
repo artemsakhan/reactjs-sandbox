@@ -10,7 +10,10 @@ export const dummyData =  {
             ],
             aboutMe: "Lifelong learner who loves exploring new cultures and trying new foods.",
             name: "Kitty",
-            age: 27,//dbE7a4n/4h2m7.624c1e9412706.jpeg
+            age: 27,
+            geoProximity: "9 km",
+            cityName: "Kyiv",
+            isActive: true,
         },
         {
             id: 2,
@@ -21,7 +24,11 @@ export const dummyData =  {
             ],
             aboutMe: "Fitness junkie who enjoys yoga, running, and discovering healthy recipes to share with friends.",
             name: "Alice",
+            city: "Kyiv",
             age: 33,
+            geoProximity: "900 km",
+            cityName: "San-Francisco",
+            isActive: true,
         },
         {
             id: 3,
@@ -33,6 +40,9 @@ export const dummyData =  {
             aboutMe: "Exploring the world one adventure at a time. Love hiking, photography, and meeting new people.",
             name: "Olga",
             age: 18,
+            cityName: "Los-Angeles",
+            geoProximity: "19 km",
+            isActive: true,
         },
         {
             id: 4,
@@ -44,6 +54,9 @@ export const dummyData =  {
             aboutMe: "Digital nomad navigating life through travel, technology, and a passion for capturing moments on camera.",
             name: "Vlad",
             age: 44,
+            geoProximity: "9 km",
+            cityName: "Barcelona",
+            isActive: true,
         },
         {
             id: 5,
@@ -55,6 +68,9 @@ export const dummyData =  {
             aboutMe: "Just me",
             name: "Britany",
             age: 44,
+            geoProximity: "9 km",
+            cityName: "Pryazovske",
+            isActive: false,
         },
         {
             id: 6,
@@ -66,6 +82,9 @@ export const dummyData =  {
             aboutMe: "Ashley, look at me",
             name: "Beyonce",
             age: 22,
+            geoProximity: "9 km",
+            cityName: "Kyiv",
+            isActive: true,
         },
         {
             id: 7,
@@ -77,6 +96,9 @@ export const dummyData =  {
             aboutMe: "I'm stronger, I'm smarter, I'm better, I am better...",
             name: "Conor",
             age: 23,
+            geoProximity: "9 km",
+            cityName: "Kyiv",
+            isActive: false,
         },
     ],
 };

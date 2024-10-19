@@ -32,11 +32,11 @@ const styles = {
     },
 };
 
-const CardFeature = ({  }) => {
+const CardFeature = ({ text }) => {
     return (
         <div style={styles.container}>
             <div style={styles.item}>
-                <span style={styles.text}>ACTIVE NOW</span>
+                <span style={styles.text}>{text}</span>
             </div>
         </div>
     );

@@ -43,7 +43,7 @@ const App = () => {
             <div style={{
                 width: '100%',
             }}>
-                <p>Tab bar 1</p>
+                <p>Tab bar 4</p>
             </div>
         </div>
     );

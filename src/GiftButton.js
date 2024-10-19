@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import React from "react";
+import DiamondSvg from "./DiamondSvg";
 
 const GiftButton = () => {
     return (
@@ -11,10 +12,7 @@ const GiftButton = () => {
             }}
             whileTap={{scale: 0.9}} // Scale down on tap
         >
-            <i className="fa-solid fa-gem" style={{
-                pointerEvents: 'none',
-                touchAction: 'none',
-            }}></i>
+            <DiamondSvg/>
         </motion.div>
     )
 }

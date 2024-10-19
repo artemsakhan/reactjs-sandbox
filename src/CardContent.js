@@ -3,7 +3,9 @@ import GiftButton from "./GiftButton";
 import ImageProgressBar from "./ImageProgressBar";
 import CardHeader from "./CardHeader";
 
-const CardContent = ({ card: { images, name, age, aboutMe} }) => {
+const CardContent = ({ matchCandidate }) => {
+    const { images } = matchCandidate;
+
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const nextImage = () => {
@@ -46,9 +48,7 @@ const CardContent = ({ card: { images, name, age, aboutMe} }) => {
                 />
             </div>
             <CardHeader
-                name={name}
-                age={age}
-                aboutMe={aboutMe}
+                matchCandidate={matchCandidate}
             />
             <GiftButton/>
         </div>
