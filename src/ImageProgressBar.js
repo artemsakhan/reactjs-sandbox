@@ -9,7 +9,6 @@ const styles = {
         justifyContent: 'center',
         alignItems: 'center',
         gap: '7px',
-        // zIndex: 1,
     },
     dot: {
         width: '7px',

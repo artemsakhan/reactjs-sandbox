@@ -6,22 +6,15 @@ const CardLabelStack = ({ cityName, geoProximity }) => {
             <span className="cardLabelItem" style={{
                 ...labelStyle,
             }}>
+                {/*<i className="fas fa-globe" style={iconStyle}></i> Ukrainian*/}
                 <i className="fa-solid fa-earth-europe" style={iconStyle}/>&nbsp;
                 {cityName}
             </span>
             <span className="cardLabelItem" style={labelStyle}>
-                <i className="fas fa-paw" style={iconStyle}></i> Dogs
+                {/*<i className="fas fa-paw" style={iconStyle}></i> Dogs*/}
+                <i className="fa-solid fa-map-pin" style={iconStyle}/>&nbsp;
+                {geoProximity}
             </span>
-            <span className="cardLabelItem" style={labelStyle}>
-                <i className="fas fa-bullseye" style={iconStyle}></i> Casual
-            </span>
-            <span className="cardLabelItem" style={labelStyle}>
-                <i className="fas fa-bullseye" style={iconStyle}></i> Casual
-            </span>
-            <span className="cardLabelItem" style={labelStyle}>
-                <i className="fas fa-bullseye" style={iconStyle}></i> Casual
-            </span>
-
         </div>
     );
 };
@@ -32,11 +25,10 @@ const containerStyle = {
     width: '100%',
     color: 'white',
     textAlign: 'left',
-    height: '55px', // Fixed height for the container
+    height: '40px', // Fixed height for the container
     alignItems: 'center', // Vertically center the labels
     gap: '5px', // Equal gap between the labels
     overflow: 'hidden', // Ensures that content doesn't overflow the container
-    marginTop: '9px',
 };
 
 const labelStyle = {
@@ -44,8 +36,8 @@ const labelStyle = {
     alignItems: 'center', // Vertically centers the icon and text
     backgroundColor: 'rgb(104 104 105 / 60%)', // Background color for the label
     borderRadius: '15px', // Rounded corners for the label
-    padding: '2px 9px', // Consistent padding inside each label
-    height: '21px', // Fixed height for the labels to fit inside the 60px container
+    padding: '2px 10px', // Consistent padding inside each label
+    height: '26px', // Fixed height for the labels to fit inside the 60px container
     whiteSpace: 'nowrap', // Prevents text from wrapping within the label
     fontSize: '13px',
 

@@ -46,38 +46,33 @@ const CardContent = ({ matchCandidate }) => {
                     alt={`Slide ${currentIndex + 1}`}
                     style={imageStyle}
                 />
-                <GiftButton/>
             </div>
             <CardHeader
-                activeIndex={currentIndex}
                 matchCandidate={matchCandidate}
             />
+            <GiftButton/>
         </div>
     );
 };
 
 const sliderStyles = {
     display: 'flex',
-    justifyContent: 'flex-start',
+    justifyContent: 'center',
     position: 'relative',
     width: '100%',
-    height: 'calc(100% - 80px)',
+    height: 'calc(100% - 70px)',
     overflow: 'hidden',
     cursor: 'pointer',
     borderRadius: '35px',
     borderBottom: 'none',
     borderBottomLeftRadius: '0px',
-    flexDirection: 'column',
 }
 const imageContainerStyle = {
     display: 'flex',
-    justifyContent: 'flex-start',
+    justifyContent: 'center',
     alignItems: 'center',
-    height: 'calc(100% - 80px)',
-    overflow: 'hidden',
+    height: '100%',
     width: '100%',
-    borderBottomRightRadius: '35px',
-    position: 'relative',
 };
 
 const imageStyle = {
