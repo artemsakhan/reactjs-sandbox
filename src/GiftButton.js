@@ -11,6 +11,7 @@ const GiftButton = () => {
                 ...buttonStyle,
             }}
             whileTap={{scale: 0.9}} // Scale down on tap
+            onClick={e => e.preventDefault()}
         >
             <DiamondSvg/>
         </motion.div>
