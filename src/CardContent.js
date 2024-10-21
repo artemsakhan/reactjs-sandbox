@@ -85,7 +85,8 @@ const imageStyle = {
     width: '100%',
     height: '100%',
     objectFit: 'cover',
-    borderBottomRightRadius: '35px',
+    // borderBottomRightRadius: '35px',
+    // borderBottomLeftRadius: '35px',
 };
 
 export default CardContent;

@@ -19,8 +19,8 @@ const CardLabelStack = ({ occupation, height }) => {
 
 const containerStyle = {
     position: 'absolute',
-    bottom: '80px',
-    left: '10px',
+    bottom: '75px',
+    left: '15px',
     display: 'flex',
     flexWrap: 'wrap',
     width: 'calc(100% - 100px)',

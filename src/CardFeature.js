@@ -17,7 +17,7 @@ const styles = {
         justifyContent: 'center',
         padding: '9px',
         borderRadius: '28px',
-        backgroundColor: 'rgb(250 254 39)', // Background color for the item
+        backgroundColor: 'rgb(241, 255, 10)', // Background color for the item
         boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)', // Optional shadow
     },
     icon: {
