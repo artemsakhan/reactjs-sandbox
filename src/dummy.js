@@ -13,6 +13,8 @@ export const dummyData =  {
             age: 27,
             geoProximity: "9 km",
             cityName: "Kyiv",
+            occupation: "Lawyer",
+            height: '180 cm',
             isActive: true,
         },
         {
@@ -28,6 +30,8 @@ export const dummyData =  {
             age: 33,
             geoProximity: "900 km",
             cityName: "San-Francisco",
+            occupation: "Doctor",
+            height: '180 cm',
             isActive: true,
         },
         {
@@ -42,6 +46,8 @@ export const dummyData =  {
             age: 18,
             cityName: "Los-Angeles",
             geoProximity: "19 km",
+            occupation: "Engineer",
+            height: '170 cm',
             isActive: true,
         },
         {
@@ -56,6 +62,8 @@ export const dummyData =  {
             age: 44,
             geoProximity: "9 km",
             cityName: "Barcelona",
+            occupation: "Data Scientist",
+            height: '170 cm',
             isActive: true,
         },
         {
@@ -70,6 +78,8 @@ export const dummyData =  {
             age: 44,
             geoProximity: "9 km",
             cityName: "Pryazovske",
+            occupation: "Project Manager",
+            height: '170 cm',
             isActive: false,
         },
         {
@@ -84,6 +94,8 @@ export const dummyData =  {
             age: 22,
             geoProximity: "9 km",
             cityName: "Kyiv",
+            occupation: "Cashier",
+            height: '156 cm',
             isActive: true,
         },
         {
@@ -98,6 +110,8 @@ export const dummyData =  {
             age: 23,
             geoProximity: "9 km",
             cityName: "Kyiv",
+            occupation: "IT Industry",
+            height: '170 cm',
             isActive: false,
         },
     ],

@@ -2,6 +2,7 @@ import {useState} from "react";
 import GiftButton from "./GiftButton";
 import ImageProgressBar from "./ImageProgressBar";
 import CardHeader from "./CardHeader";
+import CardLabelStack from "./CardLabelStack";
 
 const CardContent = ({ matchCandidate }) => {
     const { images } = matchCandidate;
@@ -49,6 +50,12 @@ const CardContent = ({ matchCandidate }) => {
             </div>
             <CardHeader
                 matchCandidate={matchCandidate}
+                currentSection={currentIndex}
+                totalSections={images.length}
+            />
+            <CardLabelStack
+                occupation={matchCandidate.occupation}
+                height={matchCandidate.height}
             />
             <GiftButton/>
         </div>
@@ -57,6 +64,7 @@ const CardContent = ({ matchCandidate }) => {
 
 const sliderStyles = {
     display: 'flex',
+    flexDirection: 'column',
     justifyContent: 'center',
     position: 'relative',
     width: '100%',
@@ -64,14 +72,12 @@ const sliderStyles = {
     overflow: 'hidden',
     cursor: 'pointer',
     borderRadius: '35px',
-    borderBottom: 'none',
-    borderBottomLeftRadius: '0px',
 }
 const imageContainerStyle = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    height: '100%',
+    height: 'calc(100% - 70px)',
     width: '100%',
 };
 
@@ -79,6 +85,7 @@ const imageStyle = {
     width: '100%',
     height: '100%',
     objectFit: 'cover',
+    borderBottomRightRadius: '35px',
 };
 
 export default CardContent;

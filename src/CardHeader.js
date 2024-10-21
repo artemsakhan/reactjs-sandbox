@@ -1,33 +1,76 @@
 import React from 'react';
-import CardLabelStack from "./CardLabelStack";
+import VerifiedBadgeSvg from "./VerifiedBadgeSvg";
 
-const CardHeader = ({matchCandidate}) => {
+const CardHeader = ({matchCandidate, currentSection, totalSections}) => {
     const {name, age, aboutMe, cityName, geoProximity} = matchCandidate;
+
+    var profileInfoSection = null;
+
+    if (currentSection > 0 && aboutMe !== "") {
+        if (aboutMe.length < 50) {
+            profileInfoSection = (
+                <div className="item" style={styles.item}>
+                    <div className="cardHeaderName" style={styles.name}>
+                        <div>
+                            {name}, {age}&nbsp;
+                        </div>
+                        <VerifiedBadgeSvg/>
+                    </div>
+                    <div className="cardHeaderAboutMe" style={styles.aboutMe}>
+                        {aboutMe}
+                    </div>
+                </div>
+            );
+        } else {
+            profileInfoSection = (
+                <div className="item" style={styles.item}>
+                    <div className="cardHeaderAboutMe" style={styles.aboutMe}>
+                        {aboutMe}
+                    </div>
+                </div>
+            );
+        }
+
+    } else  {
+        profileInfoSection = (
+            <div className="item" style={styles.item}>
+                <div className="cardHeaderName" style={styles.name}>
+                    <div>
+                        {name}, {age}&nbsp;
+                    </div>
+                    <VerifiedBadgeSvg/>
+                </div>
+                <div className="cardHeaderCity" style={styles.location}>
+                    <i className="fa-solid fa-location-dot"></i>&nbsp;{cityName}, {geoProximity} away
+                </div>
+            </div>
+        )
+    }
 
     return (
         <div style={styles.container}>
-            <div className="item" style={styles.item}>
-                <div className="cardHeaderName">
-                    <p style={styles.name}>
-                <span style={{
-                    fontStyle: 'italic',
-                }}>{name}</span>, {age}
-                        <i className="fa fa-check-circle" style={styles.verifiedIcon}/>
-                    </p>
-                </div>
-                <div className="cardHeaderAboutMe">
-                    <p style={styles.aboutMe}>{aboutMe}</p>
-                </div>
-                <CardLabelStack
-                    cityName={cityName}
-                    geoProximity={geoProximity}
-                />
-            </div>
+            {profileInfoSection}
         </div>
+
     );
 };
 
 const styles = {
+    container: {
+        color: 'white',
+        textAlign: 'left',
+        width: '100%',
+        height: '70px',
+        background: '#272e3a',
+    },
+    location: {
+        fontFamily: "'Roboto', sans-serif", // or another sans-serif font you are using
+        fontSize: '14px',                   // Slightly smaller than the name text
+        fontWeight: 400,                    // Normal weight for the description
+        color: '#B0B0B0',                   // Light gray color (adjust based on your theme)
+        lineHeight: '16px',                 // Adjust for readability
+        letterSpacing: '0.4px',
+    },
     labelItem: {
         height: '30px',
         display: 'flex',
@@ -36,38 +79,43 @@ const styles = {
         fontWeight: 500,
     },
     item: {
-        width: 'calc(100% - 105px)',
+        width: 'calc(100% - 25px)',
         marginLeft: '15px',
+        marginTop: '13px',
         marginBottom: '5px',
     },
-    container: {
-        position: 'absolute',
-        left: '0px',
-        bottom: '0px',
-        color: 'white',
-        textAlign: 'left',
-        width: '100%',
-        background: 'linear-gradient(185deg, rgba(255, 255, 255, 0) 17%, rgb(39, 46, 58) 100%)',
-    },
     name: {
-        alignItems: 'center',
-        fontSize: '22px',
+        fontSize: '21px',
+        fontFamily: "'Roboto', sans-serif",
         fontWeight: 'bold',
-        margin: '10px 0px',
+        color: '#FFFFFF',
+        lineHeight: '20px',
+        letterSpacing: '0.5px',
+        margin: '15px 0px 10px 0px',
+        display: 'flex',
+        flexFlow: 'row',
+        alignItems: 'center',
+        justifyContent: 'flex-start',
     },
     verifiedIcon: {
         marginLeft: '8px',
         color: '#fafe27',
     },
     aboutMe: {
+        fontFamily: "'Roboto', sans-serif", // or another sans-serif font you are using
+        fontSize: '15px',                   // Slightly smaller than the name text
+        fontWeight: 400,                    // Normal weight for the description
+        color: '#FFF',                   // Light gray color (adjust based on your theme)
+        lineHeight: '16px',                 // Adjust for readability
+        letterSpacing: '0.4px',
         display: '-webkit-box',
         WebkitBoxOrient: 'vertical',
         WebkitLineClamp: 3, // Limit to 2 lines
         overflow: 'hidden',
         textOverflow: 'ellipsis',
         whiteSpace: 'normal',
-        fontSize: '16px',
-        color: 'white',
+        // fontSize: '14px',
+        // color: 'white',
         marginTop: '5px',
         textAlign: 'left', // Optional for better alignment
         marginBottom: '8px',

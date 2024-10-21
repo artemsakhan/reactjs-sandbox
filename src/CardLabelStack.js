@@ -1,34 +1,35 @@
 import React from 'react';
 
-const CardLabelStack = ({ cityName, geoProximity }) => {
+const CardLabelStack = ({ occupation, height }) => {
     return (
         <div className="cardLabelStack" style={containerStyle}>
             <span className="cardLabelItem" style={{
                 ...labelStyle,
             }}>
-                {/*<i className="fas fa-globe" style={iconStyle}></i> Ukrainian*/}
-                <i className="fa-solid fa-earth-europe" style={iconStyle}/>&nbsp;
-                {cityName}
+                <i className="fa-solid fa-briefcase" style={iconStyle}></i>&nbsp;
+                {occupation}
             </span>
             <span className="cardLabelItem" style={labelStyle}>
-                {/*<i className="fas fa-paw" style={iconStyle}></i> Dogs*/}
-                <i className="fa-solid fa-map-pin" style={iconStyle}/>&nbsp;
-                {geoProximity}
+                <i className="fa-solid fa-ruler-vertical" style={iconStyle}></i>
+                {height}
             </span>
         </div>
     );
 };
 
 const containerStyle = {
-    display: 'flex', // Displays labels inline
-    flexWrap: 'wrap', // Wraps labels if needed
-    width: '100%',
+    position: 'absolute',
+    bottom: '80px',
+    left: '10px',
+    display: 'flex',
+    flexWrap: 'wrap',
+    width: 'calc(100% - 100px)',
     color: 'white',
     textAlign: 'left',
-    height: '40px', // Fixed height for the container
-    alignItems: 'center', // Vertically center the labels
-    gap: '5px', // Equal gap between the labels
-    overflow: 'hidden', // Ensures that content doesn't overflow the container
+    height: '30px',
+    alignItems: 'center',
+    gap: '5px',
+    overflow: 'hidden',
 };
 
 const labelStyle = {

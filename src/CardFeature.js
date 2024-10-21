@@ -26,7 +26,7 @@ const styles = {
     },
     text: {
         fontSize: '14px',
-        color: '#333',
+        color: '#000',
         fontStyle: 'italic',
         fontWeight: 700,
     },

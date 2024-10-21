@@ -18,7 +18,7 @@ const ControlButtons = ({ handleLike, handlePass }) => {
             </motion.div>
             <motion.div
                 style={{
-                    background: 'rgb(250 254 39)',
+                    background: 'rgb(241, 255, 10)',
                     marginRight: '11px',
                     ...buttonStyle,
                 }}
