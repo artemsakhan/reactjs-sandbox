@@ -1,6 +1,6 @@
 import React from 'react';
 
-const DiamondSvg = () => {
+const DiamondShape = () => {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -21,4 +21,4 @@ const DiamondSvg = () => {
     );
 };
 
-export default DiamondSvg;
+export default DiamondShape;

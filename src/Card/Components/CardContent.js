@@ -40,6 +40,7 @@ const CardContent = ({ matchCandidate }) => {
         <div style={sliderStyles}>
             <ImageProgressBar
                 activeIndex={currentIndex}
+                imagesCount={images.length}
             />
             <div style={imageContainerStyle} onClick={handleClick}>
                 <img
@@ -85,8 +86,7 @@ const imageStyle = {
     width: '100%',
     height: '100%',
     objectFit: 'cover',
-    // borderBottomRightRadius: '35px',
-    // borderBottomLeftRadius: '35px',
+    borderBottomRightRadius: '35px',
 };
 
 export default CardContent;

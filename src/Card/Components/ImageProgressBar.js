@@ -22,7 +22,11 @@ const styles = {
     },
 };
 
-const ThreeDots = ({ activeIndex }) => {
+const ThreeDots = ({activeIndex, imagesCount}) => {
+    if (imagesCount <= 1) {
+        return null;
+    }
+
     return (
         <div style={styles.dotsContainer}>
             {[0, 1, 2].map((index) => (

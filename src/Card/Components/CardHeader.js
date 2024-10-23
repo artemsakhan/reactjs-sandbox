@@ -1,12 +1,36 @@
 import React from 'react';
-import VerifiedBadgeSvg from "./VerifiedBadgeSvg";
+import VerifiedBadgeSvg from "../../Shapes/VerifiedBadgeShape";
 
 const CardHeader = ({matchCandidate, currentSection, totalSections}) => {
-    const {name, age, aboutMe, cityName, geoProximity} = matchCandidate;
+    const {name, age, aboutMe, cityName, geoProximity, occupation} = matchCandidate;
 
     var profileInfoSection = null;
 
-    if (currentSection > 0 && aboutMe !== "") {
+    // @todo make this code more complex
+    // 1. take into account various images length
+    // 2. user will always have city, distance, name, age. Everything else is optional. Make sure you handle it
+    // 3. estimate text lines correctly (if it's 1 line - display name on top of it)
+    if (currentSection in [0, 1]) {
+        profileInfoSection = (
+            <div className="item" style={styles.item}>
+                <div className="cardHeaderName" style={styles.name}>
+                    <div>
+                        {name}, {age}&nbsp;
+                    </div>
+                    <VerifiedBadgeSvg/>
+                </div>
+                {currentSection === 0 ? (
+                    <div className="cardHeaderCity" style={styles.location}>
+                        <i className="fa-solid fa-location-dot"></i>&nbsp;{cityName}, {geoProximity} away
+                    </div>
+                ) : (
+                    <div className="cardHeaderCity" style={styles.location}>
+                        <i className="fa-solid fa-briefcase"></i>&nbsp;{occupation}
+                    </div>
+                )}
+            </div>
+        )
+    } else {
         if (aboutMe.length < 50) {
             profileInfoSection = (
                 <div className="item" style={styles.item}>
@@ -30,21 +54,6 @@ const CardHeader = ({matchCandidate, currentSection, totalSections}) => {
                 </div>
             );
         }
-
-    } else  {
-        profileInfoSection = (
-            <div className="item" style={styles.item}>
-                <div className="cardHeaderName" style={styles.name}>
-                    <div>
-                        {name}, {age}&nbsp;
-                    </div>
-                    <VerifiedBadgeSvg/>
-                </div>
-                <div className="cardHeaderCity" style={styles.location}>
-                    <i className="fa-solid fa-location-dot"></i>&nbsp;{cityName}, {geoProximity} away
-                </div>
-            </div>
-        )
     }
 
     return (

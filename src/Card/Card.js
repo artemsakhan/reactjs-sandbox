@@ -1,9 +1,9 @@
 import React, {useEffect, useRef} from 'react';
 import {motion, useAnimationControls, useMotionValue} from 'framer-motion';
-import './index.css';
-import CardContent from "./CardContent";
-import ControlButtons from "./ControlButtons";
-import CardFeature from "./CardFeature";
+import '../index.css';
+import CardContent from "./Components/CardContent";
+import ControlButtons from "./Components/ControlButtons";
+import CardFeature from "./Components/CardFeature";
 
 const likeOverlayColor = '#ff0000'
 const passOverlayColor = '#2cd868';
@@ -17,24 +17,28 @@ const Card = ({matchCandidate, handleLike, handlePass}) => {
 
     useEffect(bodyScrollControl, []);
 
-    const swipeRight = (id) => {
+    const swipeRight = (id, type = null) => {
         window.Telegram.WebApp.HapticFeedback.impactOccurred('rigid')
+
+        const duration = type === 'slow' ? 0.6 : 0.4;
 
         animControls.start({
             x: 500,
             rotate: 20,
-            transition: {duration: 0.4},
+            transition: {duration: duration},
             transitionEnd: {display: 'none'},
         }).then(() => handleLike(id))
     }
 
-    const swipeLeft = (id) => {
+    const swipeLeft = (id, type = null) => {
         window.Telegram.WebApp.HapticFeedback.impactOccurred('rigid')
+
+        const duration = type === 'slow' ? 0.6 : 0.4;
 
         animControls.start({
             x: -500,
             rotate: -20,
-            transition: {duration: 0.4},
+            transition: {duration: duration},
             transitionEnd: {display: 'none'},
         }).then(() => handlePass(id))
     }
@@ -87,8 +91,8 @@ const Card = ({matchCandidate, handleLike, handlePass}) => {
                 <CardContent matchCandidate={matchCandidate}/>
                 {matchCandidate.isActive ? <CardFeature text="ACTIVE NOW"/> : null}
                 <ControlButtons
-                    handleLike={() => swipeRight(matchCandidate.id)}
-                    handlePass={() => swipeLeft(matchCandidate.id)}
+                    handleLike={() => swipeRight(matchCandidate.id, 'slow')}
+                    handlePass={() => swipeLeft(matchCandidate.id, 'slow')}
                 />
             </div>
         </motion.div>
@@ -140,7 +144,6 @@ const styles = {
         height: 'calc(100% - 30px)',
         background: '#272e3a',
         borderRadius: '35px',
-        // border: '1px solid #d3c9c966',
         position: "relative",
         marginTop: '0px',
         display: 'flex',
