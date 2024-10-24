@@ -1,4 +1,5 @@
 import React from 'react';
+import UIConfig from "../../UIConfig";
 
 
 const styles = {
@@ -17,7 +18,7 @@ const styles = {
         justifyContent: 'center',
         padding: '9px',
         borderRadius: '28px',
-        backgroundColor: 'rgb(241, 255, 10)', // Background color for the item
+        backgroundColor: UIConfig.Colors.Primary.Main,
         boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)', // Optional shadow
     },
     icon: {

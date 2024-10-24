@@ -1,6 +1,6 @@
 import React from 'react';
 
-const HeartShape = (props) => {
+const HeartShiningShape = (props) => {
     const {width, height, fill} = props;
 
     return (
@@ -26,4 +26,4 @@ const HeartShape = (props) => {
     );
 };
 
-export default HeartShape;
+export default HeartShiningShape;

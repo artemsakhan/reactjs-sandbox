@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion"; // Import Framer Motion
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import UIConfig from "../../UIConfig";
 
 const ControlButtons = ({ handleLike, handlePass }) => {
     return (
@@ -18,7 +19,7 @@ const ControlButtons = ({ handleLike, handlePass }) => {
             </motion.div>
             <motion.div
                 style={{
-                    background: 'rgb(241, 255, 10)',
+                    background: UIConfig.Colors.Primary.Main,
                     marginRight: '11px',
                     ...buttonStyle,
                 }}
@@ -36,7 +37,7 @@ const styles = {
     position: 'relative',
     height: '70px',
     width: '100%',
-    background: '#272e3a',
+    background: UIConfig.Colors.Background.dark,
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',

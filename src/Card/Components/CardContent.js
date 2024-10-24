@@ -4,7 +4,7 @@ import ImageProgressBar from "./ImageProgressBar";
 import CardHeader from "./CardHeader";
 import CardLabelStack from "./CardLabelStack";
 
-const CardContent = ({ matchCandidate }) => {
+const CardContent = ({ matchCandidate, handleSendGift }) => {
     const { images } = matchCandidate;
 
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -58,7 +58,7 @@ const CardContent = ({ matchCandidate }) => {
                 occupation={matchCandidate.occupation}
                 height={matchCandidate.height}
             />
-            <GiftButton/>
+            <GiftButton handleSendGift={handleSendGift}/>
         </div>
     );
 };

@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from "react";
 import {motion} from "framer-motion";
-import ChatShape from "./Shapes/ChatShape";
-import HeartShape from "./Shapes/HeartShape";
+import HeartSimpleShape from "../Shapes/HeartSimpleShape";
+import HeartDrawingShape from "../Shapes/HeartDrawingShape";
+import UIConfig from "../UIConfig";
 
 const NewMatchPopup = ({handleClose}) => {
     const [isAnimated, setIsAnimated] = useState(false);
@@ -10,7 +11,7 @@ const NewMatchPopup = ({handleClose}) => {
         // Trigger the animation after the component has mounted
         const timer = setTimeout(() => {
             setIsAnimated(true);
-        }, 600); // Match this with your animation delay
+        }, 400); // Match this with your animation delay
 
         // Cleanup timer if component unmounts
         return () => clearTimeout(timer);
@@ -23,9 +24,9 @@ const NewMatchPopup = ({handleClose}) => {
         >
             <div className="newMatchPhotos" style={styles.photoContainer}>
                 <motion.div
-                    initial={{ x: '-100vw', rotate: -30 }}
-                    animate={isAnimated ? { x: '-40%', rotate: -15 } : {}}
-                    transition={{ type: 'spring', stiffness: 300, damping: 40, duration: 1.5 }}
+                    initial={{x: '-100vw', rotate: -30}}
+                    animate={isAnimated ? {x: '-40%', rotate: -7} : {}}
+                    transition={{type: 'spring', stiffness: 300, damping: 40, duration: 1.2}}
                     style={styles.animatedPhoto}
                 >
                     <img
@@ -36,9 +37,9 @@ const NewMatchPopup = ({handleClose}) => {
                 </motion.div>
 
                 <motion.div
-                    initial={{ x: '100vw', rotate: 30 }}
-                    animate={isAnimated ? { x: '40%', rotate: 10 } : {}}
-                    transition={{ type: 'spring', stiffness: 300, damping: 40, duration: 1.5 }}
+                    initial={{x: '100vw', rotate: 30}}
+                    animate={isAnimated ? {x: '40%', rotate: 10} : {}}
+                    transition={{type: 'spring', stiffness: 300, damping: 40, duration: 1.2}}
                     style={{
                         top: '40%',
                         transform: 'translateY(-30%)',
@@ -53,54 +54,58 @@ const NewMatchPopup = ({handleClose}) => {
                 </motion.div>
 
                 <motion.div
-                    style={{
-                        zIndex: 3,
-                        ...styles.heartIcon,
-                    }}
-                    initial={{ opacity: 0 }}
-                    animate={isAnimated ? { opacity: 1 } : {}}
-                    transition={{ type: 'spring', stiffness: 300, damping: 40, duration: 2 }}
+                    style={styles.heartIcon}
+                    initial={{opacity: 0}}
+                    animate={isAnimated ? {opacity: 1} : {}}
+                    transition={{type: 'spring', stiffness: 300, damping: 40, duration: 0.1, delay: 0.5}}
                 >
-                    <HeartShape width={'35px'} height={'35px'} fill={'darkred'}/>
+                    <HeartSimpleShape width={'35px'} height={'35px'} fill={'rgb(39, 46, 58)'}
+                                      style={{marginTop: '3px'}}/>
                 </motion.div>
             </div>
 
-            <motion.div
-                className="newMatchText"
-                style={{
-                    marginTop: '10px',
-                }}
-                // initial={{opacity: 0}}
-                // animate={{opacity: 1}} // Fade in
-                // exit={{opacity: 0}} // Fade out
-                // transition={{type: 'spring', stiffness: 50, damping: 10, duration: 2, delay: 0.6}}
-            >
-                <p style={styles.headlineStyle}>You matched!</p>
+            <div className="newMatchText" style={{marginTop: '7px'}}>
+                <p style={styles.headlineStyle}>It's a match!</p>
                 <p style={{...styles.subtextStyle}}>
                     Reach out and start chatting.<br/>
                     Jessica is interested too!
                 </p>
-            </motion.div>
+            </div>
 
-            <motion.div
+            <div
                 className="newMatchGreetingButton"
-                style={{marginTop: '5px',}}
-                whileTap={{scale: 0.8}}
+                style={styles.actionButtonContainer}
+            >
+                <motion.div whileTap={{scale: 0.9}} style={{
+                    width: '80%',
+                }}>
+                    <motion.div
+                        style={styles.greetingButton}
+                    >
+                        <span style={{marginLeft: '20px', fontSize: '17px'}}>Break the Ice</span>
+                        <i className="fa-solid fa-comments" style={{marginRight: '20px'}}></i>
+                    </motion.div>
+                </motion.div>
+            </div>
+            <div
+                className="newMatchGreetingButton"
+                style={styles.actionButtonContainer}
             >
                 <motion.div
+                    whileTap={{scale: 0.9}}
                     style={{
-                        ...styles.greetingButton,
-                        pointerEvents: 'none',
-                        userSelect: 'none',
-                        touchAction: 'none',
+                        width: '80%',
                     }}
-                    // initial={{rotate: -30, opacity: 1, scale: 0}} // Start from scale 0
-                    // animate={{rotate: 0, opacity: 1, scale: 1}} // Scale to 1
-                    // transition={{type: 'spring', stiffness: 50, damping: 10, duration: 2, delay: 0.6}}
+                    onTap={handleClose}
                 >
-                    <ChatShape width={'35px'} height={'35px'} fill={'#FFF'}/>
+                    <motion.div
+                        style={styles.keepSwipingButton}
+                    >
+                        <span style={{marginLeft: '20px', fontSize: '17px'}}>Keep swiping</span>
+                        <i className="fa-solid fa-caret-down" style={{marginRight: '20px'}}></i>
+                    </motion.div>
                 </motion.div>
-            </motion.div>
+            </div>
 
             <motion.div
                 whileTap={{scale: 0.8}}
@@ -108,18 +113,8 @@ const NewMatchPopup = ({handleClose}) => {
                 className="newMatchCloseButton"
                 style={styles.closeButtonContainer}
             >
-                <motion.div
-                    // initial={{rotate: -20, opacity: 1, scale: 0}} // Start from scale 0
-                    // animate={{rotate: 0, opacity: 1, scale: 1}} // Scale to 1
-                    // exit={{scale: 0}} // Scale down on exit
-                    // transition={{type: 'spring', stiffness: 50, damping: 10, duration: 2, delay: 0.6}}
-                    style={{
-                        background: 'rgb(241, 255, 10)',
-                        ...styles.closeButton,
-                    }}
-                    whileTap={{scale: 0.9}}
-                >
-                    <i className="fa-solid fa-xmark" style={styles.closeIcon}/>
+                <motion.div>
+                    <i className="fa-solid fa-xmark" style={styles.closeButton}/>
                 </motion.div>
             </motion.div>
         </div>
@@ -134,7 +129,6 @@ const styles = {
         flexDirection: 'column',
         alignItems: 'center',
         position: 'relative',
-        background: '#fff',
     },
     photoContainer: {
         display: 'flex',
@@ -143,64 +137,82 @@ const styles = {
         width: '100%',
         height: '50%',
         position: 'relative',
-        marginTop: '30px',
+        marginTop: '10px',
     },
     animatedPhoto: {
         position: 'absolute',
     },
     photoItem: {
-        width: '150px',
-        height: '200px',
+        width: '162px',
+        height: '230px',
         objectFit: 'cover',
         borderRadius: '15px',
         boxShadow: '2px -2px 10px rgba(0, 0, 0, 0.2)',
     },
     headlineStyle: {
         fontFamily: '"Helvetica Neue", Arial, sans-serif',
-        fontSize: '2.3rem',
+        fontSize: '40px',
         fontWeight: 700,
-        color: '#1C274C',
+        color: 'rgb(39, 46, 58)',
         marginBottom: '0px',
+        letterSpacing: '1px',
     },
     subtextStyle: {
         fontFamily: '"Helvetica Neue", Arial, sans-serif',
-        fontSize: '14px',
-        color: '#6E7D97',
-        marginTop: '5px',
+        fontSize: '15px',
+        letterSpacing: '0.3px',
+        color: 'rgb(39 46 58)',
+        marginTop: '10px',
         lineHeight: '16px',
     },
     heartIcon: {
+        zIndex: 3,
+        position: 'absolute',
+        top: 'calc(60% - 30px)',
+        left: 'calc(50% - 30px)',
         background: '#FFF',
-        width: '50px',
-        height: '50px',
-        borderRadius: '25px',
+        width: '60px',
+        height: '60px',
+        borderRadius: '30px',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
     },
     greetingButton: {
-        width: '70px',
-        height: '70px',
-        color: 'white',
+        width: '100%',
+        height: '50px',
+        color: 'black',
         border: 'none',
         borderRadius: '45px',
-        background: 'rgb(39 46 58 / 20%)',
-        fontSize: '24px',
+        background: UIConfig.Colors.Primary.Main,
+        fontSize: '20px',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'space-between',
         outline: 'none',
         textAlign: 'center',
         appearance: 'none',
+        boxShadow: 'rgba(0, 0, 0, 0.1) 0px 1px 1px', // Optional shadow
+        fontWeight: 500,
+    },
+    keepSwipingButton: {
+        width: '100%',
+        height: '50px',
+        color: '#000',
+        background: UIConfig.Colors.Background.Medium,
+        fontSize: '17px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        fontWeight: 500,
+        borderRadius: '25px',
     },
     closeButton: {
-        background: 'rgb(39 46 58 / 20%)',
         width: '45px',
         height: '45px',
-        color: '#fff',
+        color: '#FFF',
         border: 'none',
         borderRadius: '23px',
-        fontSize: '24px',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -208,15 +220,20 @@ const styles = {
         textAlign: 'center',
         appearance: 'none',
         cursor: 'pointer',
-    },
-    closeIcon: {
-        color: '#FFF',
-        fontSize: '17px',
+        background: 'rgb(220 220 220)',
+        fontSize: '24px',
     },
     closeButtonContainer: {
         position: 'absolute',
-        left: '15px',
+        right: '20px',
         top: '10px',
+    },
+    actionButtonContainer: {
+        marginTop: '10px',
+        width: '100%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
     },
 };
 

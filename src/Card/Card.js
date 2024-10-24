@@ -4,12 +4,13 @@ import '../index.css';
 import CardContent from "./Components/CardContent";
 import ControlButtons from "./Components/ControlButtons";
 import CardFeature from "./Components/CardFeature";
+import UIConfig from "../UIConfig";
 
-const likeOverlayColor = '#ff0000'
-const passOverlayColor = '#2cd868';
+const likeOverlayColor = UIConfig.Colors.Primary.Main;
+const passOverlayColor = UIConfig.Colors.Background.Dark;
 
 // Card component
-const Card = ({matchCandidate, handleLike, handlePass}) => {
+const Card = ({matchCandidate, handleLike, handlePass, handleSendGift}) => {
     const animControls = useAnimationControls();
     const x = useMotionValue(0);
 
@@ -48,7 +49,7 @@ const Card = ({matchCandidate, handleLike, handlePass}) => {
             overlayRef.current.style.opacity = 0;
         }
 
-        animControls.start({ x: 0, transition: { duration: 0.3 } });
+        animControls.start({x: 0, transition: {duration: 0.3}});
     }
 
     return (
@@ -65,7 +66,7 @@ const Card = ({matchCandidate, handleLike, handlePass}) => {
                 const offsetX = Math.min(Math.abs(info.offset.x), 500);
                 const opacity = (offsetX / 500) * 0.5;
 
-                const color = info.offset.x > 0 ? passOverlayColor : likeOverlayColor;
+                const color = info.offset.x > 0 ? likeOverlayColor : passOverlayColor;
 
                 if (overlayRef.current) {
                     overlayRef.current.style.opacity = opacity;
@@ -88,7 +89,7 @@ const Card = ({matchCandidate, handleLike, handlePass}) => {
         >
             <div className="cardContent" style={styles.contentStyle}>
                 <div ref={overlayRef} style={styles.overlayStyles}/>
-                <CardContent matchCandidate={matchCandidate}/>
+                <CardContent matchCandidate={matchCandidate} handleSendGift={handleSendGift}/>
                 {matchCandidate.isActive ? <CardFeature text="ACTIVE NOW"/> : null}
                 <ControlButtons
                     handleLike={() => swipeRight(matchCandidate.id, 'slow')}
@@ -142,7 +143,7 @@ const styles = {
     contentStyle: {
         width: 'calc(100% - 30px)',
         height: 'calc(100% - 30px)',
-        background: '#272e3a',
+        background: UIConfig.Colors.Background.Dark,
         borderRadius: '35px',
         position: "relative",
         marginTop: '0px',

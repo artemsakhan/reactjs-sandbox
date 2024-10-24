@@ -4,19 +4,23 @@ import {dummyData} from "./dummy";
 import EmptyCard from "./Card/EmptyCard";
 import Card from "./Card/Card";
 import {AnimatePresence} from "framer-motion";
-import NewMatchPopup from "./NewMatchPopup";
-import Modal from "./Modal";
+import NewMatchPopup from "./Popups/NewMatchPopup";
+import Modal from "./Modal/Modal";
+import SendGiftPopup from "./Popups/SendGiftPopup";
 
 const App = () => {
     const [matchCandidates, setMatchCandidates] = useState(dummyData.MatchCandidates);
-    const [modalOpen, setModalOpen] = useState(false);
+    const [newMatchOpen, setNewMatchOpen] = useState(false);
+    const [sendGiftOpen, setSendGiftOpen] = useState(false);
 
-    const close = () => setModalOpen(false);
-    const open = () => setModalOpen(true);
+    const closeNewMatch = () => setNewMatchOpen(false);
+    const openNewMatch = () => setNewMatchOpen(true);
+    const closeSendGift = () => setSendGiftOpen(false);
+    const openSendGift = (userId = null) => setSendGiftOpen(true);
 
     const handleLike = (id) => {
         setMatchCandidates((prevCandidates) => prevCandidates.filter(card => card.id !== id));
-        setModalOpen(true);
+        openNewMatch(true);
     };
 
     const handlePass = (id) => {
@@ -45,9 +49,14 @@ const App = () => {
                     // Fires when all exiting nodes have completed animating out
                     onExitComplete={() => null}
                 >
-                    {modalOpen && (
-                        <Modal modalOpen={modalOpen} handleClose={close}>
-                            <NewMatchPopup handleClose={close}/>
+                    {newMatchOpen && (
+                        <Modal handleClose={closeNewMatch}>
+                            <NewMatchPopup handleClose={closeNewMatch}/>
+                        </Modal>
+                    )}
+                    {sendGiftOpen && (
+                        <Modal handleClose={closeSendGift}>
+                            <SendGiftPopup handleClose={closeSendGift}/>
                         </Modal>
                     )}
                 </AnimatePresence>
@@ -58,6 +67,7 @@ const App = () => {
                             matchCandidate={candidate}
                             handleLike={handleLike}
                             handlePass={handlePass}
+                            handleSendGift={openSendGift}
                         />
                     ))
                 ) : (

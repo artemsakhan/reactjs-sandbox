@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import React from "react";
 import DiamondShape from "../../Shapes/DiamondShape";
 
-const GiftButton = () => {
+const GiftButton = ({ handleSendGift }) => {
     return (
         <motion.div
             style={{
@@ -10,7 +10,8 @@ const GiftButton = () => {
                 marginRight: '11px',
                 ...buttonStyle,
             }}
-            whileTap={{scale: 0.9}} // Scale down on tap
+            whileTap={{scale: 0.9}}
+            onTap={handleSendGift}
         >
             <DiamondShape/>
         </motion.div>

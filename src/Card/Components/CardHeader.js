@@ -1,5 +1,6 @@
 import React from 'react';
 import VerifiedBadgeSvg from "../../Shapes/VerifiedBadgeShape";
+import UIConfig from "../../UIConfig";
 
 const CardHeader = ({matchCandidate, currentSection, totalSections}) => {
     const {name, age, aboutMe, cityName, geoProximity, occupation} = matchCandidate;
@@ -70,7 +71,7 @@ const styles = {
         textAlign: 'left',
         width: '100%',
         height: '70px',
-        background: '#272e3a',
+        background: UIConfig.Colors.Background.Dark,
     },
     location: {
         fontFamily: "'Roboto', sans-serif", // or another sans-serif font you are using
@@ -106,10 +107,6 @@ const styles = {
         alignItems: 'center',
         justifyContent: 'flex-start',
     },
-    verifiedIcon: {
-        marginLeft: '8px',
-        color: '#fafe27',
-    },
     aboutMe: {
         fontFamily: "'Roboto', sans-serif", // or another sans-serif font you are using
         fontSize: '15px',                   // Slightly smaller than the name text
@@ -123,8 +120,6 @@ const styles = {
         overflow: 'hidden',
         textOverflow: 'ellipsis',
         whiteSpace: 'normal',
-        // fontSize: '14px',
-        // color: 'white',
         marginTop: '5px',
         textAlign: 'left', // Optional for better alignment
         marginBottom: '8px',
