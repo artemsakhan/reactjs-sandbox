@@ -120,7 +120,7 @@ const styles = {
         flexDirection: 'column',
         alignItems: 'center',
         position: 'relative',
-        background: UIConfig.Colors.Background.Light
+        background: UIConfig.Colors.BackgroundLight
     },
     sendGiftTextContainer: {
         width: '80%',
@@ -163,7 +163,7 @@ const styles = {
         color: 'black',
         border: 'none',
         borderRadius: '45px',
-        background: UIConfig.Colors.Primary.Main,
+        background: UIConfig.Colors.Primary,
         fontSize: '20px',
         display: 'flex',
         alignItems: 'center',
@@ -178,7 +178,7 @@ const styles = {
         width: '100%',
         height: '50px',
         color: '#000',
-        background: UIConfig.Colors.Background.Medium,
+        background: UIConfig.Colors.BackgroundMedium,
         fontSize: '17px',
         display: 'flex',
         alignItems: 'center',

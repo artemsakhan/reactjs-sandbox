@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {motion} from "framer-motion";
 import HeartSimpleShape from "../Shapes/HeartSimpleShape";
-import HeartDrawingShape from "../Shapes/HeartDrawingShape";
 import UIConfig from "../UIConfig";
 
 const NewMatchPopup = ({handleClose}) => {
@@ -57,7 +56,7 @@ const NewMatchPopup = ({handleClose}) => {
                     style={styles.heartIcon}
                     initial={{opacity: 0}}
                     animate={isAnimated ? {opacity: 1} : {}}
-                    transition={{type: 'spring', stiffness: 300, damping: 40, duration: 0.1, delay: 0.5}}
+                    transition={{type: 'spring', stiffness: 300, damping: 40, duration: 1}}
                 >
                     <HeartSimpleShape width={'35px'} height={'35px'} fill={'rgb(39, 46, 58)'}
                                       style={{marginTop: '3px'}}/>
@@ -184,7 +183,7 @@ const styles = {
         color: 'black',
         border: 'none',
         borderRadius: '45px',
-        background: UIConfig.Colors.Primary.Main,
+        background: UIConfig.Colors.Primary,
         fontSize: '20px',
         display: 'flex',
         alignItems: 'center',
@@ -199,7 +198,7 @@ const styles = {
         width: '100%',
         height: '50px',
         color: '#000',
-        background: UIConfig.Colors.Background.Medium,
+        background: UIConfig.Colors.BackgroundMedium,
         fontSize: '17px',
         display: 'flex',
         alignItems: 'center',

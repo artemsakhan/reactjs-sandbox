@@ -18,7 +18,7 @@ const styles = {
         justifyContent: 'center',
         padding: '9px',
         borderRadius: '28px',
-        backgroundColor: UIConfig.Colors.Primary.Main,
+        backgroundColor: UIConfig.Card.Feature.background,
         boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)', // Optional shadow
     },
     icon: {
@@ -26,8 +26,8 @@ const styles = {
         fontSize: '16px',
     },
     text: {
-        fontSize: '14px',
-        color: '#000',
+        fontSize: UIConfig.Card.Feature.fontSize,
+        color: UIConfig.Card.Feature.color,
         fontStyle: 'italic',
         fontWeight: 700,
     },

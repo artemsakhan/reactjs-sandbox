@@ -6,8 +6,8 @@ import ControlButtons from "./Components/ControlButtons";
 import CardFeature from "./Components/CardFeature";
 import UIConfig from "../UIConfig";
 
-const likeOverlayColor = UIConfig.Colors.Primary.Main;
-const passOverlayColor = UIConfig.Colors.Background.Dark;
+const likeOverlayColor = null;//`linear-gradient(307deg, rgba(222,222,222,0) 56%, ${UIConfig.Colors.Primary.Main} 100%)`//UIConfig.Colors.Primary.Main;
+const passOverlayColor = null;// `linear-gradient(50deg, rgba(222,222,222,0) 56%, ${UIConfig.Colors.Background.Dark} 100%)`;//UIConfig.Colors.Background.Dark;
 
 // Card component
 const Card = ({matchCandidate, handleLike, handlePass, handleSendGift}) => {
@@ -124,10 +124,10 @@ const styles = {
         height: '100%',
         position: 'absolute',
         background: 'transparent',
-        opacity: 0, // This will be controlled via the ref
+        opacity: 0,
         pointerEvents: 'none',
         zIndex: '1',
-        borderRadius: '35px',
+        borderRadius: UIConfig.Card.Content.borderRadius,
     },
     containerStyle: {
         position: 'absolute',
@@ -137,14 +137,14 @@ const styles = {
         justifyContent: 'center',
         alignItems: 'center',
         touchAction: "none",
-        borderRadius: '35px',
+        background: UIConfig.Card.Background,
         overflow: 'hidden',
     },
     contentStyle: {
         width: 'calc(100% - 30px)',
         height: 'calc(100% - 30px)',
-        background: UIConfig.Colors.Background.Dark,
-        borderRadius: '35px',
+        background: UIConfig.Card.Content.background,
+        borderRadius: UIConfig.Card.Content.borderRadius,
         position: "relative",
         marginTop: '0px',
         display: 'flex',

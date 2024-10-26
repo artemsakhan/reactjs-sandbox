@@ -1,11 +1,12 @@
-import {useState} from "react";
+import React, {useState} from "react";
 import GiftButton from "./GiftButton";
 import ImageProgressBar from "./ImageProgressBar";
 import CardHeader from "./CardHeader";
 import CardLabelStack from "./CardLabelStack";
+import UIConfig from "../../UIConfig";
 
-const CardContent = ({ matchCandidate, handleSendGift }) => {
-    const { images } = matchCandidate;
+const CardContent = ({matchCandidate, handleSendGift}) => {
+    const {images, aboutMe} = matchCandidate;
 
     const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -23,7 +24,7 @@ const CardContent = ({ matchCandidate, handleSendGift }) => {
     const handleClick = (event) => {
         // window.Telegram.WebApp.HapticFeedback.impactOccurred('soft')
 
-        const { clientX, currentTarget } = event;
+        const {clientX, currentTarget} = event;
         const targetWidth = currentTarget.offsetWidth;
 
         // Clicked on the left side of the image
@@ -35,6 +36,21 @@ const CardContent = ({ matchCandidate, handleSendGift }) => {
             nextImage();
         }
     };
+
+    var contentBottom = null
+
+    if (true) {//(aboutMe.length > 50 && currentIndex > 0) {
+        contentBottom = <div className="item" style={aboutMeContainer}>
+            <div className="cardHeaderAboutMe" style={aboutMeText}>
+                {aboutMe}
+            </div>
+        </div>
+    } else {
+        contentBottom = <CardLabelStack
+            occupation={matchCandidate.occupation}
+            height={matchCandidate.height}
+        />
+    }
 
     return (
         <div style={sliderStyles}>
@@ -54,10 +70,7 @@ const CardContent = ({ matchCandidate, handleSendGift }) => {
                 currentSection={currentIndex}
                 totalSections={images.length}
             />
-            <CardLabelStack
-                occupation={matchCandidate.occupation}
-                height={matchCandidate.height}
-            />
+            {contentBottom}
             <GiftButton handleSendGift={handleSendGift}/>
         </div>
     );
@@ -72,7 +85,7 @@ const sliderStyles = {
     height: 'calc(100% - 70px)',
     overflow: 'hidden',
     cursor: 'pointer',
-    borderRadius: '35px',
+    borderRadius: UIConfig.Card.Content.borderRadius,
 }
 const imageContainerStyle = {
     display: 'flex',
@@ -86,7 +99,29 @@ const imageStyle = {
     width: '100%',
     height: '100%',
     objectFit: 'cover',
-    borderBottomRightRadius: '35px',
+    borderBottomRightRadius: UIConfig.Card.Content.borderRadius,
 };
+
+const aboutMeContainer = {
+    width: '100%',
+    position: 'absolute',
+    bottom: '70px',
+    paddingTop: '25px',
+    left: '0px',
+    background: 'linear-gradient(transparent 10%, rgba(0, 0, 0, 0.3) 80%)',
+}
+
+const aboutMeText = {
+    ...UIConfig.Typography.Card.AboutMe,
+    width: 'calc(100% - 100px)',
+    display: '-webkit-box',
+    WebkitBoxOrient: 'vertical',
+    WebkitLineClamp: 2,
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    whiteSpace: 'normal',
+    textAlign: 'left',
+    margin: '13px',
+}
 
 export default CardContent;

@@ -71,16 +71,9 @@ const styles = {
         textAlign: 'left',
         width: '100%',
         height: '70px',
-        background: UIConfig.Colors.Background.Dark,
+        background: UIConfig.Card.Content.background,
     },
-    location: {
-        fontFamily: "'Roboto', sans-serif", // or another sans-serif font you are using
-        fontSize: '14px',                   // Slightly smaller than the name text
-        fontWeight: 400,                    // Normal weight for the description
-        color: '#B0B0B0',                   // Light gray color (adjust based on your theme)
-        lineHeight: '16px',                 // Adjust for readability
-        letterSpacing: '0.4px',
-    },
+    location: UIConfig.Typography.Card.SubTitle,
     labelItem: {
         height: '30px',
         display: 'flex',
@@ -95,12 +88,7 @@ const styles = {
         marginBottom: '5px',
     },
     name: {
-        fontSize: '21px',
-        fontFamily: "'Roboto', sans-serif",
-        fontWeight: 'bold',
-        color: '#FFFFFF',
-        lineHeight: '20px',
-        letterSpacing: '0.5px',
+        ...UIConfig.Typography.Card.Title,
         margin: '15px 0px 10px 0px',
         display: 'flex',
         flexFlow: 'row',
@@ -108,20 +96,15 @@ const styles = {
         justifyContent: 'flex-start',
     },
     aboutMe: {
-        fontFamily: "'Roboto', sans-serif", // or another sans-serif font you are using
-        fontSize: '15px',                   // Slightly smaller than the name text
-        fontWeight: 400,                    // Normal weight for the description
-        color: '#FFF',                   // Light gray color (adjust based on your theme)
-        lineHeight: '16px',                 // Adjust for readability
-        letterSpacing: '0.4px',
+        ...UIConfig.Typography.Card.AboutMe,
         display: '-webkit-box',
         WebkitBoxOrient: 'vertical',
-        WebkitLineClamp: 3, // Limit to 2 lines
+        WebkitLineClamp: 3,
         overflow: 'hidden',
         textOverflow: 'ellipsis',
         whiteSpace: 'normal',
         marginTop: '5px',
-        textAlign: 'left', // Optional for better alignment
+        textAlign: 'left',
         marginBottom: '8px',
     },
 };
