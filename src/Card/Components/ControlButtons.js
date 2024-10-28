@@ -8,7 +8,7 @@ const ControlButtons = ({handleLike, handlePass}) => {
         <div style={styles} className='cardControlButtons'>
             <motion.div
                 style={{
-                    marginLeft: '11px',
+                    marginLeft: '8px',
                     ...buttonStyle,
                     ...UIConfig.Card.PassButton,
                 }}
@@ -19,7 +19,7 @@ const ControlButtons = ({handleLike, handlePass}) => {
             </motion.div>
             <motion.div
                 style={{
-                    marginRight: '11px',
+                    marginRight: '8px',
                     ...buttonStyle,
                 }}
                 whileTap={{scale: 0.9}}
@@ -33,7 +33,7 @@ const ControlButtons = ({handleLike, handlePass}) => {
 
 const styles = {
     position: 'relative',
-    height: '70px',
+    height: '65px',
     width: '100%',
     background: UIConfig.Card.Content.background,
     display: 'flex',
@@ -43,19 +43,19 @@ const styles = {
     borderBottomLeftRadius: UIConfig.Card.Content.borderRadius,
     borderBottomRightRadius: UIConfig.Card.Content.borderRadius,
     borderTop: 'none',
-    marginTop: '10px',
+    marginTop: '8px',
+    marginBottom: '2px',
 };
 
 const buttonStyle = {
     ...UIConfig.Card.LikeButton,
     width: '45%',
-    height: '60px',
     border: 'none',
     cursor: 'pointer',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 0,
+    padding: '2px',
     outline: 'none',
     textAlign: 'center',
     appearance: 'none',

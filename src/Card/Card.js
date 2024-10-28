@@ -9,7 +9,6 @@ import UIConfig from "../UIConfig";
 const likeOverlayColor = null;//`linear-gradient(307deg, rgba(222,222,222,0) 56%, ${UIConfig.Colors.Primary.Main} 100%)`//UIConfig.Colors.Primary.Main;
 const passOverlayColor = null;// `linear-gradient(50deg, rgba(222,222,222,0) 56%, ${UIConfig.Colors.Background.Dark} 100%)`;//UIConfig.Colors.Background.Dark;
 
-// Card component
 const Card = ({matchCandidate, handleLike, handlePass, handleSendGift}) => {
     const animControls = useAnimationControls();
     const x = useMotionValue(0);
@@ -57,7 +56,7 @@ const Card = ({matchCandidate, handleLike, handlePass, handleSendGift}) => {
             drag={true}
             style={{
                 x: x,
-                ...styles.containerStyle
+                ...containerStyle
             }}
             animate={animControls}
             dragConstraints={{left: 0, right: 0, top: 0, bottom: 0}}
@@ -87,10 +86,10 @@ const Card = ({matchCandidate, handleLike, handlePass, handleSendGift}) => {
                 }
             }}
         >
-            <div className="cardContent" style={styles.contentStyle}>
-                <div ref={overlayRef} style={styles.overlayStyles}/>
+            <div className="cardContent" style={contentStyle}>
+                <div ref={overlayRef} style={overlayStyle}/>
                 <CardContent matchCandidate={matchCandidate} handleSendGift={handleSendGift}/>
-                {matchCandidate.isActive ? <CardFeature text="ACTIVE NOW"/> : null}
+                {matchCandidate.isActive ? <CardFeature text="Active"/> : null}
                 <ControlButtons
                     handleLike={() => swipeRight(matchCandidate.id, 'slow')}
                     handlePass={() => swipeLeft(matchCandidate.id, 'slow')}
@@ -118,39 +117,40 @@ const bodyScrollControl = () => {
     };
 }
 
-const styles = {
-    overlayStyles: {
-        width: '100%',
-        height: '100%',
-        position: 'absolute',
-        background: 'transparent',
-        opacity: 0,
-        pointerEvents: 'none',
-        zIndex: '1',
-        borderRadius: UIConfig.Card.Content.borderRadius,
-    },
-    containerStyle: {
-        position: 'absolute',
-        width: '100%',
-        height: '100%',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        touchAction: "none",
-        background: UIConfig.Card.Background,
-        overflow: 'hidden',
-    },
-    contentStyle: {
-        width: 'calc(100% - 30px)',
-        height: 'calc(100% - 30px)',
-        background: UIConfig.Card.Content.background,
-        borderRadius: UIConfig.Card.Content.borderRadius,
-        position: "relative",
-        marginTop: '0px',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-}
+const overlayStyle = {
+    width: '100%',
+    height: '100%',
+    position: 'absolute',
+    background: 'transparent',
+    opacity: 0,
+    pointerEvents: 'none',
+    zIndex: '1',
+    borderRadius: UIConfig.Card.Content.borderRadius,
+};
+
+const containerStyle = {
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    touchAction: "none",
+    background: 'transparent',
+    overflow: 'hidden',
+};
+
+const contentStyle = {
+    width: 'calc(100% - 25px)',
+    height: 'calc(100% - 25px)',
+    background: UIConfig.Card.Content.background,
+    borderRadius: UIConfig.Card.Content.borderRadius,
+    position: "relative",
+    marginTop: '0px',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+};
+
 export default Card;

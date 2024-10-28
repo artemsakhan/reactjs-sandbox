@@ -1,46 +1,43 @@
 import React from 'react';
 import UIConfig from "../../UIConfig";
-
-
-const styles = {
-    container: {
-        position: 'absolute',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        gap: '10px',
-        right: '15px',
-        top: '15px',
-    },
-    item: {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: '9px',
-        borderRadius: '28px',
-        backgroundColor: UIConfig.Card.Feature.background,
-        boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)', // Optional shadow
-    },
-    icon: {
-        marginRight: '4px', // Space between icon and text
-        fontSize: '16px',
-    },
-    text: {
-        fontSize: UIConfig.Card.Feature.fontSize,
-        color: UIConfig.Card.Feature.color,
-        fontStyle: 'italic',
-        fontWeight: 700,
-    },
-};
+import ChatOutlineShape from "../../Shapes/ChatOutlineShape";
 
 const CardFeature = ({ text }) => {
     return (
-        <div style={styles.container}>
-            <div style={styles.item}>
-                <span style={styles.text}>{text}</span>
+        <div style={containerStyle}>
+            <div style={itemStyle}>
+                <span style={textStyle}>{text}</span>
+                <ChatOutlineShape width={20} height={20} fillColor={'#000'}/>
             </div>
         </div>
     );
+};
+
+const containerStyle = {
+    position: 'absolute',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    gap: '10px',
+    right: '15px',
+    top: '15px',
+};
+
+const itemStyle = {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: '9px',
+    borderRadius: '28px',
+    backgroundColor: UIConfig.Card.Feature.background,
+    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+};
+
+const textStyle = {
+    ...UIConfig.Card.Feature,
+    fontFamily: 'Roboto, sans-serif',
+    marginRight: '5px',
+    letterSpacing: '0.9px',
 };
 
 export default CardFeature;

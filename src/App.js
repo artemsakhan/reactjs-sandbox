@@ -7,6 +7,8 @@ import {AnimatePresence} from "framer-motion";
 import NewMatchPopup from "./Popups/NewMatchPopup";
 import Modal from "./Modal/Modal";
 import SendGiftPopup from "./Popups/SendGiftPopup";
+import Tabbar from "./Tabbar";
+import UIConfig from "./UIConfig";
 
 const App = () => {
     const [matchCandidates, setMatchCandidates] = useState(dummyData.MatchCandidates);
@@ -31,10 +33,11 @@ const App = () => {
             width: "100vw",
             height: "100vh",
             overflow: "hidden",
+            background: UIConfig.Colors.BackgroundDark,
         }}>
             <div className="container" style={{
                 width: '100%',
-                height: 'calc(100% - 50px)',
+                height: 'calc(100% - 80px)',
                 overflow: "hidden",
                 position: "relative",
             }}>
@@ -74,11 +77,7 @@ const App = () => {
                     <EmptyCard/>
                 )}
             </div>
-            <div style={{
-                width: '100%',
-            }}>
-                <p>Tab bar 4</p>
-            </div>
+            <Tabbar/>
         </div>
     );
 };

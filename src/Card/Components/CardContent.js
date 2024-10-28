@@ -15,31 +15,25 @@ const CardContent = ({matchCandidate, handleSendGift}) => {
     };
 
     const prevImage = () => {
-
         setCurrentIndex((prevIndex) =>
             (prevIndex - 1 + images.length) % images.length
         );
     };
 
     const handleClick = (event) => {
-        // window.Telegram.WebApp.HapticFeedback.impactOccurred('soft')
-
         const {clientX, currentTarget} = event;
         const targetWidth = currentTarget.offsetWidth;
 
-        // Clicked on the left side of the image
         if (clientX < targetWidth / 2) {
             prevImage();
-        }
-        // Clicked on the right side of the image
-        else {
+        } else {
             nextImage();
         }
     };
 
     var contentBottom = null
 
-    if (true) {//(aboutMe.length > 50 && currentIndex > 0) {
+    if (aboutMe !== '' && currentIndex === 0) {
         contentBottom = <div className="item" style={aboutMeContainer}>
             <div className="cardHeaderAboutMe" style={aboutMeText}>
                 {aboutMe}
@@ -91,8 +85,9 @@ const imageContainerStyle = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    height: 'calc(100% - 70px)',
+    height: 'calc(100% - 60px)',
     width: '100%',
+    background: UIConfig.Card.Content.background,
 };
 
 const imageStyle = {
@@ -105,10 +100,11 @@ const imageStyle = {
 const aboutMeContainer = {
     width: '100%',
     position: 'absolute',
-    bottom: '70px',
+    bottom: '60px',
     paddingTop: '25px',
     left: '0px',
     background: 'linear-gradient(transparent 10%, rgba(0, 0, 0, 0.3) 80%)',
+    borderBottomRightRadius: UIConfig.Card.Content.borderRadius,
 }
 
 const aboutMeText = {

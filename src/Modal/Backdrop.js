@@ -25,6 +25,6 @@ const backdropStyles = {
     left: 0,
     width: "100vw",
     height: "100vh",
-    backgroundColor: "#FFF",
+    backgroundColor: "rgb(0 0 0 / 30%)",
     zIndex: 999,
 };

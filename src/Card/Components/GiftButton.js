@@ -21,7 +21,7 @@ const GiftButton = ({ handleSendGift }) => {
 // Button styles with reset
 const buttonStyle = {
     position: 'absolute',
-    bottom: '85px',
+    bottom: '74px',
     right: '5px',
     width: '70px',
     height: '70px',

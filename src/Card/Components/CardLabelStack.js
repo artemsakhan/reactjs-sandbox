@@ -6,7 +6,6 @@ const CardLabelStack = ({occupation, height}) => {
             <span className="cardLabelItem" style={{
                 ...labelStyle,
             }}>
-                {/*<i className="fa-solid fa-briefcase" style={iconStyle}></i>&nbsp;*/}
                 <i className="fa-solid fa-child" style={iconStyle}/>
                 Athletic
             </span>
@@ -20,8 +19,8 @@ const CardLabelStack = ({occupation, height}) => {
 
 const containerStyle = {
     position: 'absolute',
-    bottom: '79px',
-    left: '10px',
+    bottom: '67px',
+    left: '7px',
     display: 'flex',
     flexWrap: 'wrap',
     width: 'calc(100% - 100px)',
@@ -46,7 +45,7 @@ const labelStyle = {
 };
 
 const iconStyle = {
-    marginRight: '5px', // Space between icon and text
+    marginRight: '5px',
 };
 
 export default CardLabelStack;
