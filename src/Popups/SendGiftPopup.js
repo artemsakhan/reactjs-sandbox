@@ -3,6 +3,9 @@ import {motion} from "framer-motion";
 import GiftShape from "../Shapes/GiftShape";
 import TextArea from "../Components/TextArea";
 import UIConfig from "../UIConfig";
+import GiftAnimation from "../Components/GiftAnimation";
+import LoadingAnimation from "../Components/LoadingAnimation";
+import CheckShape from "../Shapes/CheckShape";
 
 const CloseRoundButton = ({onClick}) => {
     return (
@@ -19,30 +22,51 @@ const CloseRoundButton = ({onClick}) => {
     )
 }
 
-const SendGiftButton = ({onClick}) => {
+const SendGiftButton = ({ onClick, isLoading, isLoaded }) => {
     return (
         <motion.div
-            whileTap={{scale: 0.9}}
-            style={sendGiftButtonStyle}
-            onClick={onClick}
+            whileTap={!isLoading ? { scale: 0.9 } : {} }
+            style={{
+                ...sendGiftButtonStyle,
+                cursor: isLoading ? 'not-allowed' : 'pointer',
+                opacity: isLoading ? 0.9 : 1,
+            }}
+            onClick={!isLoading ? onClick : null}
         >
-            <span style={{fontSize: '17px'}}>Send a Gift</span>
-            <GiftShape
-                width={'26px'}
-                height={'26px'}
-                fill={'#000'}
-                style={{
-                    marginLeft: '10px',
-                }}
-            />
+            {isLoaded ? (
+                <>
+                    <span style={{fontSize: '17px'}}>Sent</span>
+                    <CheckShape height={24} width={24} style={{ marginLeft: '10px'}}/>
+                </>
+            ) : (
+                isLoading ? (
+                    <LoadingAnimation width={70} height={70}/>
+                ) : (
+                    <>
+                        <span style={{ fontSize: '17px' }}>Send a Gift</span>
+                        <GiftShape
+                            width="26px"
+                            height="26px"
+                            fill="#000"
+                            style={{ marginLeft: '10px' }}
+                        />
+                    </>
+                )
+            )}
         </motion.div>
-    )
-}
+    );
+};
 
 const SendGiftPopup = ({handleClose}) => {
+    const [isLoading, setIsLoading] = useState(false);
+    const [isLoaded, setIsLoaded] = useState(false);
 
     const sendGift = () => {
-        // @Todo handle
+        setIsLoading(!isLoading);
+        setTimeout(() => {
+            setIsLoaded(true);
+            setIsLoading(false);
+        }, 1500);
     }
 
     return (
@@ -50,9 +74,14 @@ const SendGiftPopup = ({handleClose}) => {
             className="sendGiftContainer"
             style={containerStyle}
         >
+            <div style={{ width: '150px', height: '150px', position: 'absolute', top: -48, right: -32}}>
+                {isLoaded && (
+                    <GiftAnimation width={150} height={150} shouldAnimate={isLoaded}/>
+                )}
+            </div>
             <div className="sendGiftText" style={textContainerStyle}>
                 <p style={textStyle}>
-                    Break the silence
+                    Break<br/> the silence
                 </p>
                 <p style={subTextStyle}>
                     Leave a note with your gift
@@ -62,7 +91,7 @@ const SendGiftPopup = ({handleClose}) => {
                 <TextArea placeholder={'Drop a sweet compliment here...'}/>
             </div>
 
-            <SendGiftButton onClick={sendGift}/>
+            <SendGiftButton onClick={sendGift} isLoading={isLoading} isLoaded={isLoaded}/>
             <CloseRoundButton onClick={handleClose}/>
         </div>);
 };
@@ -70,7 +99,7 @@ const SendGiftPopup = ({handleClose}) => {
 const containerStyle = {
     width: 'calc(100% - 50px)',
     left: '25px',
-    top: '30px',
+    top: '50px',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -95,13 +124,14 @@ const subTextStyle = {
 };
 
 const textStyle = {
-    fontSize: '18px',
+    fontSize: '14px',
     letterSpacing: '0.5px',
     color: '#FFF',
     margin: '0px 0px 5px 0px',
-    lineHeight: '17px',
+    lineHeight: '21px',
     textAlign: 'left',
     fontWeight: 600,
+    textTransform: 'uppercase',
 }
 
 const textAreaStyle = {
@@ -130,8 +160,8 @@ const sendGiftButtonStyle = {
 
 const closeButtonContainerStyle = {
     position: 'absolute',
-    right: '10px',
-    top: '8px',
+    right: '-10px',
+    top: '-40px',
 }
 
 const closeButtonStyle = {
