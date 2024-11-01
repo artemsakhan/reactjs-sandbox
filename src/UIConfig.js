@@ -5,8 +5,8 @@ const colorPrimary = 'rgba(241, 255, 10, 1)'
 const colorBackgroundLight = 'rgba(176, 176, 176, 1)';
 // const colorBackgroundMedium = 'rgba(55, 63, 76, 1)';
 
-const colorBackgroundDark = '#1e1e25';
-const colorBackgroundMedium = 'rgb(56 56 67)'//'#2d2d36';
+const colorBackgroundDark = 'linear-gradient(rgb(22 22 34) 10%, rgb(19 27 24) 80%)'//'#1e1e25';
+const colorBackgroundMedium = 'rgb(43 43 45)';//'rgb(56 56 67)'//'#2d2d36';
 // const colorBackgroundLight = 'white';
 
 const primaryFontFamily = "'Roboto', sans-serif";
@@ -17,7 +17,7 @@ const UIConfig = {
     },
     Colors: {
         Primary: colorPrimary,
-        BackgroundMedium: colorBackgroundLight,
+        BackgroundMedium: colorBackgroundMedium,
         BackgroundLight: colorBackgroundLight,
         BackgroundDark: colorBackgroundDark,
     },

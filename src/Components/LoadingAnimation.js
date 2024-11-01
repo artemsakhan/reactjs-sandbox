@@ -1,7 +1,7 @@
 // src/LottieAnimation.js
 import React from 'react';
 import Lottie from 'react-lottie';
-import animationData from '../Assets/loading.json'; // Import your Lottie JSON file
+import animationData from '../Assets/loader_v2.json'; // Import your Lottie JSON file
 
 const LoadingAnimation = ({width, height}) => {
     return (

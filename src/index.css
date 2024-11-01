@@ -18,3 +18,8 @@ code {
   Monaco, Consolas, 'Courier New',
   monospace;
 }
+
+textarea::placeholder {
+  color: rgb(147 151 150);
+  opacity: 1;
+}

@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import React from "react";
 import DiamondShape from "../../Shapes/DiamondShape";
+import GiftAnimation from "../../Components/GiftAnimation";
 
 const GiftButton = ({ handleSendGift }) => {
     return (

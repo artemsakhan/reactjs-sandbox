@@ -36,8 +36,3 @@
     transform: rotate(360deg);
   }
 }
-
-textarea::placeholder {
-  color: #999999;
-  opacity: 1;
-}
