@@ -94,14 +94,14 @@ const SendGiftPopup = ({handleClose}) => {
                         Leave a note with your gift
                     </p>
                 </div>
-                <div className="sendGiftTextArea" style={textAreaStyle}>
-                    {!isLoaded && (
+                {!isLoaded && (
+                    <div className="sendGiftTextArea" style={textAreaStyle}>
                         <TextArea
                             placeholder={'Drop a sweet compliment here...'}
                             disabled={isLoading || isLoaded}
                         />
-                    )}
-                </div>
+                    </div>
+                )}
                 <SendGiftButton onClick={sendGift} isLoading={isLoading} isLoaded={isLoaded}/>
                 <CloseRoundButton onClick={handleClose}/>
             </div>
@@ -111,14 +111,14 @@ const SendGiftPopup = ({handleClose}) => {
 const containerStyle = {
     width: '100%',
     height: 'calc(100% - 0px)',
-    top: '0px',
+    top: '30px',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     position: 'relative',
-    background: 'linear-gradient(rgb(22 22 34) 10%, rgb(19 27 24) 80%)',
-    borderTopLeftRadius: '0px',
-    borderTopRightRadius: '0px',
+    background: UIConfig.Colors.BackgroundDark,
+    borderTopLeftRadius: '35px',
+    borderTopRightRadius: '35px',
 };
 
 const contentStyle = {
@@ -132,13 +132,13 @@ const giftContainerStyle = {
     width: '120px',
     height: '120px',
     position: 'absolute',
-    top: 'calc(11% - 60px)',
+    top: 'calc(8% - 60px)',
     right: 'calc(50% - 60px)',
 };
 
 const textContainerStyle = {
     width: 'calc(100% - 35px)',
-    marginTop: '140px',
+    marginTop: '110px',
 };
 
 const subTextStyle = {
