@@ -116,7 +116,7 @@ const containerStyle = {
     flexDirection: 'column',
     alignItems: 'center',
     position: 'relative',
-    background: UIConfig.Colors.BackgroundDark,
+    backgroundImage: UIConfig.Colors.BackgroundDark,
     borderTopLeftRadius: '35px',
     borderTopRightRadius: '35px',
 };

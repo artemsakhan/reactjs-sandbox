@@ -7,15 +7,20 @@ import ChatShape from "./Shapes/ChatShape";
 
 const iconSize = '24px';
 
-const Tabbar = () => {
+const Tabbar = ({onSwitchPage}) => {
     const [activeTab, setActiveTab] = useState(1);
 
     const isActiveTab = (id) => activeTab === id
 
+    const switchPageTo = (id) => {
+        setActiveTab(id)
+        onSwitchPage(id)
+    }
+
     return (
         <div className="tabbar" style={containerStyle}>
             <div className="tabbarList" style={listStyle}>
-                <div className="tabbarListItem" style={listItemStyle} onClick={() => setActiveTab(1)}>
+                <div className="tabbarListItem" style={listItemStyle} onClick={() => switchPageTo(1)}>
                     <SearchSquareShape
                         width={iconSize}
                         height={iconSize}
@@ -31,7 +36,7 @@ const Tabbar = () => {
                         Search
                     </span>
                 </div>
-                <div className="tabbarListItem" style={listItemStyle} onClick={() => setActiveTab(2)}>
+                <div className="tabbarListItem" style={listItemStyle} onClick={() => switchPageTo(2)}>
                     <ChatShape
                         width={iconSize}
                         height={iconSize}
@@ -47,7 +52,7 @@ const Tabbar = () => {
                         Messages
                     </span>
                 </div>
-                <div className="tabbarListItem" style={listItemStyle} onClick={() => setActiveTab(3)}>
+                <div className="tabbarListItem" style={listItemStyle} onClick={() => switchPageTo(3)}>
                     <UserSquareShape
                         width={iconSize}
                         height={iconSize}

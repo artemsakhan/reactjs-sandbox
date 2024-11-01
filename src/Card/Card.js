@@ -6,14 +6,16 @@ import ControlButtons from "./Components/ControlButtons";
 import CardFeature from "./Components/CardFeature";
 import UIConfig from "../UIConfig";
 
-const likeOverlayColor = null;//`linear-gradient(307deg, rgba(222,222,222,0) 56%, ${UIConfig.Colors.Primary.Main} 100%)`//UIConfig.Colors.Primary.Main;
-const passOverlayColor = null;// `linear-gradient(50deg, rgba(222,222,222,0) 56%, ${UIConfig.Colors.Background.Dark} 100%)`;//UIConfig.Colors.Background.Dark;
+const Card = (props) => {
+    const {
+        matchCandidate,
+        handleLike,
+        handlePass,
+        handleSendGift,
+    } = props;
 
-const Card = ({matchCandidate, handleLike, handlePass, handleSendGift}) => {
     const animControls = useAnimationControls();
     const x = useMotionValue(0);
-
-    const overlayRef = useRef(null);
 
     useEffect(bodyScrollControl, []);
 
@@ -44,10 +46,6 @@ const Card = ({matchCandidate, handleLike, handlePass, handleSendGift}) => {
     }
 
     const snapBack = () => {
-        if (overlayRef.current) {
-            overlayRef.current.style.opacity = 0;
-        }
-
         animControls.start({x: 0, transition: {duration: 0.3}});
     }
 
@@ -61,17 +59,6 @@ const Card = ({matchCandidate, handleLike, handlePass, handleSendGift}) => {
             animate={animControls}
             dragConstraints={{left: 0, right: 0, top: 0, bottom: 0}}
             dragSnapToOrigin
-            onDrag={(event, info) => {
-                const offsetX = Math.min(Math.abs(info.offset.x), 500);
-                const opacity = (offsetX / 500) * 0.5;
-
-                const color = info.offset.x > 0 ? likeOverlayColor : passOverlayColor;
-
-                if (overlayRef.current) {
-                    overlayRef.current.style.opacity = opacity;
-                    overlayRef.current.style.background = color;
-                }
-            }}
             onDragEnd={(event, info) => {
                 if (Math.abs(info.offset.x) > 150) {
                     window.Telegram.WebApp.HapticFeedback.impactOccurred('rigid')
@@ -87,8 +74,10 @@ const Card = ({matchCandidate, handleLike, handlePass, handleSendGift}) => {
             }}
         >
             <div className="cardContent" style={contentStyle}>
-                <div ref={overlayRef} style={overlayStyle}/>
-                <CardContent matchCandidate={matchCandidate} handleSendGift={handleSendGift}/>
+                <CardContent
+                    matchCandidate={matchCandidate}
+                    handleSendGift={handleSendGift}
+                />
                 {matchCandidate.isActive ? <CardFeature text="Active"/> : null}
                 <ControlButtons
                     handleLike={() => swipeRight(matchCandidate.id, 'slow')}
@@ -116,17 +105,6 @@ const bodyScrollControl = () => {
         window.removeEventListener('touchmove', preventScroll);
     };
 }
-
-const overlayStyle = {
-    width: '100%',
-    height: '100%',
-    position: 'absolute',
-    background: 'transparent',
-    opacity: 0,
-    pointerEvents: 'none',
-    zIndex: '1',
-    borderRadius: UIConfig.Card.Content.borderRadius,
-};
 
 const containerStyle = {
     position: 'absolute',

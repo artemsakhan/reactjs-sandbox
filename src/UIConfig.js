@@ -6,7 +6,7 @@ const colorBackgroundLight = 'rgba(176, 176, 176, 1)';
 // const colorBackgroundMedium = 'rgba(55, 63, 76, 1)';
 
 const colorBackgroundDark = 'linear-gradient(rgb(22 22 34) 10%, rgb(19 27 24) 80%)'//'#1e1e25';
-const colorBackgroundMedium = 'rgb(43 43 45)';//'rgb(56 56 67)'//'#2d2d36';
+const colorBackgroundMedium = 'rgb(31 34 45)';//'rgb(43 43 45)';//'rgb(56 56 67)'//'#2d2d36';
 // const colorBackgroundLight = 'white';
 
 const primaryFontFamily = "'Roboto', sans-serif";
@@ -23,7 +23,7 @@ const UIConfig = {
     },
     TabBar: {
         Content: {
-            background: colorBackgroundDark,
+            // background: colorBackgroundDark,
             color: '#FFF',
             height: '80px',
         },

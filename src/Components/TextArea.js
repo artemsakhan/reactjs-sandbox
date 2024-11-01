@@ -21,7 +21,7 @@ const textAreaStyle = {
     resize: 'none',
     outline: 'none',
     fontFamily: UIConfig.Fonts.Primary,
-    background: 'rgb(43 43 45)',
+    background: 'rgb(31 34 45)',
     border: 'none',
     color: '#FFF',
     borderRadius: '10px',

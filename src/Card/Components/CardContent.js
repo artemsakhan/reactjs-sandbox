@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import GiftButton from "./GiftButton";
-import ImageProgressBar from "./ImageProgressBar";
+import ThreeDots from "./ThreeDots";
 import CardHeader from "./CardHeader";
 import CardLabelStack from "./CardLabelStack";
 import UIConfig from "../../UIConfig";
@@ -48,7 +48,7 @@ const CardContent = ({matchCandidate, handleSendGift}) => {
 
     return (
         <div style={sliderStyles}>
-            <ImageProgressBar
+            <ThreeDots
                 activeIndex={currentIndex}
                 imagesCount={images.length}
             />

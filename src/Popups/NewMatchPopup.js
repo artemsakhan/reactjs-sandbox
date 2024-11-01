@@ -14,7 +14,7 @@ const SendMessageButton = () => (
             <motion.div
                 style={greetingButtonStyle}
             >
-                <span style={{fontSize: '17px'}}>Go To Chat</span>
+                <span style={{fontSize: '17px'}}>Say Hi</span>
                 <ChatShape fill={'#000'} width={20} height={20} style={{marginLeft: '10px'}}/>
             </motion.div>
         </motion.div>
@@ -47,12 +47,10 @@ const NewMatchPopup = ({handleClose}) => {
     const [isAnimated, setIsAnimated] = useState(false);
 
     useEffect(() => {
-        // Trigger the animation after the component has mounted
         const timer = setTimeout(() => {
             setIsAnimated(true);
-        }, 400); // Match this with your animation delay
+        }, 100);
 
-        // Cleanup timer if component unmounts
         return () => clearTimeout(timer);
     }, []);
 
@@ -63,9 +61,9 @@ const NewMatchPopup = ({handleClose}) => {
         >
             <div className="newMatchPhotos" style={photoContainerStyle}>
                 <motion.div
-                    initial={{x: '-100vw', rotate: -30}}
-                    animate={isAnimated ? {x: '-40%', rotate: -7} : {}}
-                    transition={{type: 'spring', stiffness: 300, damping: 40, duration: 1.2}}
+                    initial={{opacity: 1, scale: 0.9, rotate: -10, x: -60}}
+                    animate={isAnimated ? {opacity: 1, scale: 1, rotate: -10, x: -60} : {}}
+                    transition={{type: 'spring', stiffness: 300, damping: 40, duration: 1, delay: 0}}
                     style={animatedPhotoStyle}
                 >
                     <img
@@ -76,14 +74,10 @@ const NewMatchPopup = ({handleClose}) => {
                 </motion.div>
 
                 <motion.div
-                    initial={{x: '100vw', rotate: 30}}
-                    animate={isAnimated ? {x: '40%', rotate: 10} : {}}
-                    transition={{type: 'spring', stiffness: 300, damping: 40, duration: 1.2}}
-                    style={{
-                        top: '40%',
-                        transform: 'translateY(-30%)',
-                        ...animatedPhotoStyle,
-                    }}
+                    initial={{opacity: 1, scale: 0.9, rotate: 10, x: 60}}
+                    animate={isAnimated ? {opacity: 1, scale: 1, rotate: 10, x: 60} : {}}
+                    transition={{type: 'spring', stiffness: 300, damping: 40, duration: 0.4, delay: 0.1}}
+                    style={{...animatedPhotoStyle, top: '30%'}}
                 >
                     <img
                         style={photoItemStyle}
@@ -96,23 +90,25 @@ const NewMatchPopup = ({handleClose}) => {
                     style={heartIconStyle}
                     initial={{opacity: 0}}
                     animate={isAnimated ? {opacity: 1} : {}}
-                    transition={{type: 'spring', stiffness: 300, damping: 40, duration: 1}}
+                    transition={{type: 'spring', stiffness: 300, damping: 40, duration: 0.4}}
                 >
-                    <div style={{ position: 'absolute', left: 'calc(50% - 60px)', top: 'calc(53% - 60px)'}}>
-                        <HeartExploadingAnimation width={120} height={120} shouldAnimate={true}/>
+                    <div style={{position: 'absolute', left: 'calc(50% - 60px)', top: 'calc(53% - 60px)'}}>
+                        <HeartExploadingAnimation width={120} height={120} shouldAnimate={isAnimated}/>
                     </div>
                 </motion.div>
             </div>
 
 
+            <div className="newMatchText" style={{marginTop: '7px'}}>
+                <p style={headlineStyle}>It's a match!</p>
+                <p style={{...subtextStyle}}>
+                    Go ahead and make your move<br/>
+                    Jessica's waiting
+                </p>
+            </div>
+
+
             <div style={footerContainerStyle}>
-                <div className="newMatchText" style={{marginTop: '7px'}}>
-                    <p style={headlineStyle}>It's a match!</p>
-                    <p style={{...subtextStyle}}>
-                        Go ahead and make your move<br/>
-                        Jessica's waiting
-                    </p>
-                </div>
                 <SendMessageButton/>
                 <KeepSwipingButton handleClose={handleClose}/>
             </div>
@@ -124,7 +120,7 @@ const NewMatchPopup = ({handleClose}) => {
                 style={closeButtonContainerStyle}
             >
                 <motion.div>
-                <i className="fa-solid fa-xmark" style={closeButtonStyle}/>
+                    <i className="fa-solid fa-xmark" style={closeButtonStyle}/>
                 </motion.div>
             </motion.div>
         </div>
@@ -138,7 +134,7 @@ const containerStyle = {
     flexDirection: 'column',
     alignItems: 'center',
     position: 'relative',
-    background: UIConfig.Colors.BackgroundDark,
+    backgroundImage: 'radial-gradient( circle farthest-corner at 10% 20%,  rgb(39 25 52) 0%, rgb(19, 27, 24) 90% )'
 };
 
 const photoContainerStyle = {
@@ -146,9 +142,8 @@ const photoContainerStyle = {
     justifyContent: 'center',
     alignItems: 'center',
     width: '100%',
-    height: '50%',
+    height: '45%',
     position: 'relative',
-    marginTop: '10px',
 };
 
 const footerContainerStyle = {
@@ -178,6 +173,7 @@ const headlineStyle = {
     fontWeight: 700,
     color: '#FFF',
     marginBottom: '0px',
+    marginTop: '60px',
     letterSpacing: '1px',
 };
 const subtextStyle = {
@@ -186,7 +182,7 @@ const subtextStyle = {
     letterSpacing: '0.3px',
     color: '#fff',
     marginTop: '10px',
-    marginBottom: '30px',
+    marginBottom: '45px',
 };
 
 const heartIconStyle = {
