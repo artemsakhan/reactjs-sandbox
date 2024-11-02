@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
 import {motion} from "framer-motion";
-import HeartSimpleShape from "../Shapes/HeartSimpleShape";
 import UIConfig from "../UIConfig";
 import ChatShape from "../Shapes/ChatShape";
 import HeartExploadingAnimation from "../Components/HeartExploadingAnimation";
@@ -134,7 +133,8 @@ const containerStyle = {
     flexDirection: 'column',
     alignItems: 'center',
     position: 'relative',
-    backgroundImage: 'radial-gradient( circle farthest-corner at 10% 20%,  rgb(39 25 52) 0%, rgb(19, 27, 24) 90% )'
+    backgroundImage: 'radial-gradient( circle farthest-corner at 10% 20%,  rgb(39 25 52) 0%, rgb(19, 27, 24) 90% )',
+    zIndex: 2,
 };
 
 const photoContainerStyle = {

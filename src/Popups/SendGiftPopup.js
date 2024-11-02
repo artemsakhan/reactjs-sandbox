@@ -69,9 +69,11 @@ const SendGiftPopup = ({handleClose}) => {
 
     const sendGift = () => {
         setIsLoading(!isLoading);
+
         setTimeout(() => {
             setIsLoaded(true);
             setIsLoading(false);
+            window.Telegram.WebApp.HapticFeedback.impactOccurred('rigid')
 
             setTimeout(handleClose, 1200)
         }, 1500);

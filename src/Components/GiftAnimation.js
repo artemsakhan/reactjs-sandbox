@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import lottie from 'lottie-web';
 import animationData from '../Assets/gift_sent_v2.json';
 
-const LottieAnimation = ({ width, height, shouldAnimate, speed = 1 }) => {
+const GiftAnimation = ({ width, height, shouldAnimate, speed = 1 }) => {
     const lottieContainer = useRef(null);
 
     useEffect(() => {
@@ -33,4 +33,4 @@ const LottieAnimation = ({ width, height, shouldAnimate, speed = 1 }) => {
     );
 };
 
-export default LottieAnimation;
+export default GiftAnimation;

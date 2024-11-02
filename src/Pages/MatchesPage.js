@@ -5,11 +5,13 @@ import SendGiftPopup from "../Popups/SendGiftPopup";
 import Card from "../Card/Card";
 import EmptyCard from "../Card/EmptyCard";
 import React, {useEffect, useState} from "react";
-import {dummyData} from "../dummy";
-
+import ApiGateway from "../api";
+import ContentLoader from "react-content-loader";
+import { getBuffer, setBuffer, popFromBuffer, addToBuffer } from '../cache.js';
 
 const MatchesPage = () => {
-    const [matchCandidates, setMatchCandidates] = useState(dummyData.MatchCandidates);
+    const [isLoading, setIsLoading] = useState(true);
+    const [matchCandidates, setMatchCandidates] = useState([]);
     const [newMatchOpen, setNewMatchOpen] = useState(false);
     const [sendGiftOpen, setSendGiftOpen] = useState(false);
 
@@ -18,26 +20,31 @@ const MatchesPage = () => {
     const closeSendGift = () => setSendGiftOpen(false);
     const openSendGift = (userId = null) => setSendGiftOpen(true);
 
+    useEffect(() => {
+        ApiGateway.fetchMatchCandidates().then((data) => {
+            setMatchCandidates(data);
+
+            setTimeout(() => setIsLoading(false), 1000);
+        });
+    }, []);
+
     const handleLike = (id) => {
-        setMatchCandidates((prevCandidates) => prevCandidates.filter(card => card.id !== id));
-        openNewMatch(true);
+        setMatchCandidates((prevCandidates) =>
+            prevCandidates.filter((candidate) => candidate.id !== id)
+        );
     };
 
     const handlePass = (id) => {
-        setMatchCandidates((prevCandidates) => prevCandidates.filter(card => card.id !== id));
-    }
+        setMatchCandidates((prevCandidates) =>
+            prevCandidates.filter((candidate) => candidate.id !== id)
+        );
+    };
 
     return (
         <>
             <AnimatePresence
-                // Disable any initial animations on children that
-                // are present when the component is first rendered
                 initial={false}
-                // Only render one component at a time.
-                // The exiting component will finish its exit
-                // animation before entering component is rendered
                 mode={'wait'}
-                // Fires when all exiting nodes have completed animating out
                 onExitComplete={() => null}
             >
                 {newMatchOpen && (
@@ -51,21 +58,38 @@ const MatchesPage = () => {
                     </Modal>
                 )}
             </AnimatePresence>
+            {isLoading && (
+                <EmptyCard zIndex={2}>
+                    <ContentLoader
+                        speed={1}
+                        width={'100%'}
+                        height={'100%'}
+                        backgroundColor="#1f222d"
+                        foregroundColor="#2b2f3b"
+                    >
+                        <rect x="0" y="0" rx="30" ry="30" width="100%" height="75%"/>
+                        <rect x="20" y="79%" rx="4" ry="4" width="30%" height="2%"/>
+                        <rect x="20" y="83%" rx="4" ry="4" width="40%" height="2%"/>
+                        <rect x="3%" y="88%" rx="30" ry="30" width="44%" height="10%"/>
+                        <rect x="53%" y="88%" rx="30" ry="30" width="44%" height="10%"/>
+                    </ContentLoader>
+                </EmptyCard>
+            )}
             {matchCandidates.length > 0 ? (
                 matchCandidates.map((candidate, index) => (
                     <Card
-                        key={index}
+                        key={candidate.id}
                         matchCandidate={candidate}
-                        handleLike={handleLike}
-                        handlePass={handlePass}
-                        handleSendGift={openSendGift}
+                        handleLike={() => handleLike(candidate.id)}
+                        handlePass={() => handlePass(candidate.id)}
+                        handleSendGift={() => null}
                     />
                 ))
             ) : (
                 <EmptyCard/>
             )}
         </>
-    )
-}
+    );
+};
 
 export default MatchesPage;

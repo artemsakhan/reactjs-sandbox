@@ -1,14 +1,62 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import GiftButton from "./GiftButton";
 import ThreeDots from "./ThreeDots";
 import CardHeader from "./CardHeader";
 import CardLabelStack from "./CardLabelStack";
 import UIConfig from "../../UIConfig";
+import 'react-loading-skeleton/dist/skeleton.css';
+import axios from "axios";
+import ContentLoader from "react-content-loader";
+
+const ImageLoader = (props) => (
+    <ContentLoader
+        speed={1}
+        width={'100%'}
+        height={'100%'}
+        backgroundColor="#1f222d"
+        foregroundColor="#2b2f3b"
+        {...props}
+    >
+        <rect x="0" y="0" rx="0" ry="0" width="100%" height="100%" />
+    </ContentLoader>
+)
 
 const CardContent = ({matchCandidate, handleSendGift}) => {
-    const {images, aboutMe} = matchCandidate;
+    const {
+        images,
+        aboutMe,
+    } = matchCandidate;
 
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [loadedPhotos, setLoadedPhotos] = useState(Array(images.length).fill(null));
+    const [loadingStates, setLoadingStates] = useState(Array(images.length).fill(true));
+
+    useEffect(() => {
+        images.forEach((image, index) => {
+            axios
+                .get(image, { responseType: 'blob' })
+                .then((response) => {
+                    const imageUrl = URL.createObjectURL(response.data);
+                    setLoadedPhotos((prevState) => {
+                        const newPhotos = [...prevState];
+                        newPhotos[index] = imageUrl;
+                        return newPhotos;
+                    });
+                    setLoadingStates((prevState) => {
+                        const newStates = [...prevState];
+                        newStates[index] = false;
+                        return newStates;
+                    });
+                })
+                .catch(() => {
+                    setLoadingStates((prevState) => {
+                        const newStates = [...prevState];
+                        newStates[index] = false;
+                        return newStates;
+                    });
+                });
+        });
+    }, [images]);
 
     const nextImage = () => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
@@ -46,6 +94,8 @@ const CardContent = ({matchCandidate, handleSendGift}) => {
         />
     }
 
+    const currentImageLoading = loadingStates[currentIndex];
+
     return (
         <div style={sliderStyles}>
             <ThreeDots
@@ -53,11 +103,15 @@ const CardContent = ({matchCandidate, handleSendGift}) => {
                 imagesCount={images.length}
             />
             <div style={imageContainerStyle} onClick={handleClick}>
-                <img
-                    src={images[currentIndex]}
-                    alt={`Slide ${currentIndex + 1}`}
-                    style={imageStyle}
-                />
+                {currentImageLoading ? (
+                    <ImageLoader style={{ borderBottomRightRadius: UIConfig.Card.Content.borderRadius }}/>
+                ) : (
+                    <img
+                        src={loadedPhotos[currentIndex]}
+                        alt={`Slide ${currentIndex + 1}`}
+                        style={imageStyle}
+                    />
+                )}
             </div>
             <CardHeader
                 matchCandidate={matchCandidate}

@@ -1,12 +1,12 @@
 import {motion, useMotionValue} from "framer-motion";
 import React from "react";
+import UIConfig from "../UIConfig";
 
-const cardContentStyles = {
-    width: 'calc(100% - 30px)',
-    height: 'calc(100% - 30px)',
-    background: '#272e3a',
+const contentStyle = {
+    width: 'calc(100% - 25px)',
+    height: 'calc(100% - 25px)',
+    background: UIConfig.Colors.BackgroundMedium,
     borderRadius: '35px',
-    border: '1px solid #d3c9c966',
     position: "relative",
     marginTop: '0px',
     display: 'flex',
@@ -25,9 +25,10 @@ const cardStyles = {
     touchAction: "none",
     borderRadius: '35px',
     overflow: 'hidden',
+    zIndex: 1,
 }
 
-const EmptyCard = ({}) => {
+const EmptyCard = ({children, zIndex = 1}) => {
     const motionValue = useMotionValue(0);
 
     return (
@@ -36,13 +37,14 @@ const EmptyCard = ({}) => {
             style={{
                 x: motionValue,
                 ...cardStyles,
+                zIndex,
             }}
             dragListener={false}
         >
-            <div style={{
-                ...cardContentStyles,
-                background: '#eee',
-            }}>
+            <div style={contentStyle}>
+                <div style={{ width: '100%', height: '100%', position: 'relative'}}>
+                    {children}
+                </div>
             </div>
         </motion.div>
     );
