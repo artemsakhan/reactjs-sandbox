@@ -82,7 +82,7 @@ const CardContent = ({matchCandidate, handleSendGift}) => {
                     height: 'calc(100% - 60px)',
                 }}/>
                 <img
-                    src={images[currentIndex]}
+                    src={images[currentIndex] + `?v=1`}
                     ref={el => (imageRefs.current[currentIndex] = el)}
                     onLoad={() => handleImageLoad(currentIndex)}
                     alt={`Slide ${currentIndex + 1}`}
