@@ -67,7 +67,7 @@ const MatchesPage = () => {
         CachedApiGateway.queryMatchCandidates(fetchLimit)
             .then((data) => {
                 setMatchCandidates(data);
-                setTimeout(() => setIsLoading(false), 1000);
+                setTimeout(() => setIsLoading(false), 500);
             })
             .catch((error) => {
                 if (!error.toString().includes("duplicated call")) {
