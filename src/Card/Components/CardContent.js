@@ -49,12 +49,7 @@ const CardContent = ({matchCandidate, handleSendGift}) => {
                     });
                 })
                 .catch((error) => {
-                    window.Telegram.WebApp.showAlert(error);
-                    setLoadingStates((prevState) => {
-                        const newStates = [...prevState];
-                        newStates[index] = false;
-                        return newStates;
-                    });
+                    console.error("error loading photo: ", error)
                 });
         });
     }, [images]);
