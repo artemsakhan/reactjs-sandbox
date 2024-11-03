@@ -48,7 +48,8 @@ const CardContent = ({matchCandidate, handleSendGift}) => {
                         return newStates;
                     });
                 })
-                .catch(() => {
+                .catch((error) => {
+                    window.Telegram.WebApp.showAlert(error);
                     setLoadingStates((prevState) => {
                         const newStates = [...prevState];
                         newStates[index] = false;
@@ -63,13 +64,11 @@ const CardContent = ({matchCandidate, handleSendGift}) => {
     };
 
     const prevImage = () => {
-        setCurrentIndex((prevIndex) =>
-            (prevIndex - 1 + images.length) % images.length
-        );
+        setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
     };
 
     const handleClick = (event) => {
-        const {clientX, currentTarget} = event;
+        const { clientX, currentTarget } = event;
         const targetWidth = currentTarget.offsetWidth;
 
         if (clientX < targetWidth / 2) {
@@ -79,22 +78,24 @@ const CardContent = ({matchCandidate, handleSendGift}) => {
         }
     };
 
-    var contentBottom = null
+    var contentBottom = null;
 
     if (aboutMe !== '' && currentIndex === 0) {
-        contentBottom = <div className="item" style={aboutMeContainer}>
-            <div className="cardHeaderAboutMe" style={aboutMeText}>
-                {aboutMe}
+        contentBottom = (
+            <div className="item" style={aboutMeContainer}>
+                <div className="cardHeaderAboutMe" style={aboutMeText}>
+                    {aboutMe}
+                </div>
             </div>
-        </div>
+        );
     } else {
-        contentBottom = <CardLabelStack
-            occupation={matchCandidate.occupation}
-            height={matchCandidate.height}
-        />
+        contentBottom = (
+            <CardLabelStack
+                occupation={matchCandidate.occupation}
+                height={matchCandidate.height}
+            />
+        );
     }
-
-    const currentImageLoading = loadingStates[currentIndex];
 
     return (
         <div style={sliderStyles}>
@@ -103,15 +104,21 @@ const CardContent = ({matchCandidate, handleSendGift}) => {
                 imagesCount={images.length}
             />
             <div style={imageContainerStyle} onClick={handleClick}>
-                {currentImageLoading ? (
-                    <ImageLoader style={{ borderBottomRightRadius: UIConfig.Card.Content.borderRadius }}/>
-                ) : (
-                    <img
-                        src={loadedPhotos[currentIndex]}
-                        alt={`Slide ${currentIndex + 1}`}
-                        style={imageStyle}
-                    />
-                )}
+                <ImageLoader style={{
+                    borderBottomRightRadius: UIConfig.Card.Content.borderRadius,
+                    position: 'absolute',
+                    height: 'calc(100% - 60px)',
+                }} />
+                <img
+                    src={loadedPhotos[currentIndex]}
+                    alt={`Slide ${currentIndex + 1}`}
+                    style={{
+                        ...imageStyle,
+                        display: loadingStates[currentIndex] ? 'none' : 'block',
+                        height: 'calc(100% - 60px)',
+                        position: 'absolute',
+                    }}
+                />
             </div>
             <CardHeader
                 matchCandidate={matchCandidate}
