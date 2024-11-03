@@ -1,11 +1,9 @@
-import React, {useEffect, useRef, useState} from "react";
+import React, {useRef, useState} from "react";
 import GiftButton from "./GiftButton";
 import ThreeDots from "./ThreeDots";
 import CardHeader from "./CardHeader";
 import CardLabelStack from "./CardLabelStack";
 import UIConfig from "../../UIConfig";
-import 'react-loading-skeleton/dist/skeleton.css';
-import axios from "axios";
 import ContentLoader from "react-content-loader";
 
 const ImageLoader = (props) => (
@@ -77,10 +75,6 @@ const CardContent = ({matchCandidate, handleSendGift}) => {
 
     return (
         <div style={sliderStyles}>
-            <ThreeDots
-                activeIndex={currentIndex}
-                imagesCount={images.length}
-            />
             <div style={imageContainerStyle} onClick={handleClick}>
                 <ImageLoader style={{
                     borderBottomRightRadius: UIConfig.Card.Content.borderRadius,
@@ -89,7 +83,7 @@ const CardContent = ({matchCandidate, handleSendGift}) => {
                 }}/>
                 <img
                     src={images[currentIndex]}
-                    ref={(el) => (imageRefs.current[currentIndex] = el)}
+                    ref={el => (imageRefs.current[currentIndex] = el)}
                     onLoad={() => handleImageLoad(currentIndex)}
                     alt={`Slide ${currentIndex + 1}`}
                     style={{
@@ -100,6 +94,10 @@ const CardContent = ({matchCandidate, handleSendGift}) => {
                     }}
                 />
             </div>
+            <ThreeDots
+                activeIndex={currentIndex}
+                imagesCount={images.length}
+            />
             <CardHeader
                 matchCandidate={matchCandidate}
                 currentSection={currentIndex}

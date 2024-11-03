@@ -7,6 +7,7 @@ import EmptyCard from "../Card/EmptyCard";
 import React, { useEffect, useState } from "react";
 import ApiGateway from "../api";
 import ContentLoader from "react-content-loader";
+import CachedApiGateway from "../cache";
 
 const ActionLike = 1;
 const ActionPass = 2;
@@ -62,12 +63,17 @@ const MatchesPage = () => {
     const closeSendGift = () => setSendGiftOpen(false);
     const openSendGift = (userId = null) => setSendGiftOpen(true);
 
-
     useEffect(() => {
-        ApiGateway.fetchMatchCandidates(fetchLimit).then((data) => {
-            setMatchCandidates(data);
-            setTimeout(() => setIsLoading(false), 1000);
-        });
+        CachedApiGateway.queryMatchCandidates(fetchLimit)
+            .then((data) => {
+                setMatchCandidates(data);
+                setTimeout(() => setIsLoading(false), 1000);
+            })
+            .catch((error) => {
+                if (!error.toString().includes("duplicated call")) {
+                    console.error(error)
+                }
+            })
 
         return () => {};
     }, []);
@@ -90,7 +96,7 @@ const MatchesPage = () => {
 
         setMatchCandidates((prevItems) => {
             if (prevItems.length === 2) {
-                ApiGateway.fetchMatchCandidates(fetchLimit)
+                CachedApiGateway.queryMatchCandidates(fetchLimit)
                     .then((data) => {
                         if (data.length === 0) {
                             setIsEmpty(true);
@@ -100,12 +106,12 @@ const MatchesPage = () => {
                             })
                         }
                     })
+                    .catch(error => console.error(error))
             }
 
             if (prevItems.length === 5) {
-                ApiGateway.prefetchMatchCandidates(fetchLimit).catch((error) => {
-                    console.error("Error pre-fetching match candidate:", error);
-                });
+                CachedApiGateway.prefetchMatchCandidates(fetchLimit)
+                    .catch((error) => console.error("Error pre-fetching match candidate:", error));
             }
 
             return prevItems.filter((c) => c.id !== id)

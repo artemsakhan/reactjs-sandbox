@@ -5,9 +5,11 @@ const ThreeDots = ({activeIndex, imagesCount}) => {
         return null;
     }
 
+    const dotItems = Array.from({ length: imagesCount }, (_, i) => i);
+
     return (
         <div style={containerStyle}>
-            {Array.from({ length: imagesCount }, (_, i) => i).map((index) => (
+            {dotItems.map((index) => (
                 <div
                     key={index}
                     style={{
@@ -20,7 +22,6 @@ const ThreeDots = ({activeIndex, imagesCount}) => {
     );
 };
 
-
 const containerStyle = {
     position: 'absolute',
     left: '25px',
@@ -29,7 +30,6 @@ const containerStyle = {
     justifyContent: 'center',
     alignItems: 'center',
     gap: '7px',
-    zIndex: 1,
 };
 
 const dotStyle = {
