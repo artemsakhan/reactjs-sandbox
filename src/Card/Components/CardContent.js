@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import GiftButton from "./GiftButton";
 import ThreeDots from "./ThreeDots";
 import CardHeader from "./CardHeader";
@@ -28,31 +28,8 @@ const CardContent = ({matchCandidate, handleSendGift}) => {
     } = matchCandidate;
 
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [loadedPhotos, setLoadedPhotos] = useState(Array(images.length).fill(null));
-    const [loadingStates, setLoadingStates] = useState(Array(images.length).fill(true));
 
-    useEffect(() => {
-        images.forEach((image, index) => {
-            axios
-                .get(image, { responseType: 'blob' })
-                .then((response) => {
-                    const imageUrl = URL.createObjectURL(response.data);
-                    setLoadedPhotos((prevState) => {
-                        const newPhotos = [...prevState];
-                        newPhotos[index] = imageUrl;
-                        return newPhotos;
-                    });
-                    setLoadingStates((prevState) => {
-                        const newStates = [...prevState];
-                        newStates[index] = false;
-                        return newStates;
-                    });
-                })
-                .catch((error) => {
-                    console.error("error loading photo: ", error)
-                });
-        });
-    }, [images]);
+    const imageRefs = useRef([]);
 
     const nextImage = () => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
@@ -70,6 +47,12 @@ const CardContent = ({matchCandidate, handleSendGift}) => {
             prevImage();
         } else {
             nextImage();
+        }
+    };
+
+    const handleImageLoad = (index) => {
+        if (imageRefs.current[index]) {
+            imageRefs.current[index].style.display = 'block';
         }
     };
 
@@ -103,13 +86,15 @@ const CardContent = ({matchCandidate, handleSendGift}) => {
                     borderBottomRightRadius: UIConfig.Card.Content.borderRadius,
                     position: 'absolute',
                     height: 'calc(100% - 60px)',
-                }} />
+                }}/>
                 <img
-                    src={loadedPhotos[currentIndex]}
+                    src={images[currentIndex]}
+                    ref={(el) => (imageRefs.current[currentIndex] = el)}
+                    onLoad={() => handleImageLoad(currentIndex)}
                     alt={`Slide ${currentIndex + 1}`}
                     style={{
                         ...imageStyle,
-                        display: loadingStates[currentIndex] ? 'none' : 'block',
+                        display: 'none', // Initially hidden, shown when loaded
                         height: 'calc(100% - 60px)',
                         position: 'absolute',
                     }}
