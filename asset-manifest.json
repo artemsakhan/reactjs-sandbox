@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/reactjs-sandbox/static/css/main.4a3b7168.css",
-    "main.js": "/reactjs-sandbox/static/js/main.3cf64e4d.js",
+    "main.js": "/reactjs-sandbox/static/js/main.ef8bb956.js",
     "static/js/453.348d5057.chunk.js": "/reactjs-sandbox/static/js/453.348d5057.chunk.js",
     "static/media/fa-solid-900.ttf": "/reactjs-sandbox/static/media/fa-solid-900.07ed6d5fa32c1d54af0f.ttf",
     "static/media/fa-brands-400.ttf": "/reactjs-sandbox/static/media/fa-brands-400.0ff70dcbf135d859ebf3.ttf",
@@ -13,11 +13,11 @@
     "static/media/fa-v4compatibility.woff2": "/reactjs-sandbox/static/media/fa-v4compatibility.6cfec8414be20e2c3426.woff2",
     "index.html": "/reactjs-sandbox/index.html",
     "main.4a3b7168.css.map": "/reactjs-sandbox/static/css/main.4a3b7168.css.map",
-    "main.3cf64e4d.js.map": "/reactjs-sandbox/static/js/main.3cf64e4d.js.map",
+    "main.ef8bb956.js.map": "/reactjs-sandbox/static/js/main.ef8bb956.js.map",
     "453.348d5057.chunk.js.map": "/reactjs-sandbox/static/js/453.348d5057.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4a3b7168.css",
-    "static/js/main.3cf64e4d.js"
+    "static/js/main.ef8bb956.js"
   ]
 }
