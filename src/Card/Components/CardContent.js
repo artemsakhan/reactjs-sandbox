@@ -1,10 +1,11 @@
-import React, {useRef, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import GiftButton from "./GiftButton";
 import ThreeDots from "./ThreeDots";
 import CardHeader from "./CardHeader";
 import CardLabelStack from "./CardLabelStack";
 import UIConfig from "../../UIConfig";
 import ContentLoader from "react-content-loader";
+import axios from "axios";
 
 const ImageLoader = (props) => (
     <ContentLoader
@@ -19,22 +20,17 @@ const ImageLoader = (props) => (
     </ContentLoader>
 )
 
-const CardContent = ({matchCandidate, handleSendGift}) => {
-    const {
-        images,
-        aboutMe,
-    } = matchCandidate;
+const CardContent = ({ matchCandidate, handleSendGift }) => {
+    const { images, aboutMe } = matchCandidate;
 
     const [currentIndex, setCurrentIndex] = useState(0);
 
-    const imageRefs = useRef([]);
-
     const nextImage = () => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length); // Loop back to the first image
     };
 
     const prevImage = () => {
-        setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+        setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length); // Loop to the last image if at the first
     };
 
     const handleClick = (event) => {
@@ -42,36 +38,31 @@ const CardContent = ({matchCandidate, handleSendGift}) => {
         const targetWidth = currentTarget.offsetWidth;
 
         if (clientX < targetWidth / 2) {
-            prevImage();
+            prevImage(); // Navigate to previous image
         } else {
-            nextImage();
+            nextImage(); // Navigate to next image
         }
     };
 
-    const handleImageLoad = (index) => {
-        if (imageRefs.current[index]) {
-            imageRefs.current[index].style.display = 'block';
-        }
-    };
-
-    var contentBottom = null;
-
-    if (aboutMe !== '' && currentIndex === 0) {
-        contentBottom = (
-            <div className="item" style={aboutMeContainer}>
-                <div className="cardHeaderAboutMe" style={aboutMeText}>
-                    {aboutMe}
-                </div>
+    const contentBottom = aboutMe !== '' && currentIndex === 0 ? (
+        <div className="item" style={aboutMeContainer}>
+            <div className="cardHeaderAboutMe" style={aboutMeText}>
+                {aboutMe}
             </div>
-        );
-    } else {
-        contentBottom = (
-            <CardLabelStack
-                occupation={matchCandidate.occupation}
-                height={matchCandidate.height}
-            />
-        );
-    }
+        </div>
+    ) : (
+        <CardLabelStack
+            occupation={matchCandidate.occupation}
+            height={matchCandidate.height}
+        />
+    );
+
+    const getVersionString = () => {
+        const now = new Date();
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        return `${hours}${minutes}`; // Combine hours and minutes
+    };
 
     return (
         <div style={sliderStyles}>
@@ -81,18 +72,19 @@ const CardContent = ({matchCandidate, handleSendGift}) => {
                     position: 'absolute',
                     height: 'calc(100% - 60px)',
                 }}/>
-                <img
-                    src={images[currentIndex] + `?v=1`}
-                    ref={el => (imageRefs.current[currentIndex] = el)}
-                    onLoad={() => handleImageLoad(currentIndex)}
-                    alt={`Slide ${currentIndex + 1}`}
-                    style={{
-                        ...imageStyle,
-                        display: 'none', // Initially hidden, shown when loaded
-                        height: 'calc(100% - 60px)',
-                        position: 'absolute',
-                    }}
-                />
+                {images.map((image, index) => (
+                    <img
+                        key={index}
+                        src={`${image}?v=${getVersionString()}`} // Use versioned URL
+                        alt={`Slide ${index + 1}`}
+                        style={{
+                            ...imageStyle,
+                            display: index === currentIndex ? 'block' : 'none', // Show current image, hide others
+                            height: 'calc(100% - 60px)',
+                            position: 'absolute',
+                        }}
+                    />
+                ))}
             </div>
             <ThreeDots
                 activeIndex={currentIndex}
