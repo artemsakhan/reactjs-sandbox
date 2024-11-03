@@ -1,35 +1,35 @@
 import React from "react";
-import {motion} from "framer-motion"; // Import Framer Motion
+import {motion} from "framer-motion";
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import UIConfig from "../../UIConfig";
 
-const ControlButtons = ({handleLike, handlePass}) => {
+const ControlButtons = ({ handleLike, handlePass }) => {
     return (
-        <div style={styles} className='cardControlButtons'>
+        <div style={styles} className="cardControlButtons">
             <motion.div
                 style={{
-                    marginLeft: '8px',
+                    marginLeft: "8px",
                     ...buttonStyle,
                     ...UIConfig.Card.PassButton,
                 }}
                 onClick={handlePass}
-                whileTap={{scale: 0.9}}
+                whileTap={{ scale: 0.9 }}
             >
                 <i className="fa-solid fa-xmark"></i>
             </motion.div>
             <motion.div
                 style={{
-                    marginRight: '8px',
+                    marginRight: "8px",
                     ...buttonStyle,
                 }}
-                whileTap={{scale: 0.9}}
                 onClick={handleLike}
+                whileTap={{ scale: 0.9 }}
             >
                 <i className="fa-solid fa-check"></i>
             </motion.div>
         </div>
     );
-}
+};
 
 const styles = {
     position: 'relative',

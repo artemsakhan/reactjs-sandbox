@@ -23,3 +23,11 @@ textarea::placeholder {
   color: rgb(122 124 130);
   opacity: 1;
 }
+
+.swiping {
+  pointer-events: none;
+}
+
+* {
+  user-select: none;
+}
