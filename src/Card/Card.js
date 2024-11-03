@@ -7,7 +7,13 @@ import CardFeature from "./Components/CardFeature";
 import UIConfig from "../UIConfig";
 
 const Card = (props) => {
-    const { matchCandidate, handleLike, handlePass, handleSendGift } = props;
+    const {
+        matchCandidate,
+        handleLike,
+        handlePass,
+        handleSendGift,
+        isFrontCard,
+    } = props;
 
     const animControls = useAnimationControls();
     const x = useMotionValue(0);
@@ -54,10 +60,11 @@ const Card = (props) => {
         animControls.start({ x: 0, transition: { duration: 0.3 } });
     };
 
+    console.log(isFrontCard)
     return (
         <motion.div
             ref={cardRef}
-            drag={true}
+            drag={isFrontCard}
             style={{
                 x: x,
                 ...containerStyle
@@ -86,8 +93,8 @@ const Card = (props) => {
                 />
                 {matchCandidate.isActive ? <CardFeature text="Active"/> : null}
                 <ControlButtons
-                    handleLike={() => swipeRight(matchCandidate.id, 'slow')}
-                    handlePass={() => swipeLeft(matchCandidate.id, 'slow')}
+                    handleLike={() => isFrontCard && swipeRight(matchCandidate.id, 'slow')}
+                    handlePass={() => isFrontCard && swipeLeft(matchCandidate.id, 'slow')}
                 />
             </div>
         </motion.div>

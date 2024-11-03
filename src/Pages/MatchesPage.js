@@ -118,6 +118,9 @@ const MatchesPage = () => {
         });
     };
 
+    // Layout only 2 cards at once
+    const subCandidates = matchCandidates.slice(-2)
+
     return (
         <>
             <Modals
@@ -127,12 +130,11 @@ const MatchesPage = () => {
                 closeSendGift={closeSendGift}
             />
             {(isLoading || matchCandidates.length === 0) && !isEmpty && <CardSkeleton />}
-            {matchCandidates
-                .slice(-2)
-                .map((candidate) => (
+            {subCandidates.map((candidate, i) => (
                     <Card
                         key={candidate.id}
                         matchCandidate={candidate}
+                        isFrontCard={(subCandidates.length-1) === i}
                         handleLike={() => removeCard(candidate.id, ActionLike)}
                         handlePass={() => removeCard(candidate.id, ActionPass)}
                         handleSendGift={() => null}
