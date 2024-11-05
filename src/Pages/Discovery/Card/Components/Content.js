@@ -1,11 +1,10 @@
-import React, {useEffect, useRef, useState} from "react";
+import React, {useState} from "react";
 import GiftButton from "./GiftButton";
 import ThreeDots from "./ThreeDots";
-import CardHeader from "./CardHeader";
-import CardLabelStack from "./CardLabelStack";
-import UIConfig from "../../UIConfig";
+import Bio from "./Bio";
+import LabelStack from "./LabelStack";
+import UIConfig from "../../../../UIConfig";
 import ContentLoader from "react-content-loader";
-import axios from "axios";
 
 const ImageLoader = (props) => (
     <ContentLoader
@@ -20,17 +19,24 @@ const ImageLoader = (props) => (
     </ContentLoader>
 )
 
-const CardContent = ({ matchCandidate, handleSendGift }) => {
-    const { images, aboutMe } = matchCandidate;
+const Content = ({ matchCandidate, openSendGiftPopup }) => {
+    const {
+        profile: {
+            photos,
+            bodyType,
+            height,
+            aboutMe,
+        },
+    } = matchCandidate;
 
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const nextImage = () => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length); // Loop back to the first image
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % photos.length);
     };
 
     const prevImage = () => {
-        setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length); // Loop to the last image if at the first
+        setCurrentIndex((prevIndex) => (prevIndex - 1 + photos.length) % photos.length);
     };
 
     const handleClick = (event) => {
@@ -38,31 +44,26 @@ const CardContent = ({ matchCandidate, handleSendGift }) => {
         const targetWidth = currentTarget.offsetWidth;
 
         if (clientX < targetWidth / 2) {
-            prevImage(); // Navigate to previous image
+            prevImage();
         } else {
-            nextImage(); // Navigate to next image
+            nextImage();
         }
     };
 
-    const contentBottom = aboutMe !== '' && currentIndex === 0 ? (
-        <div className="item" style={aboutMeContainer}>
-            <div className="cardHeaderAboutMe" style={aboutMeText}>
-                {aboutMe}
-            </div>
-        </div>
-    ) : (
-        <CardLabelStack
-            occupation={matchCandidate.occupation}
-            height={matchCandidate.height}
-        />
-    );
+    let contentBottom = <LabelStack
+        bodyType={bodyType}
+        height={height}
+    />
 
-    const getVersionString = () => {
-        const now = new Date();
-        const hours = String(now.getHours()).padStart(2, '0');
-        const minutes = String(now.getMinutes()).padStart(2, '0');
-        return `${hours}${minutes}`; // Combine hours and minutes
-    };
+    if (photos.length > 1) {
+        if (aboutMe && currentIndex === 1) {
+            contentBottom = <AboutMeText text={aboutMe}/>
+        }
+    } else if (photos.length === 0) {
+        if (aboutMe) {
+            contentBottom = <AboutMeText text={aboutMe}/>
+        }
+    }
 
     return (
         <div style={sliderStyles}>
@@ -72,14 +73,13 @@ const CardContent = ({ matchCandidate, handleSendGift }) => {
                     position: 'absolute',
                     height: 'calc(100% - 60px)',
                 }}/>
-                {images.map((image, index) => (
+                {photos.map((image, i) => (
                     <img
-                        key={index}
-                        src={`${image}?v=${getVersionString()}`} // Use versioned URL
-                        alt={`Slide ${index + 1}`}
+                        key={i}
+                        src={image}
                         style={{
                             ...imageStyle,
-                            display: index === currentIndex ? 'block' : 'none', // Show current image, hide others
+                            display: i === currentIndex ? 'block' : 'none',
                             height: 'calc(100% - 60px)',
                             position: 'absolute',
                         }}
@@ -88,18 +88,26 @@ const CardContent = ({ matchCandidate, handleSendGift }) => {
             </div>
             <ThreeDots
                 activeIndex={currentIndex}
-                imagesCount={images.length}
+                imagesCount={photos.length}
             />
-            <CardHeader
+            <Bio
                 matchCandidate={matchCandidate}
                 currentSection={currentIndex}
-                totalSections={images.length}
+                totalSections={photos.length}
             />
             {contentBottom}
-            <GiftButton handleSendGift={handleSendGift}/>
+            <GiftButton openSendGiftPopup={openSendGiftPopup}/>
         </div>
     );
 };
+
+const AboutMeText = ({text}) => (
+    <div className="item" style={aboutMeContainer}>
+        <div className="cardHeaderAboutMe" style={aboutMeTextStyle}>
+            {text}
+        </div>
+    </div>
+)
 
 const sliderStyles = {
     display: 'flex',
@@ -112,6 +120,7 @@ const sliderStyles = {
     cursor: 'pointer',
     borderRadius: UIConfig.Card.Content.borderRadius,
 }
+
 const imageContainerStyle = {
     display: 'flex',
     justifyContent: 'center',
@@ -138,7 +147,7 @@ const aboutMeContainer = {
     borderBottomRightRadius: UIConfig.Card.Content.borderRadius,
 }
 
-const aboutMeText = {
+const aboutMeTextStyle = {
     ...UIConfig.Typography.Card.AboutMe,
     width: 'calc(100% - 100px)',
     display: '-webkit-box',
@@ -151,4 +160,4 @@ const aboutMeText = {
     margin: '13px',
 }
 
-export default CardContent;
+export default Content;

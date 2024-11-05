@@ -1,9 +1,11 @@
 import React from "react";
 import {motion} from "framer-motion";
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import UIConfig from "../../UIConfig";
+import UIConfig from "../../../../UIConfig";
+import CheckShape from "../../../../Shapes/CheckShape";
+import CloseShape from "../../../../Shapes/CloseShape";
 
-const ControlButtons = ({ handleLike, handlePass }) => {
+const ActionButtons = ({ handleLike, handlePass }) => {
     return (
         <div style={styles} className="cardControlButtons">
             <motion.div
@@ -15,7 +17,7 @@ const ControlButtons = ({ handleLike, handlePass }) => {
                 onClick={handlePass}
                 whileTap={{ scale: 0.9 }}
             >
-                <i className="fa-solid fa-xmark"></i>
+                <CloseShape width={35} height={35} strokeWidth={2}/>
             </motion.div>
             <motion.div
                 style={{
@@ -25,7 +27,7 @@ const ControlButtons = ({ handleLike, handlePass }) => {
                 onClick={handleLike}
                 whileTap={{ scale: 0.9 }}
             >
-                <i className="fa-solid fa-check"></i>
+                <CheckShape strokeWidth={3}/>
             </motion.div>
         </div>
     );
@@ -61,4 +63,4 @@ const buttonStyle = {
     appearance: 'none',
 };
 
-export default ControlButtons;
+export default ActionButtons;

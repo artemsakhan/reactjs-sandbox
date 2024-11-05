@@ -5,7 +5,7 @@ var offset = 0;
 const fetchMatchCandidates = (limit) => {
     return new Promise((resolve) => {
         setTimeout(() => {
-            console.log('fetch candidates', offset, limit)
+            console.log('fetch', offset, limit)
             if (offset >= dummyData.MatchCandidates.length) {
                 resolve([])
             } else {
@@ -17,7 +17,17 @@ const fetchMatchCandidates = (limit) => {
     })
 }
 
-const likeMatchCandidate = (id) => {
+const sendGift = (hid) => {
+    console.log('send gift query', hid)
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(true);
+        }, 180);
+    })
+}
+
+const likeMatchCandidate = (hid) => {
+    console.log('like query', hid)
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve(true)
@@ -25,7 +35,8 @@ const likeMatchCandidate = (id) => {
     })
 };
 
-const passMatchCandidate = (id) => {
+const passMatchCandidate = (hid) => {
+    console.log('pass query', hid)
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve(true)
@@ -38,6 +49,7 @@ const ApiGateway = {
     fetchMatchCandidates,
     likeMatchCandidate,
     passMatchCandidate,
+    sendGift,
 };
 
 export default ApiGateway;

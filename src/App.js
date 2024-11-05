@@ -1,9 +1,8 @@
 import React, {useState} from 'react';
-import './index.css';
 import Tabbar from "./Tabbar";
 import UIConfig from "./UIConfig";
-import MatchesPage from "./Pages/MatchesPage";
-import MessagesPage from "./Pages/MessagesPage";
+import MatchesPage from "./Pages/Discovery/Discovery";
+import MessagesPage from "./Pages/Messages/Messages";
 
 const App = () => {
     const [pageIndex, setPageIndex] = useState(1);

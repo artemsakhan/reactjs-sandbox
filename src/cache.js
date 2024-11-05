@@ -4,7 +4,7 @@ let cacheData = [];
 let cachePromise = null;
 
 const queryMatchCandidates = (limit) => {
-    console.log('fetch', limit);
+    console.log('query', limit);
 
     // If cached data is available, return it
     if (cacheData.length > 0) {

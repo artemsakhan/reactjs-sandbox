@@ -1,8 +1,8 @@
 import React from 'react';
-import UIConfig from "../../UIConfig";
-import ChatOutlineShape from "../../Shapes/ChatOutlineShape";
+import UIConfig from "../../../../UIConfig";
+import ChatOutlineShape from "../../../../Shapes/ChatOutlineShape";
 
-const CardFeature = ({ text }) => {
+const Label = ({ text }) => {
     return (
         <div style={containerStyle}>
             <div style={itemStyle}>
@@ -40,4 +40,4 @@ const textStyle = {
     letterSpacing: '0.9px',
 };
 
-export default CardFeature;
+export default Label;

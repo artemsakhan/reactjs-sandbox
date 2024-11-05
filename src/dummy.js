@@ -1,492 +1,452 @@
-
-export const dummyData =  {
+const serverData = {
     MatchCandidates: [
         {
-            id: 1,
-            images: [
-                'https://kyivdate.app/photos/dbE7a4n/4h2m7.624c1e9412706.800x600.webp',
-                'https://kyivdate.app/photos/MXBLOrA/3e23b.624abe1af4d18.800x600.webp',
-                'https://kyivdate.app/photos/MXBLOrA/ob9dd.624abe7577647.800x600.webp',
+            "labels": [
+                "LABEL_LIKES_ME"
             ],
-            aboutMe: "Lifelong learner who loves exploring new cultures and trying new foods.",
-            name: "Kitty",
-            age: 27,
-            geoProximity: "9 km",
-            cityName: "Kyiv",
-            occupation: "Lawyer",
-            height: '180 cm',
-            isActive: true,
+            "profile": {
+                "hid": "lpB4W0j7lPkqZeM0",
+                "name": "Kitty",
+                "gender": "m",
+                "age": 27,
+                "city": {
+                    "id": 1,
+                    "name": "Kyiv",
+                    "country": {
+                        "id": 1,
+                        "name": "Ukraine"
+                    }
+                },
+                "photos_showcases": [
+                    {
+                        "o": "https://kyivdate.app/photos/dbE7a4n/4h2m7.624c1e9412706.800x600.webp"
+                    },
+                    {
+                        "o": "https://kyivdate.app/photos/MXBLOrA/3e23b.624abe1af4d18.800x600.webp"
+                    },
+                    {
+                        "o": "https://kyivdate.app/photos/MXBLOrA/ob9dd.624abe7577647.800x600.webp"
+                    }
+                ],
+                "about_me": "Lifelong learner who loves exploring new cultures and trying new foods.",
+                "online_state": "ONLINE_STATE_RECENTLY_SEEN",
+                "body_type": "Athletic"
+            },
+            "distance": 22
         },
         {
-            id: 2,
-            images: [
-                'https://kyivdate.app/photos/MXBLOrA/yr7g4.624abf3505902.800x600.webp',
-                'https://kyivdate.app/photos/MXBLOrA/b0y0d.624abf5ef198c.800x600.webp',
-                'https://kyivdate.app/photos/MXBLOrA/mdqdb.624abf8c876ed.800x600.webp',
+            "labels": [
+                "LABEL_LIKES_ME"
             ],
-            aboutMe: "Fitness junkie who enjoys yoga, running, and discovering healthy recipes to share with friends.",
-            name: "Alice",
-            city: "Kyiv",
-            age: 33,
-            geoProximity: "900 km",
-            cityName: "San-Francisco",
-            occupation: "Doctor",
-            height: '180 cm',
-            isActive: true,
+            "profile": {
+                "hid": "lpB4W0j7lPkqZeM1",
+                "name": "Alice",
+                "gender": "m",
+                "age": 33,
+                "city": {
+                    "id": 1,
+                    "name": "San-Francisco",
+                    "country": {
+                        "id": 1,
+                        "name": "Ukraine"
+                    }
+                },
+                "photos_showcases": [
+                    {
+                        "o": "https://kyivdate.app/photos/MXBLOrA/yr7g4.624abf3505902.800x600.webp"
+                    },
+                    {
+                        "o": "https://kyivdate.app/photos/MXBLOrA/b0y0d.624abf5ef198c.800x600.webp"
+                    },
+                    {
+                        "o": "https://kyivdate.app/photos/MXBLOrA/mdqdb.624abf8c876ed.800x600.webp"
+                    }
+                ],
+                "about_me": "Fitness junkie who enjoys yoga, running, and discovering healthy recipes to share with friends.",
+                "online_state": "ONLINE_STATE_RECENTLY_SEEN",
+                "occupation": "Doctor",
+                "height": {
+                    "unit": 180,
+                    "measure": 'cm',
+                },
+                "body_type": "Athletic"
+            },
+            "distance": 30
         },
         {
-            id: 3,
-            images: [
-                'https://kyivdate.app/photos/MXBLOrA/d9rc7.624abfb7cbc27.800x600.webp',
-                'https://kyivdate.app/photos/MXBLOrA/bb7xp.624abfe7a3993.800x600.webp',
-                'https://kyivdate.app/photos/dbE7a4n/4h2m7.624c1e9412706.800x600.webp',
-            ],
-            aboutMe: "Exploring the world one adventure at a time. Love hiking, photography, and meeting new people.",
-            name: "Olga",
-            age: 18,
-            cityName: "Los-Angeles",
-            geoProximity: "19 km",
-            occupation: "Engineer",
-            height: '170 cm',
-            isActive: true,
+            "labels": [],
+            "profile": {
+                "hid": "lpB4W0j7lPkqZeM2",
+                "name": "Olga",
+                "gender": "m",
+                "age": 18,
+                "city": {
+                    "id": 1,
+                    "name": "Los-Angeles",
+                    "country": {
+                        "id": 1,
+                        "name": "Ukraine"
+                    }
+                },
+                "photos_showcases": [
+                    {
+                        "o": "https://kyivdate.app/photos/MXBLOrA/d9rc7.624abfb7cbc27.800x600.webp"
+                    },
+                    {
+                        "o": "https://kyivdate.app/photos/MXBLOrA/bb7xp.624abfe7a3993.800x600.webp"
+                    },
+                    {
+                        "o": "https://kyivdate.app/photos/dbE7a4n/4h2m7.624c1e9412706.800x600.webp"
+                    }
+                ],
+                "about_me": "Exploring the world one adventure at a time. Love hiking, photography, and meeting new people.",
+                "online_state": "ONLINE_STATE_RECENTLY_SEEN",
+                "occupation": "Engineer",
+                "height": {
+                    "unit": 180,
+                    "measure": 'cm',
+                },
+                "body_type": "Athletic"
+            },
+            "distance": 84
         },
         {
-            id: 4,
-            images: [
-                'https://kyivdate.app/photos/MXBLOrA/3e23b.624abe1af4d18.800x600.webp',
-                'https://kyivdate.app/photos/MXBLOrA/ob9dd.624abe7577647.800x600.webp',
-                'https://kyivdate.app/photos/MXBLOrA/yr7g4.624abf3505902.800x600.webp',
-            ],
-            aboutMe: "Digital nomad navigating life through travel, technology, and a passion for capturing moments on camera.",
-            name: "Vlad",
-            age: 44,
-            geoProximity: "9 km",
-            cityName: "Barcelona",
-            occupation: "Data Scientist",
-            height: '170 cm',
-            isActive: true,
+            "labels": [],
+            "profile": {
+                "hid": "lpB4W0j7lPkqZeM3",
+                "name": "Vlad",
+                "gender": "m",
+                "age": 44,
+                "city": {
+                    "id": 1,
+                    "name": "Barcelona",
+                    "country": {
+                        "id": 1,
+                        "name": "Ukraine"
+                    }
+                },
+                "photos_showcases": [
+                    {
+                        "o": "https://kyivdate.app/photos/MXBLOrA/3e23b.624abe1af4d18.800x600.webp"
+                    },
+                    {
+                        "o": "https://kyivdate.app/photos/MXBLOrA/ob9dd.624abe7577647.800x600.webp"
+                    },
+                    {
+                        "o": "https://kyivdate.app/photos/MXBLOrA/yr7g4.624abf3505902.800x600.webp"
+                    }
+                ],
+                "about_me": "Digital nomad navigating life through travel, technology, and a passion for capturing moments on camera.",
+                "online_state": "ONLINE_STATE_RECENTLY_SEEN",
+                "occupation": "Data Scientist",
+                "height": {
+                    "unit": 180,
+                    "measure": 'cm',
+                },
+                "body_type": "Athletic"
+            },
+            "distance": 16
         },
         {
-            id: 5,
-            images: [
-                'https://kyivdate.app/photos/MXBLOrA/b0y0d.624abf5ef198c.800x600.webp',
-                'https://kyivdate.app/photos/MXBLOrA/mdqdb.624abf8c876ed.800x600.webp',
-                'https://kyivdate.app/photos/MXBLOrA/d9rc7.624abfb7cbc27.800x600.webp',
+            "labels": [
+                "LABEL_LIKES_ME"
             ],
-            aboutMe: "Just me",
-            name: "Britany",
-            age: 44,
-            geoProximity: "9 km",
-            cityName: "Pryazovske",
-            occupation: "Project Manager",
-            height: '170 cm',
-            isActive: false,
+            "profile": {
+                "hid": "lpB4W0j7lPkqZeM4",
+                "name": "Britany",
+                "gender": "m",
+                "age": 44,
+                "city": {
+                    "id": 1,
+                    "name": "Pryazovske",
+                    "country": {
+                        "id": 1,
+                        "name": "Ukraine"
+                    }
+                },
+                "photos_showcases": [
+                    {
+                        "o": "https://kyivdate.app/photos/MXBLOrA/b0y0d.624abf5ef198c.800x600.webp"
+                    },
+                    {
+                        "o": "https://kyivdate.app/photos/MXBLOrA/mdqdb.624abf8c876ed.800x600.webp"
+                    },
+                    {
+                        "o": "https://kyivdate.app/photos/MXBLOrA/d9rc7.624abfb7cbc27.800x600.webp"
+                    }
+                ],
+                "about_me": "Just me",
+                "online_state": "ONLINE_STATE_RECENTLY_SEEN",
+                "occupation": "Project Manager",
+                "height": {
+                    "unit": 180,
+                    "measure": 'cm',
+                },
+                "body_type": "Athletic"
+            },
+            "distance": 28
         },
         {
-            id: 6,
-            images: [
-                'https://kyivdate.app/photos/MXBLOrA/d9rc7.624abfb7cbc27.800x600.webp',
-                'https://kyivdate.app/photos/MXBLOrA/bb7xp.624abfe7a3993.800x600.webp',
-                'https://kyivdate.app/photos/dbE7a4n/4h2m7.624c1e9412706.800x600.webp',
+            "labels": [
+                "LABEL_LIKES_ME"
             ],
-            aboutMe: "Ashley, look at me",
-            name: "Beyonce",
-            age: 22,
-            geoProximity: "9 km",
-            cityName: "Kyiv",
-            occupation: "Cashier",
-            height: '156 cm',
-            isActive: true,
+            "profile": {
+                "hid": "lpB4W0j7lPkqZeM5",
+                "name": "Beyonce",
+                "gender": "m",
+                "age": 22,
+                "city": {
+                    "id": 1,
+                    "name": "Kyiv",
+                    "country": {
+                        "id": 1,
+                        "name": "Ukraine"
+                    }
+                },
+                "photos_showcases": [
+                    {
+                        "o": "https://kyivdate.app/photos/MXBLOrA/d9rc7.624abfb7cbc27.800x600.webp"
+                    },
+                    {
+                        "o": "https://kyivdate.app/photos/MXBLOrA/bb7xp.624abfe7a3993.800x600.webp"
+                    },
+                    {
+                        "o": "https://kyivdate.app/photos/dbE7a4n/4h2m7.624c1e9412706.800x600.webp"
+                    }
+                ],
+                "about_me": "Ashley, look at me",
+                "online_state": "ONLINE_STATE_RECENTLY_SEEN",
+                "occupation": "Cashier",
+                "height": {
+                    "unit": 180,
+                    "measure": 'cm',
+                },
+                "body_type": "Athletic"
+            },
+            "distance": 69
         },
         {
-            id: 7,
-            images: [
-                'https://kyivdate.app/photos/dbE7a4n/4h2m7.624c1e9412706.800x600.webp',
-                'https://kyivdate.app/photos/MXBLOrA/3e23b.624abe1af4d18.800x600.webp',
-                'https://kyivdate.app/photos/MXBLOrA/ob9dd.624abe7577647.800x600.webp',
-            ],
-            aboutMe: "I'm stronger, I'm smarter, I'm better, I am better...",
-            name: "Conor",
-            age: 23,
-            geoProximity: "9 km",
-            cityName: "Kyiv",
-            occupation: "IT Industry",
-            height: '170 cm',
-            isActive: false,
+            "labels": [],
+            "profile": {
+                "hid": "lpB4W0j7lPkqZeM6",
+                "name": "Conor",
+                "gender": "m",
+                "age": 23,
+                "city": {
+                    "id": 1,
+                    "name": "Kyiv",
+                    "country": {
+                        "id": 1,
+                        "name": "Ukraine"
+                    }
+                },
+                "photos_showcases": [
+                    {
+                        "o": "https://kyivdate.app/photos/dbE7a4n/4h2m7.624c1e9412706.800x600.webp"
+                    },
+                    {
+                        "o": "https://kyivdate.app/photos/MXBLOrA/3e23b.624abe1af4d18.800x600.webp"
+                    },
+                    {
+                        "o": "https://kyivdate.app/photos/MXBLOrA/ob9dd.624abe7577647.800x600.webp"
+                    }
+                ],
+                "about_me": "I'm stronger, I'm smarter, I'm better, I am better...",
+                "online_state": "ONLINE_STATE_RECENTLY_SEEN",
+                "occupation": "IT Industry",
+                "height": {
+                    "unit": 180,
+                    "measure": 'cm',
+                },
+                "body_type": "Athletic"
+            },
+            "distance": 6
         },
         {
-            id: 8,
-            images: [
-                'https://kyivdate.app/photos/dbE7a4n/4h2m7.624c1e9412706.800x600.webp',
-                'https://kyivdate.app/photos/MXBLOrA/3e23b.624abe1af4d18.800x600.webp',
-                'https://kyivdate.app/photos/MXBLOrA/ob9dd.624abe7577647.800x600.webp',
-            ],
-            aboutMe: "Lifelong learner who loves exploring new cultures and trying new foods.",
-            name: "Kitty",
-            age: 27,
-            geoProximity: "9 km",
-            cityName: "Kyiv",
-            occupation: "Lawyer",
-            height: '180 cm',
-            isActive: true,
+            "labels": [],
+            "profile": {
+                "hid": "lpB4W0j7lPkqZeM7",
+                "name": "Kitty",
+                "gender": "m",
+                "age": 27,
+                "city": {
+                    "id": 1,
+                    "name": "Kyiv",
+                    "country": {
+                        "id": 1,
+                        "name": "Ukraine"
+                    }
+                },
+                "photos_showcases": [
+                    {
+                        "o": "https://kyivdate.app/photos/dbE7a4n/4h2m7.624c1e9412706.800x600.webp"
+                    },
+                    {
+                        "o": "https://kyivdate.app/photos/MXBLOrA/3e23b.624abe1af4d18.800x600.webp"
+                    },
+                    {
+                        "o": "https://kyivdate.app/photos/MXBLOrA/ob9dd.624abe7577647.800x600.webp"
+                    }
+                ],
+                "about_me": "Lifelong learner who loves exploring new cultures and trying new foods.",
+                "online_state": "ONLINE_STATE_RECENTLY_SEEN",
+                "occupation": "Lawyer",
+                "height": {
+                    "unit": 180,
+                    "measure": 'cm',
+                },
+                "body_type": "Athletic"
+            },
+            "distance": 96
         },
         {
-            id: 9,
-            images: [
-                'https://kyivdate.app/photos/MXBLOrA/yr7g4.624abf3505902.800x600.webp',
-                'https://kyivdate.app/photos/MXBLOrA/b0y0d.624abf5ef198c.800x600.webp',
-                'https://kyivdate.app/photos/MXBLOrA/mdqdb.624abf8c876ed.800x600.webp',
+            "labels": [
+                "LABEL_LIKES_ME"
             ],
-            aboutMe: "Fitness junkie who enjoys yoga, running, and discovering healthy recipes to share with friends.",
-            name: "Alice",
-            city: "Kyiv",
-            age: 33,
-            geoProximity: "900 km",
-            cityName: "San-Francisco",
-            occupation: "Doctor",
-            height: '180 cm',
-            isActive: true,
+            "profile": {
+                "hid": "lpB4W0j7lPkqZeM8",
+                "name": "Alice",
+                "gender": "m",
+                "age": 33,
+                "city": {
+                    "id": 1,
+                    "name": "San-Francisco",
+                    "country": {
+                        "id": 1,
+                        "name": "Ukraine"
+                    }
+                },
+                "photos_showcases": [
+                    {
+                        "o": "https://kyivdate.app/photos/MXBLOrA/yr7g4.624abf3505902.800x600.webp"
+                    },
+                    {
+                        "o": "https://kyivdate.app/photos/MXBLOrA/b0y0d.624abf5ef198c.800x600.webp"
+                    },
+                    {
+                        "o": "https://kyivdate.app/photos/MXBLOrA/mdqdb.624abf8c876ed.800x600.webp"
+                    }
+                ],
+                "about_me": "Fitness junkie who enjoys yoga, running, and discovering healthy recipes to share with friends.",
+                "online_state": "ONLINE_STATE_RECENTLY_SEEN",
+                "occupation": "Doctor",
+                "height": {
+                    "unit": 180,
+                    "measure": 'cm',
+                },
+                "body_type": "Athletic"
+            },
+            "distance": 72
         },
         {
-            id: 10,
-            images: [
-                'https://kyivdate.app/photos/MXBLOrA/d9rc7.624abfb7cbc27.800x600.webp',
-                'https://kyivdate.app/photos/MXBLOrA/bb7xp.624abfe7a3993.800x600.webp',
-                'https://kyivdate.app/photos/dbE7a4n/4h2m7.624c1e9412706.800x600.webp',
-            ],
-            aboutMe: "Exploring the world one adventure at a time. Love hiking, photography, and meeting new people.",
-            name: "Olga",
-            age: 18,
-            cityName: "Los-Angeles",
-            geoProximity: "19 km",
-            occupation: "Engineer",
-            height: '170 cm',
-            isActive: true,
+            "labels": [],
+            "profile": {
+                "hid": "lpB4W0j7lPkqZeM9",
+                "name": "Olga",
+                "gender": "m",
+                "age": 18,
+                "city": {
+                    "id": 1,
+                    "name": "Los-Angeles",
+                    "country": {
+                        "id": 1,
+                        "name": "Ukraine"
+                    }
+                },
+                "photos_showcases": [
+                    {
+                        "o": "https://kyivdate.app/photos/MXBLOrA/d9rc7.624abfb7cbc27.800x600.webp"
+                    },
+                    {
+                        "o": "https://kyivdate.app/photos/MXBLOrA/bb7xp.624abfe7a3993.800x600.webp"
+                    },
+                    {
+                        "o": "https://kyivdate.app/photos/dbE7a4n/4h2m7.624c1e9412706.800x600.webp"
+                    }
+                ],
+                "about_me": "Exploring the world one adventure at a time. Love hiking, photography, and meeting new people.",
+                "online_state": "ONLINE_STATE_RECENTLY_SEEN",
+                "occupation": "Engineer",
+                "height": {
+                    "unit": 180,
+                    "measure": 'cm',
+                },
+                "body_type": "Athletic"
+            },
+            "distance": 82
         },
         {
-            id: 11,
-            images: [
-                'https://kyivdate.app/photos/dbE7a4n/4h2m7.624c1e9412706.800x600.webp',
-                'https://kyivdate.app/photos/MXBLOrA/3e23b.624abe1af4d18.800x600.webp',
-                'https://kyivdate.app/photos/MXBLOrA/ob9dd.624abe7577647.800x600.webp',
+            "labels": [
+                "LABEL_LIKES_ME"
             ],
-            aboutMe: "Lifelong learner who loves exploring new cultures and trying new foods.",
-            name: "Kitty",
-            age: 27,
-            geoProximity: "9 km",
-            cityName: "Kyiv",
-            occupation: "Lawyer",
-            height: '180 cm',
-            isActive: true,
-        },
-        {
-            id: 12,
-            images: [
-                'https://kyivdate.app/photos/MXBLOrA/yr7g4.624abf3505902.800x600.webp',
-                'https://kyivdate.app/photos/MXBLOrA/b0y0d.624abf5ef198c.800x600.webp',
-                'https://kyivdate.app/photos/MXBLOrA/mdqdb.624abf8c876ed.800x600.webp',
-            ],
-            aboutMe: "Fitness junkie who enjoys yoga, running, and discovering healthy recipes to share with friends.",
-            name: "Alice",
-            city: "Kyiv",
-            age: 33,
-            geoProximity: "900 km",
-            cityName: "San-Francisco",
-            occupation: "Doctor",
-            height: '180 cm',
-            isActive: true,
-        },
-        {
-            id: 13,
-            images: [
-                'https://kyivdate.app/photos/MXBLOrA/d9rc7.624abfb7cbc27.800x600.webp',
-                'https://kyivdate.app/photos/MXBLOrA/bb7xp.624abfe7a3993.800x600.webp',
-                'https://kyivdate.app/photos/dbE7a4n/4h2m7.624c1e9412706.800x600.webp',
-            ],
-            aboutMe: "Exploring the world one adventure at a time. Love hiking, photography, and meeting new people.",
-            name: "Olga",
-            age: 18,
-            cityName: "Los-Angeles",
-            geoProximity: "19 km",
-            occupation: "Engineer",
-            height: '170 cm',
-            isActive: true,
-        },
-        {
-            id: 14,
-            images: [
-                'https://kyivdate.app/photos/MXBLOrA/3e23b.624abe1af4d18.800x600.webp',
-                'https://kyivdate.app/photos/MXBLOrA/ob9dd.624abe7577647.800x600.webp',
-                'https://kyivdate.app/photos/MXBLOrA/yr7g4.624abf3505902.800x600.webp',
-            ],
-            aboutMe: "Digital nomad navigating life through travel, technology, and a passion for capturing moments on camera.",
-            name: "Vlad",
-            age: 44,
-            geoProximity: "9 km",
-            cityName: "Barcelona",
-            occupation: "Data Scientist",
-            height: '170 cm',
-            isActive: true,
-        },
-        {
-            id: 15,
-            images: [
-                'https://kyivdate.app/photos/MXBLOrA/b0y0d.624abf5ef198c.800x600.webp',
-                'https://kyivdate.app/photos/MXBLOrA/mdqdb.624abf8c876ed.800x600.webp',
-                'https://kyivdate.app/photos/MXBLOrA/d9rc7.624abfb7cbc27.800x600.webp',
-            ],
-            aboutMe: "Just me",
-            name: "Britany",
-            age: 44,
-            geoProximity: "9 km",
-            cityName: "Pryazovske",
-            occupation: "Project Manager",
-            height: '170 cm',
-            isActive: false,
-        },
-        {
-            id: 16,
-            images: [
-                'https://kyivdate.app/photos/MXBLOrA/d9rc7.624abfb7cbc27.800x600.webp',
-                'https://kyivdate.app/photos/MXBLOrA/bb7xp.624abfe7a3993.800x600.webp',
-                'https://kyivdate.app/photos/dbE7a4n/4h2m7.624c1e9412706.800x600.webp',
-            ],
-            aboutMe: "Ashley, look at me",
-            name: "Beyonce",
-            age: 22,
-            geoProximity: "9 km",
-            cityName: "Kyiv",
-            occupation: "Cashier",
-            height: '156 cm',
-            isActive: true,
-        },
-        {
-            id: 17,
-            images: [
-                'https://kyivdate.app/photos/dbE7a4n/4h2m7.624c1e9412706.800x600.webp',
-                'https://kyivdate.app/photos/MXBLOrA/3e23b.624abe1af4d18.800x600.webp',
-                'https://kyivdate.app/photos/MXBLOrA/ob9dd.624abe7577647.800x600.webp',
-            ],
-            aboutMe: "I'm stronger, I'm smarter, I'm better, I am better...",
-            name: "Conor",
-            age: 23,
-            geoProximity: "9 km",
-            cityName: "Kyiv",
-            occupation: "IT Industry",
-            height: '170 cm',
-            isActive: false,
-        },
-        {
-            id: 18,
-            images: [
-                'https://kyivdate.app/photos/dbE7a4n/4h2m7.624c1e9412706.800x600.webp',
-                'https://kyivdate.app/photos/MXBLOrA/3e23b.624abe1af4d18.800x600.webp',
-                'https://kyivdate.app/photos/MXBLOrA/ob9dd.624abe7577647.800x600.webp',
-            ],
-            aboutMe: "Lifelong learner who loves exploring new cultures and trying new foods.",
-            name: "Kitty",
-            age: 27,
-            geoProximity: "9 km",
-            cityName: "Kyiv",
-            occupation: "Lawyer",
-            height: '180 cm',
-            isActive: true,
-        },
-        {
-            id: 19,
-            images: [
-                'https://kyivdate.app/photos/MXBLOrA/yr7g4.624abf3505902.800x600.webp',
-                'https://kyivdate.app/photos/MXBLOrA/b0y0d.624abf5ef198c.800x600.webp',
-                'https://kyivdate.app/photos/MXBLOrA/mdqdb.624abf8c876ed.800x600.webp',
-            ],
-            aboutMe: "Fitness junkie who enjoys yoga, running, and discovering healthy recipes to share with friends.",
-            name: "Alice",
-            city: "Kyiv",
-            age: 33,
-            geoProximity: "900 km",
-            cityName: "San-Francisco",
-            occupation: "Doctor",
-            height: '180 cm',
-            isActive: true,
-        },
-        {
-            id: 20,
-            images: [
-                'https://kyivdate.app/photos/MXBLOrA/d9rc7.624abfb7cbc27.800x600.webp',
-                'https://kyivdate.app/photos/MXBLOrA/bb7xp.624abfe7a3993.800x600.webp',
-                'https://kyivdate.app/photos/dbE7a4n/4h2m7.624c1e9412706.800x600.webp',
-            ],
-            aboutMe: "Exploring the world one adventure at a time. Love hiking, photography, and meeting new people.",
-            name: "Olga",
-            age: 18,
-            cityName: "Los-Angeles",
-            geoProximity: "19 km",
-            occupation: "Engineer",
-            height: '170 cm',
-            isActive: true,
-        },
-        {
-            id: 21,
-            images: [
-                'https://kyivdate.app/photos/dbE7a4n/4h2m7.624c1e9412706.800x600.webp',
-                'https://kyivdate.app/photos/MXBLOrA/3e23b.624abe1af4d18.800x600.webp',
-                'https://kyivdate.app/photos/MXBLOrA/ob9dd.624abe7577647.800x600.webp',
-            ],
-            aboutMe: "Lifelong learner who loves exploring new cultures and trying new foods.",
-            name: "Kitty",
-            age: 27,
-            geoProximity: "9 km",
-            cityName: "Kyiv",
-            occupation: "Lawyer",
-            height: '180 cm',
-            isActive: true,
-        },
-        {
-            id: 22,
-            images: [
-                'https://kyivdate.app/photos/MXBLOrA/yr7g4.624abf3505902.800x600.webp',
-                'https://kyivdate.app/photos/MXBLOrA/b0y0d.624abf5ef198c.800x600.webp',
-                'https://kyivdate.app/photos/MXBLOrA/mdqdb.624abf8c876ed.800x600.webp',
-            ],
-            aboutMe: "Fitness junkie who enjoys yoga, running, and discovering healthy recipes to share with friends.",
-            name: "Alice",
-            city: "Kyiv",
-            age: 33,
-            geoProximity: "900 km",
-            cityName: "San-Francisco",
-            occupation: "Doctor",
-            height: '180 cm',
-            isActive: true,
-        },
-        {
-            id: 23,
-            images: [
-                'https://kyivdate.app/photos/MXBLOrA/d9rc7.624abfb7cbc27.800x600.webp',
-                'https://kyivdate.app/photos/MXBLOrA/bb7xp.624abfe7a3993.800x600.webp',
-                'https://kyivdate.app/photos/dbE7a4n/4h2m7.624c1e9412706.800x600.webp',
-            ],
-            aboutMe: "Exploring the world one adventure at a time. Love hiking, photography, and meeting new people.",
-            name: "Olga",
-            age: 18,
-            cityName: "Los-Angeles",
-            geoProximity: "19 km",
-            occupation: "Engineer",
-            height: '170 cm',
-            isActive: true,
-        },
-        {
-            id: 24,
-            images: [
-                'https://kyivdate.app/photos/MXBLOrA/3e23b.624abe1af4d18.800x600.webp',
-                'https://kyivdate.app/photos/MXBLOrA/ob9dd.624abe7577647.800x600.webp',
-                'https://kyivdate.app/photos/MXBLOrA/yr7g4.624abf3505902.800x600.webp',
-            ],
-            aboutMe: "Digital nomad navigating life through travel, technology, and a passion for capturing moments on camera.",
-            name: "Vlad",
-            age: 44,
-            geoProximity: "9 km",
-            cityName: "Barcelona",
-            occupation: "Data Scientist",
-            height: '170 cm',
-            isActive: true,
-        },
-        {
-            id: 25,
-            images: [
-                'https://kyivdate.app/photos/MXBLOrA/b0y0d.624abf5ef198c.800x600.webp',
-                'https://kyivdate.app/photos/MXBLOrA/mdqdb.624abf8c876ed.800x600.webp',
-                'https://kyivdate.app/photos/MXBLOrA/d9rc7.624abfb7cbc27.800x600.webp',
-            ],
-            aboutMe: "Just me",
-            name: "Britany",
-            age: 44,
-            geoProximity: "9 km",
-            cityName: "Pryazovske",
-            occupation: "Project Manager",
-            height: '170 cm',
-            isActive: false,
-        },
-        {
-            id: 26,
-            images: [
-                'https://kyivdate.app/photos/MXBLOrA/d9rc7.624abfb7cbc27.800x600.webp',
-                'https://kyivdate.app/photos/MXBLOrA/bb7xp.624abfe7a3993.800x600.webp',
-                'https://kyivdate.app/photos/dbE7a4n/4h2m7.624c1e9412706.800x600.webp',
-            ],
-            aboutMe: "Ashley, look at me",
-            name: "Beyonce",
-            age: 22,
-            geoProximity: "9 km",
-            cityName: "Kyiv",
-            occupation: "Cashier",
-            height: '156 cm',
-            isActive: true,
-        },
-        {
-            id: 27,
-            images: [
-                'https://kyivdate.app/photos/dbE7a4n/4h2m7.624c1e9412706.800x600.webp',
-                'https://kyivdate.app/photos/MXBLOrA/3e23b.624abe1af4d18.800x600.webp',
-                'https://kyivdate.app/photos/MXBLOrA/ob9dd.624abe7577647.800x600.webp',
-            ],
-            aboutMe: "I'm stronger, I'm smarter, I'm better, I am better...",
-            name: "Conor",
-            age: 23,
-            geoProximity: "9 km",
-            cityName: "Kyiv",
-            occupation: "IT Industry",
-            height: '170 cm',
-            isActive: false,
-        },
-        {
-            id: 28,
-            images: [
-                'https://kyivdate.app/photos/dbE7a4n/4h2m7.624c1e9412706.800x600.webp',
-                'https://kyivdate.app/photos/MXBLOrA/3e23b.624abe1af4d18.800x600.webp',
-                'https://kyivdate.app/photos/MXBLOrA/ob9dd.624abe7577647.800x600.webp',
-            ],
-            aboutMe: "Lifelong learner who loves exploring new cultures and trying new foods.",
-            name: "Kitty",
-            age: 27,
-            geoProximity: "9 km",
-            cityName: "Kyiv",
-            occupation: "Lawyer",
-            height: '180 cm',
-            isActive: true,
-        },
-        {
-            id: 29,
-            images: [
-                'https://kyivdate.app/photos/MXBLOrA/yr7g4.624abf3505902.800x600.webp',
-                'https://kyivdate.app/photos/MXBLOrA/b0y0d.624abf5ef198c.800x600.webp',
-                'https://kyivdate.app/photos/MXBLOrA/mdqdb.624abf8c876ed.800x600.webp',
-            ],
-            aboutMe: "Fitness junkie who enjoys yoga, running, and discovering healthy recipes to share with friends.",
-            name: "Alice",
-            city: "Kyiv",
-            age: 33,
-            geoProximity: "900 km",
-            cityName: "San-Francisco",
-            occupation: "Doctor",
-            height: '180 cm',
-            isActive: true,
-        },
-        {
-            id: 30,
-            images: [
-                'https://kyivdate.app/photos/MXBLOrA/d9rc7.624abfb7cbc27.800x600.webp',
-                'https://kyivdate.app/photos/MXBLOrA/bb7xp.624abfe7a3993.800x600.webp',
-                'https://kyivdate.app/photos/dbE7a4n/4h2m7.624c1e9412706.800x600.webp',
-            ],
-            aboutMe: "Exploring the world one adventure at a time. Love hiking, photography, and meeting new people.",
-            name: "Olga",
-            age: 18,
-            cityName: "Los-Angeles",
-            geoProximity: "19 km",
-            occupation: "Engineer",
-            height: '170 cm',
-            isActive: true,
-        },
-
+            "profile": {
+                "hid": "lpB4W0j7lPkqZeM10",
+                "name": "Kitty",
+                "gender": "m",
+                "age": 27,
+                "city": {
+                    "id": 1,
+                    "name": "Kyiv",
+                    "country": {
+                        "id": 1,
+                        "name": "Ukraine"
+                    }
+                },
+                "photos_showcases": [
+                    {
+                        "o": "https://kyivdate.app/photos/dbE7a4n/4h2m7.624c1e9412706.800x600.webp"
+                    },
+                    {
+                        "o": "https://kyivdate.app/photos/MXBLOrA/3e23b.624abe1af4d18.800x600.webp"
+                    },
+                    {
+                        "o": "https://kyivdate.app/photos/MXBLOrA/ob9dd.624abe7577647.800x600.webp"
+                    }
+                ],
+                "about_me": "Lifelong learner who loves exploring new cultures and trying new foods.",
+                "online_state": "ONLINE_STATE_RECENTLY_SEEN",
+                "occupation": "Lawyer",
+                "height": {
+                    "unit": 180,
+                    "measure": 'cm',
+                },
+                "body_type": "Athletic"
+            },
+            "distance": 30
+        }
     ],
 };
+
+function mapToModel(v)  {
+    let geoProximity = ''
+
+    if (v.distance === 0) {
+        geoProximity = 'In your area'
+    } else if (v.distance > 500) {
+        geoProximity = 'Far away'
+    } else {
+        geoProximity = `${v.distance} km away`
+    }
+
+    return {
+        isActive: v.profile.online_state === 'ONLINE_STATE_ONLINE',
+        likesMe: v.labels.includes('LABEL_LIKES_ME'),
+        profile: {
+            hid: v.profile.hid,
+            name: v.profile.name,
+            age: v.profile.age,
+            geoProximity: geoProximity,
+            aboutMe: v.profile.about_me,
+            bodyType: v.profile.body_type,
+            occupation: v.profile.occupation,
+            height: v.profile.height ? `${v.profile.height.unit} ${v.profile.height.measure}` : null,
+            photos: v.profile.photos_showcases.map((p) => p.o),
+            cityName: v.profile.city?.name,
+        }
+    }
+}
+
+export const dummyData = {
+    MatchCandidates: serverData.MatchCandidates.map(item => mapToModel(item)),
+};
+

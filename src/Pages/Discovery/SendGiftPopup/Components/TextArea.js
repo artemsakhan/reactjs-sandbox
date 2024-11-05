@@ -1,5 +1,5 @@
-import React, {useEffect, useRef} from 'react';
-import UIConfig from "../UIConfig";
+import React from 'react';
+import UIConfig from "../../../../UIConfig";
 
 const TextArea = ({ value, onChange, placeholder, disabled }) => {
     return (

@@ -1,17 +1,16 @@
-import React, {useEffect, useRef} from 'react';
+import React, {forwardRef, useEffect, useImperativeHandle, useRef} from 'react';
 import {motion, useAnimationControls, useMotionValue} from 'framer-motion';
-import '../index.css';
-import CardContent from "./Components/CardContent";
-import ControlButtons from "./Components/ControlButtons";
-import CardFeature from "./Components/CardFeature";
-import UIConfig from "../UIConfig";
+import Content from "./Components/Content";
+import ActionButtons from "./Components/ActionButtons";
+import Label from "./Components/Label";
+import UIConfig from "../../../UIConfig";
 
-const Card = (props) => {
+const Card = forwardRef((props, ref) => {
     const {
         matchCandidate,
         handleLike,
         handlePass,
-        handleSendGift,
+        openSendGiftPopup,
         isFrontCard,
     } = props;
 
@@ -22,7 +21,7 @@ const Card = (props) => {
 
     useEffect(bodyScrollControl, []);
 
-    const swipeRight = (id, type = null) => {
+    const swipeRight = (candidate, type = null) => {
         window.Telegram.WebApp.HapticFeedback.impactOccurred('rigid');
 
         const duration = type === 'slow' ? 0.6 : 0.4;
@@ -35,11 +34,11 @@ const Card = (props) => {
             transitionEnd: { display: 'none' },
         }).then(() => {
             cardRef.current.classList.remove('swiping');
-            handleLike(id);
+            handleLike(candidate);
         });
     };
 
-    const swipeLeft = (id, type = null) => {
+    const swipeLeft = (candidate, type = null) => {
         window.Telegram.WebApp.HapticFeedback.impactOccurred('rigid');
 
         const duration = type === 'slow' ? 0.6 : 0.4;
@@ -52,15 +51,19 @@ const Card = (props) => {
             transitionEnd: { display: 'none' },
         }).then(() => {
             cardRef.current.classList.remove('swiping');
-            handlePass(id);
+            handlePass(candidate);
         });
     };
+
+    useImperativeHandle(ref, () => ({
+        swipeRight: (type) => swipeRight(matchCandidate, type),
+        swipeLeft: (type) => swipeLeft(matchCandidate, type),
+    }));
 
     const snapBack = () => {
         animControls.start({ x: 0, transition: { duration: 0.3 } });
     };
 
-    console.log(isFrontCard)
     return (
         <motion.div
             ref={cardRef}
@@ -77,9 +80,9 @@ const Card = (props) => {
                     window.Telegram.WebApp.HapticFeedback.impactOccurred('rigid');
 
                     if (info.offset.x > 0) {
-                        swipeRight(matchCandidate.id);
+                        swipeRight(matchCandidate);
                     } else {
-                        swipeLeft(matchCandidate.id);
+                        swipeLeft(matchCandidate);
                     }
                 } else {
                     snapBack();
@@ -87,20 +90,19 @@ const Card = (props) => {
             }}
         >
             <div className="cardContent" style={contentStyle}>
-                <CardContent
+                <Content
                     matchCandidate={matchCandidate}
-                    handleSendGift={handleSendGift}
+                    openSendGiftPopup={openSendGiftPopup}
                 />
-                {matchCandidate.isActive ? <CardFeature text="Active"/> : null}
-                <ControlButtons
-                    handleLike={() => isFrontCard && swipeRight(matchCandidate.id, 'slow')}
-                    handlePass={() => isFrontCard && swipeLeft(matchCandidate.id, 'slow')}
+                {matchCandidate.isActive ? <Label text="Active"/> : null}
+                <ActionButtons
+                    handleLike={() => isFrontCard && swipeRight(matchCandidate, 'slow')}
+                    handlePass={() => isFrontCard && swipeLeft(matchCandidate, 'slow')}
                 />
             </div>
         </motion.div>
     );
-};
-
+});
 
 const bodyScrollControl = () => {
     // Disable scrolling in the entire app

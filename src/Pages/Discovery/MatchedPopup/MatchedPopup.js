@@ -1,48 +1,14 @@
 import React, {useEffect, useState} from "react";
 import {motion} from "framer-motion";
-import UIConfig from "../UIConfig";
-import ChatShape from "../Shapes/ChatShape";
-import HeartExploadingAnimation from "../Components/HeartExploadingAnimation";
+import heartAnimationData from "../../../Assets/heart_exploading.json";
+import LottieAnimation from "../../../Other/LottieAnimation";
+import SendMessageButton from "./Components/SendMessageButton";
+import KeepSwipingButton from "./Components/KeepSwipingButton";
+import CloseButton from "./Components/CloseButton";
 
-const SendMessageButton = () => (
-    <div
-        className="greetingButton"
-        style={actionButtonContainerStyle}
-    >
-        <motion.div whileTap={{scale: 0.9}} style={{width: '100%'}}>
-            <motion.div
-                style={greetingButtonStyle}
-            >
-                <span style={{fontSize: '17px'}}>Say Hi</span>
-                <ChatShape fill={'#000'} width={20} height={20} style={{marginLeft: '10px'}}/>
-            </motion.div>
-        </motion.div>
-    </div>
-)
 
-const KeepSwipingButton = ({ handleClose }) => {
-    return (
-        <div
-            className="keepSwipingButton"
-            style={actionButtonContainerStyle}
-        >
-            <motion.div
-                whileTap={{scale: 0.9}}
-                onTap={handleClose}
-                style={{width: '100%'}}
-            >
-                <motion.div
-                    style={keepSwipingButtonStyle}
-                >
-                    <span style={{fontSize: '17px'}}>Keep swiping</span>
-                    <i className="fa-solid fa-caret-down" style={{marginLeft: '10px'}}></i>
-                </motion.div>
-            </motion.div>
-        </div>
-    )
-}
 
-const NewMatchPopup = ({handleClose}) => {
+const MatchedPopup = ({handleClose}) => {
     const [isAnimated, setIsAnimated] = useState(false);
 
     useEffect(() => {
@@ -92,7 +58,12 @@ const NewMatchPopup = ({handleClose}) => {
                     transition={{type: 'spring', stiffness: 300, damping: 40, duration: 0.4}}
                 >
                     <div style={{position: 'absolute', left: 'calc(50% - 60px)', top: 'calc(53% - 60px)'}}>
-                        <HeartExploadingAnimation width={120} height={120} shouldAnimate={isAnimated}/>
+                        <LottieAnimation
+                            width={120}
+                            height={120}
+                            shouldAnimate={isAnimated}
+                            animationData={heartAnimationData}
+                        />
                     </div>
                 </motion.div>
             </div>
@@ -112,16 +83,7 @@ const NewMatchPopup = ({handleClose}) => {
                 <KeepSwipingButton handleClose={handleClose}/>
             </div>
 
-            <motion.div
-                whileTap={{scale: 0.8}}
-                onTap={handleClose}
-                className="newMatchCloseButton"
-                style={closeButtonContainerStyle}
-            >
-                <motion.div>
-                    <i className="fa-solid fa-xmark" style={closeButtonStyle}/>
-                </motion.div>
-            </motion.div>
+            <CloseButton handleClose={handleClose}/>
         </div>
     );
 };
@@ -199,57 +161,5 @@ const heartIconStyle = {
     alignItems: 'center',
 };
 
-const greetingButtonStyle = {
-    width: '100%',
-    height: '50px',
-    color: 'black',
-    border: 'none',
-    borderRadius: '45px',
-    background: UIConfig.Colors.Primary,
-    fontSize: '20px',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    outline: 'none',
-    textAlign: 'center',
-    appearance: 'none',
-    fontWeight: 500,
-    marginBottom: '10px',
-};
 
-const keepSwipingButtonStyle = {
-    ...greetingButtonStyle,
-    color: '#FFF',
-    background: 'none',
-};
-
-const closeButtonStyle = {
-    width: '45px',
-    height: '45px',
-    color: '#FFF',
-    border: 'none',
-    borderRadius: '23px',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    outline: 'none',
-    textAlign: 'center',
-    appearance: 'none',
-    cursor: 'pointer',
-    fontSize: '24px',
-};
-
-const closeButtonContainerStyle = {
-    position: 'absolute',
-    right: '10px',
-    top: '10px',
-};
-
-const actionButtonContainerStyle = {
-    width: 'calc(100% - 65px)',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-};
-
-export default NewMatchPopup;
+export default MatchedPopup;
