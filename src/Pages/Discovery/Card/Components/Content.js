@@ -29,14 +29,19 @@ const Content = ({ matchCandidate, openSendGiftPopup }) => {
         },
     } = matchCandidate;
 
+    const [textExpanded, setTextExpanded] = useState(false);
     const [currentIndex, setCurrentIndex] = useState(0);
+
+    const toggleText = () => setTextExpanded(!textExpanded);
 
     const nextImage = () => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % photos.length);
+        setTextExpanded(false);
     };
 
     const prevImage = () => {
         setCurrentIndex((prevIndex) => (prevIndex - 1 + photos.length) % photos.length);
+        setTextExpanded(false);
     };
 
     const handleClick = (event) => {
@@ -57,7 +62,11 @@ const Content = ({ matchCandidate, openSendGiftPopup }) => {
 
     if (photos.length > 1) {
         if (aboutMe && currentIndex === 1) {
-            contentBottom = <AboutMeText text={aboutMe}/>
+            contentBottom = <AboutMeText
+                text={aboutMe}
+                isExpanded={textExpanded}
+                toggleText={toggleText}
+            />
         }
     } else if (photos.length === 0) {
         if (aboutMe) {
@@ -101,9 +110,14 @@ const Content = ({ matchCandidate, openSendGiftPopup }) => {
     );
 };
 
-const AboutMeText = ({text}) => (
-    <div className="item" style={aboutMeContainer}>
-        <div className="cardHeaderAboutMe" style={aboutMeTextStyle}>
+const AboutMeText = ({text, isExpanded, toggleText}) => (
+    <div className="item" style={aboutMeContainer} onClick={toggleText}>
+        <div className="cardHeaderAboutMe" style={{
+            ...aboutMeTextStyle,
+            ...(isExpanded ? {
+                WebkitLineClamp: 4,
+            } : null)
+        }}>
             {text}
         </div>
     </div>
