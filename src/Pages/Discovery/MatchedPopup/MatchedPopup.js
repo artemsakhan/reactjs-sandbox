@@ -1,10 +1,9 @@
 import React, {useEffect, useState} from "react";
 import {motion} from "framer-motion";
-import heartAnimationData from "../../../Assets/heart_exploading.json";
-import LottieAnimation from "../../../Other/LottieAnimation";
 import SendMessageButton from "./Components/SendMessageButton";
 import KeepSwipingButton from "./Components/KeepSwipingButton";
 import CloseButton from "./Components/CloseButton";
+import HeartExploadingLottie from "../../../Other/HeartExploadingLottie";
 
 
 
@@ -14,7 +13,7 @@ const MatchedPopup = ({handleClose}) => {
     useEffect(() => {
         const timer = setTimeout(() => {
             setIsAnimated(true);
-        }, 100);
+        }, 200);
 
         return () => clearTimeout(timer);
     }, []);
@@ -58,11 +57,10 @@ const MatchedPopup = ({handleClose}) => {
                     transition={{type: 'spring', stiffness: 300, damping: 40, duration: 0.4}}
                 >
                     <div style={{position: 'absolute', left: 'calc(50% - 60px)', top: 'calc(53% - 60px)'}}>
-                        <LottieAnimation
+                        <HeartExploadingLottie
                             width={120}
                             height={120}
                             shouldAnimate={isAnimated}
-                            animationData={heartAnimationData}
                         />
                     </div>
                 </motion.div>

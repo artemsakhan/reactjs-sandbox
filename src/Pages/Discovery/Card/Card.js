@@ -19,8 +19,6 @@ const Card = forwardRef((props, ref) => {
 
     const cardRef = useRef(null); // Ref for card element
 
-    useEffect(bodyScrollControl, []);
-
     const swipeRight = (candidate, type = null) => {
         window.Telegram.WebApp.HapticFeedback.impactOccurred('rigid');
 
@@ -103,24 +101,6 @@ const Card = forwardRef((props, ref) => {
         </motion.div>
     );
 });
-
-const bodyScrollControl = () => {
-    // Disable scrolling in the entire app
-    document.body.style.overflow = 'hidden';
-
-    // Disable scrolling on touch devices
-    const preventScroll = (e) => {
-        e.preventDefault();
-    };
-
-    window.addEventListener('touchmove', preventScroll, {passive: false});
-
-    return () => {
-        // Re-enable scrolling when the component unmounts
-        document.body.style.overflow = '';
-        window.removeEventListener('touchmove', preventScroll);
-    };
-}
 
 const containerStyle = {
     position: 'absolute',

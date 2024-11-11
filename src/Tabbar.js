@@ -7,7 +7,7 @@ import ChatShape from "./Shapes/ChatShape";
 
 const iconSize = '24px';
 
-const Tabbar = ({onSwitchPage}) => {
+const Tabbar = ({onSwitchPage, theme}) => {
     const [activeTab, setActiveTab] = useState(1);
 
     const isActiveTab = (id) => activeTab === id
@@ -17,20 +17,29 @@ const Tabbar = ({onSwitchPage}) => {
         onSwitchPage(id)
     }
 
+    const activeColor = theme === 'dark' ? UIConfig.Colors.Primary : '#000';
+    const inactiveColor = theme === 'dark' ? UIConfig.TabBar.Icon.Background : 'rgb(191 184 201)';
+
     return (
-        <div className="tabbar" style={containerStyle}>
+        <div className="tabbar" style={{
+            ...containerStyle,
+            ...(theme === 'white' && {
+                background: UIConfig.Colors.BackgroundWhite,
+                borderTop: '1px solid rgb(224 224 224)',
+            })
+        }}>
             <div className="tabbarList" style={listStyle}>
                 <div className="tabbarListItem" style={listItemStyle} onClick={() => switchPageTo(1)}>
                     <SearchSquareShape
                         width={iconSize}
                         height={iconSize}
-                        fill={isActiveTab(1) ? UIConfig.Colors.Primary : UIConfig.TabBar.Icon.Background}
+                        fill={isActiveTab(1) ? activeColor : inactiveColor}
                     />
                     <span
                         className="tabbarListItemText"
                         style={{
                             ...listItemTextStyle,
-                            ...(isActiveTab(1) ? {color: UIConfig.Colors.Primary} : {})
+                            ...(isActiveTab(1) ? {color: activeColor} : {color: inactiveColor})
                         }}
                     >
                         Search
@@ -40,13 +49,13 @@ const Tabbar = ({onSwitchPage}) => {
                     <ChatShape
                         width={iconSize}
                         height={iconSize}
-                        fill={isActiveTab(2) ? UIConfig.Colors.Primary : UIConfig.TabBar.Icon.Background}
+                        fill={isActiveTab(2) ? activeColor : inactiveColor}
                     />
                     <span
                         className="tabbarListItemText"
                         style={{
                             ...listItemTextStyle,
-                            ...(isActiveTab(2) ? {color: UIConfig.Colors.Primary} : {})
+                            ...(isActiveTab(2) ? {color: activeColor} : { color: inactiveColor})
                         }}
                     >
                         Messages
@@ -56,13 +65,13 @@ const Tabbar = ({onSwitchPage}) => {
                     <UserSquareShape
                         width={iconSize}
                         height={iconSize}
-                        fill={isActiveTab(3) ? UIConfig.Colors.Primary : UIConfig.TabBar.Icon.Background}
+                        fill={isActiveTab(3) ? activeColor : inactiveColor}
                     />
                     <span
                         className="tabbarListItemText"
                         style={{
                             ...listItemTextStyle,
-                            ...(isActiveTab(3) ? {color: UIConfig.Colors.Primary} : {})
+                            ...(isActiveTab(3) ? {color: activeColor} : { color: inactiveColor})
                         }}
                     >
                         Profile

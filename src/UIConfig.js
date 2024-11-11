@@ -20,10 +20,10 @@ const UIConfig = {
         BackgroundMedium: colorBackgroundMedium,
         BackgroundLight: colorBackgroundLight,
         BackgroundDark: colorBackgroundDark,
+        BackgroundWhite: 'rgb(245 245 245)',
     },
     TabBar: {
         Content: {
-            // background: colorBackgroundDark,
             color: '#FFF',
             height: '80px',
         },
