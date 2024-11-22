@@ -127,6 +127,7 @@ const photoItemStyle = {
     borderRadius: '15px',
     boxShadow: '2px -2px 10px rgba(0, 0, 0, 0.2)',
 };
+
 const headlineStyle = {
     fontFamily: '"Helvetica Neue", Arial, sans-serif',
     fontSize: '40px',

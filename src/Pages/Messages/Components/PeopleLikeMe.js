@@ -1,80 +1,76 @@
+import HeartSimpleShape from "../../../Shapes/HeartSimpleShape";
+import {motion} from "framer-motion";
+import ArrowRightShape from "../../../Shapes/ArrowRightShape";
+import UIConfig from "../../../UIConfig";
 
-const Images = () => {
+export const PeopleLikeMe = ({openLikesMe}) => {
     return (
-        <div style={{
-            width: '80px',
-            height: '80px',
-            position: 'relative',
-            marginLeft: '20px',
-        }}>
-            <div style={{
-                width: '65px',
-                height: '65px',
-                objectFit: 'cover',
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                borderRadius: '30px',
-                border: '2px solid #FFF',
-                overflow: 'hidden',
-            }}>
-                <img
-                    src="https://kyivdate.app/photos/MXBLOrA/d9rc7.624abfb7cbc27.120x120.webp"
-                    style={{
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'cover',
-                    }}
-                    alt=""
-                />
+        <motion.div
+            style={containerStyle}
+            onTap={openLikesMe}
+            whileTap={{ opacity: 0.8}}
+        >
+            <div style={iconContainerStyle}>
+                <div style={iconBackgroundStyle}>
+                    <HeartSimpleShape
+                        with={30}
+                        height={30}
+                        fill={UIConfig.Colors.Primary}
+                    />
+                </div>
             </div>
-
-            <div style={{
-                width: '65px',
-                height: '65px',
-                objectFit: 'cover',
-                position: 'absolute',
-                top: 15,
-                left: 15,
-                borderRadius: '30px',
-                border: '2px solid #FFF',
-                overflow: 'hidden',
-            }}>
-                <img
-                    src="https://kyivdate.app/photos/MXBLOrA/d9rc7.624abfb7cbc27.120x120.webp"
-                    style={{
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'cover',
-                    }}
-                    alt=""
-                />
+            <div style={textContainerStyle}>
+                <p style={textStyle}>You have 1 like</p>
             </div>
-
-        </div>
-    )
-}
-export const PeopleLikeMe = ({}) => {
-    return (
-        <div style={containerStyle}>
-            <Images/>
-            <div style={{
-                width: 'calc(100% - 100px',
-                height: '100%',
-                background: 'yellow',
-            }}>
-
+            <div style={buttonContainerStyle}>
+                <ArrowRightShape width={15} height={15}/>
             </div>
-        </div>
+        </motion.div>
     )
 }
 
 const containerStyle = {
     width: '100%',
-    height: '80px',
+    height: '70px',
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'center',
 };
 
+const iconBackgroundStyle = {
+    width: '65px',
+    height: '65px',
+    marginLeft: '5px',
+    borderRadius: '35px',
+    background: '#000',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+}
+
+const iconContainerStyle = {
+    width: '100px',
+    height: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+}
+
+const buttonContainerStyle = {
+    width: '40px',
+    display: 'flex',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+}
+
+const textStyle = {
+}
+
+const textContainerStyle = {
+    width: 'calc(100% - 140px)',
+    height: '100%',
+    display: 'flex',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+}
 export default PeopleLikeMe;

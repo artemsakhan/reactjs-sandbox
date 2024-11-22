@@ -21,30 +21,8 @@ const queryMatchCandidates = (limit) => {
     return ApiGateway.fetchMatchCandidates(limit)
 };
 
-const prefetchMatchCandidates = (limit) => {
-    console.log('prefetch', cachePromise);
-
-    // If prefetch is already in progress, do nothing
-    if (cachePromise) {
-        return cachePromise;
-    }
-
-    // Start prefetch and cache the results
-    cachePromise = new Promise((resolve) => {
-        ApiGateway.fetchMatchCandidates(limit).then((data => {
-            cacheData = data;
-            console.log('prefetch resolved', cacheData);
-            resolve(true);
-            cachePromise = null;
-        }))
-    });
-
-    return cachePromise;
-};
-
 const CachedApiGateway = {
     queryMatchCandidates,
-    prefetchMatchCandidates,
 };
 
 export default CachedApiGateway;

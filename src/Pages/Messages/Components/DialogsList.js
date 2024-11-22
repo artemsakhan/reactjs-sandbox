@@ -1,28 +1,28 @@
-import UIConfig from "../../../UIConfig";
-import PeopleLikeMe from "./PeopleLikeMe";
+import ChatListSkeleton from "./ChatListSkeleton";
+import {useEffect, useState} from "react";
 
-const DialogsList = ({}) => {
+const DialogsList = ({children}) => {
+    const [isLoading, setIsLoading] = useState(true);
+
+
+    useEffect(() => {
+        setTimeout(() => setIsLoading(false), 1000);
+    }, []);
+
     return (
+
         <div style={containerStyle}>
-            <h2 style={headerStyle}>Chats</h2>
-            <PeopleLikeMe/>
+            <div>
+                {children}
+            </div>
+            {isLoading && <ChatListSkeleton/>}
         </div>
     )
 }
 
 const containerStyle = {
-    width: '100%',
-    height: 'calc(100% - 80px)',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'flex-start',
-    background: UIConfig.Colors.BackgroundWhite,
-    borderTopLeftRadius: UIConfig.Card.Content.borderRadius,
+    marginTop: '0px',
+    position: 'relative',
 }
-
-const headerStyle = {
-    textAlign: 'left',
-    marginLeft: '25px',
-};
 
 export default DialogsList;
