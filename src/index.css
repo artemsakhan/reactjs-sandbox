@@ -31,3 +31,28 @@ textarea::placeholder {
 * {
   user-select: none;
 }
+
+#toasts-portal {
+  pointer-events: none;
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 30px;
+}
+
+.toast {
+  pointer-events: auto;
+}
+
+.toast-blue {
+  background-color: #bee3f8;
+}
+
+.toast-pink {
+  background-color: hotpink;
+}

@@ -3,6 +3,7 @@ import Tabbar from "./Tabbar";
 import UIConfig from "./UIConfig";
 import MatchesPage from "./Pages/Discovery/Discovery";
 import MessagesPage from "./Pages/Messages/Messages";
+import ProfilePage from "./Pages/Profile/ProfilePage";
 
 const App = () => {
     const [pageIndex, setPageIndex] = useState(1);
@@ -20,6 +21,11 @@ const App = () => {
                 {
                     pageIndex === 2 && (
                         <MessagesPage/>
+                    )
+                }
+                {
+                    pageIndex === 3 && (
+                        <ProfilePage/>
                     )
                 }
             </div>

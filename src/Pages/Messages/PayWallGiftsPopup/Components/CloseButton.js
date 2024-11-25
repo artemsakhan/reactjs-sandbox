@@ -16,21 +16,6 @@ const CloseButton = ({handleClose}) => {
     )
 }
 
-const buttonStyle = {
-    width: '45px',
-    height: '45px',
-    color: '#FFF',
-    border: 'none',
-    borderRadius: '23px',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    outline: 'none',
-    textAlign: 'center',
-    appearance: 'none',
-    cursor: 'pointer',
-    fontSize: '24px',
-};
 
 const containerStyle = {
     position: 'absolute',

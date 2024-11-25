@@ -1,5 +1,3 @@
-import UIConfig from "../../../../UIConfig";
-import HeartSimpleShape from "../../../../Shapes/HeartSimpleShape";
 import HeartSimpleOutlineShape from "../../../../Shapes/HeartSimpleOutlineShape";
 
 const Person = ({person}) => {

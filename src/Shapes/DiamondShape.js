@@ -1,6 +1,6 @@
 import React from 'react';
 
-const DiamondShape = ({width = 40, height = 40}) => {
+const DiamondShape = ({width = 40, height = 40, style}) => {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -9,6 +9,7 @@ const DiamondShape = ({width = 40, height = 40}) => {
             height={height}
             style={{
                 marginTop: '-4px',
+                ...style,
             }}
         >
             <g>

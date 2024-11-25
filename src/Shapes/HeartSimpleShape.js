@@ -1,6 +1,6 @@
 import React from 'react';
 
-const HeartSimpleShape = ({ width = 40, height = 40, fill = "#1C274C", style }) => {
+const HeartSimpleShape = ({ width = 40, height = 40, fill = "#000", style }) => {
     return (
         <svg
             width={width}
