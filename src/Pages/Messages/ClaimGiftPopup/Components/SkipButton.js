@@ -1,8 +1,9 @@
 import {motion} from "framer-motion";
 import React from "react";
 import UIConfig from "../../../../UIConfig";
+import CaretDownShape from "../../../../Shapes/CaretDownShape";
 
-const KeepSwipingButton = ({ handleClose }) => {
+const SkipButton = ({ handleClose }) => {
     return (
         <div
             style={containerStyle}
@@ -16,7 +17,15 @@ const KeepSwipingButton = ({ handleClose }) => {
                     style={buttonStyle}
                 >
                     <span style={{fontSize: '17px'}}>Skip</span>
-                    <i className="fa-solid fa-caret-down" style={{marginLeft: '10px'}}></i>
+                    <CaretDownShape
+                        width={18}
+                        height={18}
+                        fillColor={'#FFF'}
+                        style={{
+                            marginLeft: '9px',
+                            marginTop: '2px',
+                        }}
+                    />
                 </motion.div>
             </motion.div>
         </div>
@@ -48,4 +57,4 @@ const buttonStyle = {
     background: 'none',
 };
 
-export default KeepSwipingButton;
+export default SkipButton;

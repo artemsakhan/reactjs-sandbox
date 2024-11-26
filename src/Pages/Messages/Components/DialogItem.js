@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import LottieAnimation from "../../../Other/LottieAnimation";
 import giftSentAnimationData from "../../../Assets/gift_sent_v2.json";
 
-const DialogItem = ({item}) => {
+const DialogItem = ({item, openClaimGift}) => {
     const {
         name,
         imgUrl,
@@ -30,10 +30,17 @@ const DialogItem = ({item}) => {
     }
 
     return (
-        <div style={containerStyle}>
+        <div style={containerStyle} onClick={() => {
+            isPendingGift && openClaimGift();
+        }}>
             <div style={imageContainerStyle}>
                 <img
-                    style={imageStyle}
+                    style={{
+                        ...imageStyle,
+                        ...(isPendingGift ? {
+                            boxShadow: 'rgba(191, 124, 238, 0.3) 0px 0px 11px 2px',
+                        }: null)
+                    }}
                     src={imgUrl}
                     alt=""
                 />

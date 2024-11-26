@@ -5,19 +5,21 @@ import Modal from "../../Other/Modal";
 import PayWallGiftsPopup from "./PayWallGiftsPopup/PayWall";
 import React, {useState} from "react";
 import LikesMePopup from "./LikesMePopup/LikesMe";
+import ClaimGiftPopup from "./ClaimGiftPopup/ClaimGift";
 
 const MessagesPage = () => {
     const [payWallOpen, setPayWallOpen] = useState(false);
     const [likesMeOpen, setLikesMeOpen] = useState(false);
+    const [claimGiftOpen, setClaimGiftOpen] = useState(false);
 
     const closePayWall = () => setPayWallOpen(false);
     const openPayWall = () => setPayWallOpen(true);
 
     const closeLikesMe = () => setLikesMeOpen(false);
-    const openLikesMe = () => {
-        console.log('open likes me');
-        setLikesMeOpen(true);
-    };
+    const openLikesMe = () => setLikesMeOpen(true);
+
+    const closeClaimGift = () => setClaimGiftOpen(false);
+    const openClaimGift = () => setClaimGiftOpen(true);
 
     return (
         <div style={containerStyle}>
@@ -32,9 +34,17 @@ const MessagesPage = () => {
                         <LikesMePopup handleClose={closeLikesMe}/>
                     </Modal>
                 )}
+                {claimGiftOpen && (
+                    <Modal handleClose={closeClaimGift}>
+                        <ClaimGiftPopup handleClose={closeClaimGift}/>
+                    </Modal>
+                )}
             </AnimatePresence>
             <Banner openPayWall={openPayWall}/>
-            <ChatsContent openLikesMe={openLikesMe}/>
+            <ChatsContent
+                openLikesMe={openLikesMe}
+                openClaimGift={openClaimGift}
+            />
         </div>
     )
 }

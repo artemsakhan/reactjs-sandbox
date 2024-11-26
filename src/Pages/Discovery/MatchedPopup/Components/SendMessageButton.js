@@ -12,8 +12,7 @@ const SendMessageButton = () => (
             <motion.div
                 style={buttonStyle}
             >
-                <span style={{fontSize: '17px'}}>Say Hi</span>
-                <ChatShape fill={'#000'} width={20} height={20} style={{marginLeft: '10px'}}/>
+                <span style={{fontSize: '17px'}}>Quick Message</span>
             </motion.div>
         </motion.div>
     </div>

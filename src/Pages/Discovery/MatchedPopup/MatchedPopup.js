@@ -4,8 +4,10 @@ import SendMessageButton from "./Components/SendMessageButton";
 import KeepSwipingButton from "./Components/KeepSwipingButton";
 import CloseButton from "./Components/CloseButton";
 import HeartExploadingLottie from "../../../Other/HeartExploadingLottie";
-
-
+import LottieAnimation from "../../../Other/LottieAnimation";
+import loadingAnimationData from "../../../Assets/firework.json";
+import OpenChatButton from "./Components/OpenChatButton";
+import UIConfig from "../../../UIConfig";
 
 const MatchedPopup = ({handleClose}) => {
     const [isAnimated, setIsAnimated] = useState(false);
@@ -23,6 +25,15 @@ const MatchedPopup = ({handleClose}) => {
             className="newMatchContainer"
             style={containerStyle}
         >
+            <div style={fireworkContainerStyle}>
+                <LottieAnimation
+                    width={300}
+                    height={300}
+                    animationData={loadingAnimationData}
+                    shouldAnimate={isAnimated}
+                    loop={false}
+                />
+            </div>
             <div className="newMatchPhotos" style={photoContainerStyle}>
                 <motion.div
                     initial={{opacity: 1, scale: 0.9, rotate: -10, x: -60}}
@@ -66,18 +77,17 @@ const MatchedPopup = ({handleClose}) => {
                 </motion.div>
             </div>
 
-
-            <div className="newMatchText" style={{marginTop: '7px'}}>
-                <p style={headlineStyle}>It's a match!</p>
-                <p style={{...subtextStyle}}>
-                    Go ahead and make your move<br/>
-                    Jessica's waiting
-                </p>
-            </div>
-
-
             <div style={footerContainerStyle}>
+                <div style={textContainerStyle}>
+                    <p style={textStyle}>
+                        It's a match
+                    </p>
+                    <p style={subTextStyle}>
+                        You and Alice like each other
+                    </p>
+                </div>
                 <SendMessageButton/>
+                <OpenChatButton/>
                 <KeepSwipingButton handleClose={handleClose}/>
             </div>
 
@@ -97,6 +107,13 @@ const containerStyle = {
     zIndex: 2,
 };
 
+
+const fireworkContainerStyle = {
+    position: 'absolute',
+    marginTop: '10%',
+    zIndex: 3,
+}
+
 const photoContainerStyle = {
     display: 'flex',
     justifyContent: 'center',
@@ -109,7 +126,7 @@ const photoContainerStyle = {
 const footerContainerStyle = {
     width: '100%',
     position: 'absolute',
-    bottom: '40px',
+    bottom: '30px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -128,23 +145,26 @@ const photoItemStyle = {
     boxShadow: '2px -2px 10px rgba(0, 0, 0, 0.2)',
 };
 
-const headlineStyle = {
-    fontFamily: '"Helvetica Neue", Arial, sans-serif',
-    fontSize: '40px',
-    fontWeight: 700,
-    color: '#FFF',
-    marginBottom: '0px',
-    marginTop: '60px',
-    letterSpacing: '1px',
+const textContainerStyle = {
+    width: 'calc(100% - 10px)',
+    marginBottom: '15px',
 };
-const subtextStyle = {
-    fontFamily: '"Helvetica Neue", Arial, sans-serif',
-    fontSize: '17px',
-    letterSpacing: '0.3px',
+
+const subTextStyle = {
+    fontSize: '16px',
+    color: 'rgb(223 218 218)',
+    margin: '10px 0px 15px 0px',
+    textAlign: 'center',
+};
+
+const textStyle = {
+    fontSize: '35px',
     color: '#fff',
-    marginTop: '10px',
-    marginBottom: '45px',
-};
+    margin: '0px 0px 0px 0px',
+    textAlign: 'center',
+    fontWeight: 600,
+    fontFamily: UIConfig.Fonts.Primary,
+}
 
 const heartIconStyle = {
     zIndex: 3,

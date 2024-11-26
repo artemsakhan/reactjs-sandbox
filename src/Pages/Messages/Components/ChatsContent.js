@@ -50,7 +50,7 @@ const dialogs = [
 
 ];
 
-const ChatsContent = ({openLikesMe}) => {
+const ChatsContent = ({openLikesMe, openClaimGift}) => {
     return (
         <div style={containerStyle}>
             <h2 style={headerStyle}>Chats</h2>
@@ -60,6 +60,7 @@ const ChatsContent = ({openLikesMe}) => {
                     <DialogItem
                         key={i}
                         item={v}
+                        openClaimGift={openClaimGift}
                     />
                 ))}
             </DialogsList>
