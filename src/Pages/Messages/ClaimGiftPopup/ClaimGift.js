@@ -6,7 +6,6 @@ import RejectGiftButton from "./Components/RejectGiftButton";
 import SkipButton from "./Components/SkipButton";
 import LottieAnimation from "../../../Other/LottieAnimation";
 import loadingAnimationData2 from "../../../Assets/you_got_gift_v3.json";
-import SenderBlock from "./Components/SenderBlock";
 
 const ClaimGiftPopup = ({handleClose}) => {
     return (
@@ -23,9 +22,6 @@ const ClaimGiftPopup = ({handleClose}) => {
                 />
             </div>
             <div style={actionButtonsContainerStyle}>
-                {/*<SenderBlock style={{*/}
-                {/*    marginBottom: '15px',*/}
-                {/*}}/>*/}
                 <div style={textContainerStyle}>
                     <p style={textStyle}>
                         Alice
@@ -54,7 +50,7 @@ const photosContainerStyle = {
     width: '100%',
     height: '45%',
     position: 'absolute',
-    top: '30px',
+    top: '-20px',
     pointerEvents: 'none',
     marginLeft: '20px',
 };
@@ -71,12 +67,15 @@ const actionButtonsContainerStyle = {
 
 const containerStyle = {
     width: '100%',
-    height: 'calc(100% - 0px)',
+    height: 'calc(100% - 110px)',
+    marginTop: '110px',
+    borderTopLeftRadius: UIConfig.Card.Content.borderRadius,
+    borderTopRightRadius: UIConfig.Card.Content.borderRadius,
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     position: 'relative',
-    backgroundImage: 'radial-gradient( circle farthest-corner at 10% 20%,  rgb(39 25 52) 0%, rgb(19, 27, 24) 90% )',
+    backgroundImage: 'radial-gradient(circle at 10% 20%, rgb(66 45 85) 0%, rgb(19, 27, 24) 90%)',
 };
 
 const textContainerStyle = {

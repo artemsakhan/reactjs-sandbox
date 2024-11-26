@@ -23,10 +23,10 @@ const Modal = ({children, handleClose}) => {
             <motion.div
                 onClick={(e) => e.stopPropagation()}
                 className="modal orange-gradient"
-                initial={{opacity: 1}} // Start with opacity 0
-                animate={{opacity: 1}} // Animate to opacity 1
-                exit={{opacity: 0}} // Animate to opacity 0 on exit
-                transition={{duration: 0.2}} // Adjust duration as needed
+                initial={{opacity: 1}}
+                animate={{opacity: 1}}
+                exit={{opacity: 0}}
+                transition={{duration: 0.2}}
                 style={modalStyle}
             >
                 {children}
@@ -41,7 +41,7 @@ const backdropStyles = {
     left: 0,
     width: "100vw",
     height: "100vh",
-    backgroundColor: "rgb(0 0 0 / 30%)",
+    backgroundColor: "rgb(0 0 0 / 60%)",
     zIndex: 999,
 };
 

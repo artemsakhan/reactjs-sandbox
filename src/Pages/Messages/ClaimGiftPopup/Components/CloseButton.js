@@ -21,8 +21,8 @@ const CloseButton = ({handleClose}) => {
 
 const containerStyle = {
     position: 'absolute',
-    right: '10px',
-    top: '10px',
+    right: '16px',
+    top: '16px',
 };
 
 const senderContainerStyle = {
