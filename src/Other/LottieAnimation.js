@@ -1,7 +1,7 @@
 import React, {useEffect, useRef} from 'react';
 import lottie from "lottie-web";
 
-const LottieAnimation = ({ width, height, animationData, shouldAnimate = true, loop = false, speed = 2 }) => {
+const LottieAnimation = ({ width, height, animationData, shouldAnimate = true, loop = false, speed = 2, styles = {} }) => {
     const lottieContainer = useRef(null);
 
     useEffect(() => {
@@ -26,7 +26,11 @@ const LottieAnimation = ({ width, height, animationData, shouldAnimate = true, l
     return (
         <div
             ref={lottieContainer}
-            style={{ width: width || 200, height: height || 200 }}
+            style={{
+                width: width || 200,
+                height: height || 200,
+                ...styles,
+            }}
         />
     );
 };

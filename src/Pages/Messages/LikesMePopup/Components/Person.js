@@ -58,6 +58,7 @@ const imgStyle = {
     width: '100%',
     height: '100%',
     objectFit: 'cover',
+    filter: 'blur(10px)',
 }
 
 export default Person;
