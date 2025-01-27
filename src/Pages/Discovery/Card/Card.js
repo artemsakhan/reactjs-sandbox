@@ -116,7 +116,7 @@ const Card = forwardRef((props, ref) => {
                     <span style={{
                         fontFamily: '"Inter", sans-serif',
                         fontWeight: 500,
-                        fontSize: '14px',
+                        fontSize: '13px',
                         color: '#e54d09',
                         marginLeft: '5px',
                         marginRight: '8px',
@@ -148,7 +148,7 @@ const Card = forwardRef((props, ref) => {
                     <span style={{
                         fontFamily: '"Inter", sans-serif',
                         fontWeight: 500,
-                        fontSize: '14px',
+                        fontSize: '13px',
                         color: 'rgb(182 53 104)',
                         marginLeft: '5px',
                         marginRight: '8px',
@@ -180,7 +180,7 @@ const Card = forwardRef((props, ref) => {
                     <span style={{
                         fontFamily: '"Inter", sans-serif',
                         fontWeight: 500,
-                        fontSize: '14px',
+                        fontSize: '13px',
                         color: 'rgb(145 73 148)',
                         marginLeft: '5px',
                         marginRight: '8px',
