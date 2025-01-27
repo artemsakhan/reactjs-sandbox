@@ -102,7 +102,7 @@ const Card = forwardRef((props, ref) => {
                     borderRadius: '15px',
                     position: 'absolute',
                     left: '12px',
-                    top: '40px',
+                    top: '45px',
                     zIndex: 1,
                 }}>
                     <TimeShape
@@ -133,7 +133,7 @@ const Card = forwardRef((props, ref) => {
                     borderRadius: '15px',
                     position: 'absolute',
                     left: '12px',
-                    top: '75px',
+                    top: '83px',
                     zIndex: 1,
                 }}>
                     <LabelNewShape
@@ -164,7 +164,7 @@ const Card = forwardRef((props, ref) => {
                     borderRadius: '15px',
                     position: 'absolute',
                     left: '12px',
-                    top: '110px',
+                    top: '118px',
                     zIndex: 1,
                 }}>
                     <LabelActiveShape

@@ -21,6 +21,12 @@ const serverData = {
                     {
                         "o": "https://lyranova.s3.eu-central-1.amazonaws.com/EG98Odj/adbdj.62cb2da838e93.800x600.webp"
                     },
+                    {
+                        "o": "https://lyranova.s3.eu-central-1.amazonaws.com/EG98Odj/adbdj.62cb2da838e93.800x600.webp"
+                    },
+                    {
+                        "o": "https://lyranova.s3.eu-central-1.amazonaws.com/EG98Odj/adbdj.62cb2da838e93.800x600.webp"
+                    },
                 ],
                 "about_me": "Lifelong learner who loves exploring new cultures and trying new foods.",
                 "online_state": "ONLINE_STATE_RECENTLY_SEEN",
@@ -46,6 +52,12 @@ const serverData = {
                     }
                 },
                 "photos_showcases": [
+                    {
+                        "o": "https://lyranova.s3.eu-central-1.amazonaws.com/EG98Odj/adbdj.62cb2da838e93.800x600.webp"
+                    },
+                    {
+                        "o": "https://lyranova.s3.eu-central-1.amazonaws.com/EG98Odj/adbdj.62cb2da838e93.800x600.webp"
+                    },
                     {
                         "o": "https://lyranova.s3.eu-central-1.amazonaws.com/EG98Odj/adbdj.62cb2da838e93.800x600.webp"
                     },
@@ -80,6 +92,12 @@ const serverData = {
                     {
                         "o": "https://lyranova.s3.eu-central-1.amazonaws.com/EG98Odj/adbdj.62cb2da838e93.800x600.webp"
                     },
+                    {
+                        "o": "https://lyranova.s3.eu-central-1.amazonaws.com/EG98Odj/adbdj.62cb2da838e93.800x600.webp"
+                    },
+                    {
+                        "o": "https://lyranova.s3.eu-central-1.amazonaws.com/EG98Odj/adbdj.62cb2da838e93.800x600.webp"
+                    },
                 ],
                 "about_me": "Exploring the world one adventure at a time. Love hiking, photography, and meeting new people.",
                 "online_state": "ONLINE_STATE_RECENTLY_SEEN",
@@ -108,6 +126,12 @@ const serverData = {
                     }
                 },
                 "photos_showcases": [
+                    {
+                        "o": "https://lyranova.s3.eu-central-1.amazonaws.com/EG98Odj/adbdj.62cb2da838e93.800x600.webp"
+                    },
+                    {
+                        "o": "https://lyranova.s3.eu-central-1.amazonaws.com/EG98Odj/adbdj.62cb2da838e93.800x600.webp"
+                    },
                     {
                         "o": "https://lyranova.s3.eu-central-1.amazonaws.com/EG98Odj/adbdj.62cb2da838e93.800x600.webp"
                     },
@@ -141,6 +165,12 @@ const serverData = {
                     }
                 },
                 "photos_showcases": [
+                    {
+                        "o": "https://lyranova.s3.eu-central-1.amazonaws.com/EG98Odj/adbdj.62cb2da838e93.800x600.webp"
+                    },
+                    {
+                        "o": "https://lyranova.s3.eu-central-1.amazonaws.com/EG98Odj/adbdj.62cb2da838e93.800x600.webp"
+                    },
                     {
                         "o": "https://lyranova.s3.eu-central-1.amazonaws.com/EG98Odj/adbdj.62cb2da838e93.800x600.webp"
                     },
