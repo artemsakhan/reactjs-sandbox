@@ -120,6 +120,7 @@ const Card = forwardRef((props, ref) => {
                         color: '#e54d09',
                         marginLeft: '5px',
                         marginRight: '8px',
+                        letterSpacing: '0.3px'
                     }}>Recently seen</span>
                 </div>
 
@@ -151,6 +152,7 @@ const Card = forwardRef((props, ref) => {
                         color: 'rgb(182 53 104)',
                         marginLeft: '5px',
                         marginRight: '8px',
+                        letterSpacing: '0.3px'
                     }}>Just joined</span>
                 </div>
 
@@ -182,6 +184,7 @@ const Card = forwardRef((props, ref) => {
                         color: 'rgb(145 73 148)',
                         marginLeft: '5px',
                         marginRight: '8px',
+                        letterSpacing: '0.3px'
                     }}>Active now</span>
                 </div>
 
