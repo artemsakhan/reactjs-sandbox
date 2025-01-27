@@ -1,9 +1,12 @@
-import React, {forwardRef, useEffect, useImperativeHandle, useRef} from 'react';
+import React, {forwardRef, useImperativeHandle, useRef} from 'react';
 import {motion, useAnimationControls, useMotionValue} from 'framer-motion';
 import Content from "./Components/Content";
 import ActionButtons from "./Components/ActionButtons";
 import Label from "./Components/Label";
 import UIConfig from "../../../UIConfig";
+import TimeShape from "../../../Shapes/TimeShape";
+import LabelNewShape from "../../../Shapes/LabelNewShape";
+import LabelActiveShape from "../../../Shapes/LabelActiveShape";
 
 const Card = forwardRef((props, ref) => {
     const {
@@ -28,8 +31,8 @@ const Card = forwardRef((props, ref) => {
         animControls.start({
             x: 500,
             rotate: 20,
-            transition: { duration: duration },
-            transitionEnd: { display: 'none' },
+            transition: {duration: duration},
+            transitionEnd: {display: 'none'},
         }).then(() => {
             cardRef.current.classList.remove('swiping');
             handleLike(candidate);
@@ -45,8 +48,8 @@ const Card = forwardRef((props, ref) => {
         animControls.start({
             x: -500,
             rotate: -20,
-            transition: { duration: duration },
-            transitionEnd: { display: 'none' },
+            transition: {duration: duration},
+            transitionEnd: {display: 'none'},
         }).then(() => {
             cardRef.current.classList.remove('swiping');
             handlePass(candidate);
@@ -59,7 +62,7 @@ const Card = forwardRef((props, ref) => {
     }));
 
     const snapBack = () => {
-        animControls.start({ x: 0, transition: { duration: 0.3 } });
+        animControls.start({x: 0, transition: {duration: 0.3}});
     };
 
     return (
@@ -71,7 +74,7 @@ const Card = forwardRef((props, ref) => {
                 ...containerStyle
             }}
             animate={animControls}
-            dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
+            dragConstraints={{left: 0, right: 0, top: 0, bottom: 0}}
             dragSnapToOrigin
             onDragEnd={(event, info) => {
                 if (Math.abs(info.offset.x) > 150) {
@@ -88,6 +91,101 @@ const Card = forwardRef((props, ref) => {
             }}
         >
             <div className="cardContent" style={contentStyle}>
+
+                {/* Recently active label */}
+                <div style={{
+                    height: '30px',
+                    background: '#feebd8',
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    borderRadius: '15px',
+                    position: 'absolute',
+                    left: '12px',
+                    top: '40px',
+                    zIndex: 1,
+                }}>
+                    <TimeShape
+                        width={18}
+                        height={18}
+                        styles={{
+                            marginLeft: '5px',
+                        }}
+                        fillColor={'#e54d09'}
+                    />
+                    <span style={{
+                        fontFamily: '"Inter", sans-serif',
+                        fontWeight: 500,
+                        fontSize: '14px',
+                        color: '#e54d09',
+                        marginLeft: '5px',
+                        marginRight: '8px',
+                    }}>Recently seen</span>
+                </div>
+
+                {/* New label */}
+                <div style={{
+                    height: '30px',
+                    background: 'rgb(246 228 235)',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    borderRadius: '15px',
+                    position: 'absolute',
+                    left: '12px',
+                    top: '75px',
+                    zIndex: 1,
+                }}>
+                    <LabelNewShape
+                        width={18}
+                        height={18}
+                        fillColor={'rgb(182 53 104)'}
+                        styles={{
+                            marginLeft: '5px',
+                        }}
+                    />
+                    <span style={{
+                        fontFamily: '"Inter", sans-serif',
+                        fontWeight: 500,
+                        fontSize: '14px',
+                        color: 'rgb(182 53 104)',
+                        marginLeft: '5px',
+                        marginRight: '8px',
+                    }}>Just joined</span>
+                </div>
+
+                {/* Active now */}
+                <div style={{
+                    height: '30px',
+                    background: 'rgb(249 222 251)',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    borderRadius: '15px',
+                    position: 'absolute',
+                    left: '12px',
+                    top: '110px',
+                    zIndex: 1,
+                }}>
+                    <LabelActiveShape
+                        width={18}
+                        height={18}
+                        fillColor={'rgb(145 73 148)'}
+                        styles={{
+                            marginLeft: '5px',
+                        }}
+                    />
+                    <span style={{
+                        fontFamily: '"Inter", sans-serif',
+                        fontWeight: 500,
+                        fontSize: '14px',
+                        color: 'rgb(145 73 148)',
+                        marginLeft: '5px',
+                        marginRight: '8px',
+                    }}>Active now</span>
+                </div>
+
+
                 <Content
                     matchCandidate={matchCandidate}
                     openSendGiftPopup={openSendGiftPopup}

@@ -19,14 +19,8 @@ const serverData = {
                 },
                 "photos_showcases": [
                     {
-                        "o": "https://kyivdate.app/photos/dbE7a4n/4h2m7.624c1e9412706.800x600.webp"
+                        "o": "https://lyranova.s3.eu-central-1.amazonaws.com/EG98Odj/adbdj.62cb2da838e93.800x600.webp"
                     },
-                    {
-                        "o": "https://kyivdate.app/photos/MXBLOrA/3e23b.624abe1af4d18.800x600.webp"
-                    },
-                    {
-                        "o": "https://kyivdate.app/photos/MXBLOrA/ob9dd.624abe7577647.800x600.webp"
-                    }
                 ],
                 "about_me": "Lifelong learner who loves exploring new cultures and trying new foods.",
                 "online_state": "ONLINE_STATE_RECENTLY_SEEN",
@@ -53,14 +47,8 @@ const serverData = {
                 },
                 "photos_showcases": [
                     {
-                        "o": "https://kyivdate.app/photos/MXBLOrA/yr7g4.624abf3505902.800x600.webp"
+                        "o": "https://lyranova.s3.eu-central-1.amazonaws.com/EG98Odj/adbdj.62cb2da838e93.800x600.webp"
                     },
-                    {
-                        "o": "https://kyivdate.app/photos/MXBLOrA/b0y0d.624abf5ef198c.800x600.webp"
-                    },
-                    {
-                        "o": "https://kyivdate.app/photos/MXBLOrA/mdqdb.624abf8c876ed.800x600.webp"
-                    }
                 ],
                 "about_me": "Fitness junkie who enjoys yoga, running, and discovering healthy recipes to share with friends.",
                 "online_state": "ONLINE_STATE_RECENTLY_SEEN",
@@ -90,14 +78,8 @@ const serverData = {
                 },
                 "photos_showcases": [
                     {
-                        "o": "https://kyivdate.app/photos/MXBLOrA/d9rc7.624abfb7cbc27.800x600.webp"
+                        "o": "https://lyranova.s3.eu-central-1.amazonaws.com/EG98Odj/adbdj.62cb2da838e93.800x600.webp"
                     },
-                    {
-                        "o": "https://kyivdate.app/photos/MXBLOrA/bb7xp.624abfe7a3993.800x600.webp"
-                    },
-                    {
-                        "o": "https://kyivdate.app/photos/dbE7a4n/4h2m7.624c1e9412706.800x600.webp"
-                    }
                 ],
                 "about_me": "Exploring the world one adventure at a time. Love hiking, photography, and meeting new people.",
                 "online_state": "ONLINE_STATE_RECENTLY_SEEN",
@@ -127,14 +109,8 @@ const serverData = {
                 },
                 "photos_showcases": [
                     {
-                        "o": "https://kyivdate.app/photos/MXBLOrA/3e23b.624abe1af4d18.800x600.webp"
+                        "o": "https://lyranova.s3.eu-central-1.amazonaws.com/EG98Odj/adbdj.62cb2da838e93.800x600.webp"
                     },
-                    {
-                        "o": "https://kyivdate.app/photos/MXBLOrA/ob9dd.624abe7577647.800x600.webp"
-                    },
-                    {
-                        "o": "https://kyivdate.app/photos/MXBLOrA/yr7g4.624abf3505902.800x600.webp"
-                    }
                 ],
                 "about_me": "Digital nomad navigating life through travel, technology, and a passion for capturing moments on camera.",
                 "online_state": "ONLINE_STATE_RECENTLY_SEEN",
@@ -166,14 +142,8 @@ const serverData = {
                 },
                 "photos_showcases": [
                     {
-                        "o": "https://kyivdate.app/photos/MXBLOrA/b0y0d.624abf5ef198c.800x600.webp"
+                        "o": "https://lyranova.s3.eu-central-1.amazonaws.com/EG98Odj/adbdj.62cb2da838e93.800x600.webp"
                     },
-                    {
-                        "o": "https://kyivdate.app/photos/MXBLOrA/mdqdb.624abf8c876ed.800x600.webp"
-                    },
-                    {
-                        "o": "https://kyivdate.app/photos/MXBLOrA/d9rc7.624abfb7cbc27.800x600.webp"
-                    }
                 ],
                 "about_me": "Just me",
                 "online_state": "ONLINE_STATE_RECENTLY_SEEN",
@@ -186,234 +156,6 @@ const serverData = {
             },
             "distance": 28
         },
-        {
-            "labels": [
-                "LABEL_LIKES_ME"
-            ],
-            "profile": {
-                "hid": "lpB4W0j7lPkqZeM5",
-                "name": "Beyonce",
-                "gender": "m",
-                "age": 22,
-                "city": {
-                    "id": 1,
-                    "name": "Kyiv",
-                    "country": {
-                        "id": 1,
-                        "name": "Ukraine"
-                    }
-                },
-                "photos_showcases": [
-                    {
-                        "o": "https://kyivdate.app/photos/MXBLOrA/d9rc7.624abfb7cbc27.800x600.webp"
-                    },
-                    {
-                        "o": "https://kyivdate.app/photos/MXBLOrA/bb7xp.624abfe7a3993.800x600.webp"
-                    },
-                    {
-                        "o": "https://kyivdate.app/photos/dbE7a4n/4h2m7.624c1e9412706.800x600.webp"
-                    }
-                ],
-                "about_me": "Ashley, look at me",
-                "online_state": "ONLINE_STATE_RECENTLY_SEEN",
-                "occupation": "Cashier",
-                "height": {
-                    "unit": 180,
-                    "measure": 'cm',
-                },
-                "body_type": "Athletic"
-            },
-            "distance": 69
-        },
-        {
-            "labels": [],
-            "profile": {
-                "hid": "lpB4W0j7lPkqZeM6",
-                "name": "Conor",
-                "gender": "m",
-                "age": 23,
-                "city": {
-                    "id": 1,
-                    "name": "Kyiv",
-                    "country": {
-                        "id": 1,
-                        "name": "Ukraine"
-                    }
-                },
-                "photos_showcases": [
-                    {
-                        "o": "https://kyivdate.app/photos/dbE7a4n/4h2m7.624c1e9412706.800x600.webp"
-                    },
-                    {
-                        "o": "https://kyivdate.app/photos/MXBLOrA/3e23b.624abe1af4d18.800x600.webp"
-                    },
-                    {
-                        "o": "https://kyivdate.app/photos/MXBLOrA/ob9dd.624abe7577647.800x600.webp"
-                    }
-                ],
-                "about_me": "I'm stronger, I'm smarter, I'm better, I am better...",
-                "online_state": "ONLINE_STATE_RECENTLY_SEEN",
-                "occupation": "IT Industry",
-                "height": {
-                    "unit": 180,
-                    "measure": 'cm',
-                },
-                "body_type": "Athletic"
-            },
-            "distance": 6
-        },
-        {
-            "labels": [],
-            "profile": {
-                "hid": "lpB4W0j7lPkqZeM7",
-                "name": "Kitty",
-                "gender": "m",
-                "age": 27,
-                "city": {
-                    "id": 1,
-                    "name": "Kyiv",
-                    "country": {
-                        "id": 1,
-                        "name": "Ukraine"
-                    }
-                },
-                "photos_showcases": [
-                    {
-                        "o": "https://kyivdate.app/photos/dbE7a4n/4h2m7.624c1e9412706.800x600.webp"
-                    },
-                    {
-                        "o": "https://kyivdate.app/photos/MXBLOrA/3e23b.624abe1af4d18.800x600.webp"
-                    },
-                    {
-                        "o": "https://kyivdate.app/photos/MXBLOrA/ob9dd.624abe7577647.800x600.webp"
-                    }
-                ],
-                "about_me": "Lifelong learner who loves exploring new cultures and trying new foods.",
-                "online_state": "ONLINE_STATE_RECENTLY_SEEN",
-                "occupation": "Lawyer",
-                "height": {
-                    "unit": 180,
-                    "measure": 'cm',
-                },
-                "body_type": "Athletic"
-            },
-            "distance": 96
-        },
-        {
-            "labels": [
-                "LABEL_LIKES_ME"
-            ],
-            "profile": {
-                "hid": "lpB4W0j7lPkqZeM8",
-                "name": "Alice",
-                "gender": "m",
-                "age": 33,
-                "city": {
-                    "id": 1,
-                    "name": "San-Francisco",
-                    "country": {
-                        "id": 1,
-                        "name": "Ukraine"
-                    }
-                },
-                "photos_showcases": [
-                    {
-                        "o": "https://kyivdate.app/photos/MXBLOrA/yr7g4.624abf3505902.800x600.webp"
-                    },
-                    {
-                        "o": "https://kyivdate.app/photos/MXBLOrA/b0y0d.624abf5ef198c.800x600.webp"
-                    },
-                    {
-                        "o": "https://kyivdate.app/photos/MXBLOrA/mdqdb.624abf8c876ed.800x600.webp"
-                    }
-                ],
-                "about_me": "Fitness junkie who enjoys yoga, running, and discovering healthy recipes to share with friends.",
-                "online_state": "ONLINE_STATE_RECENTLY_SEEN",
-                "occupation": "Doctor",
-                "height": {
-                    "unit": 180,
-                    "measure": 'cm',
-                },
-                "body_type": "Athletic"
-            },
-            "distance": 72
-        },
-        {
-            "labels": [],
-            "profile": {
-                "hid": "lpB4W0j7lPkqZeM9",
-                "name": "Olga",
-                "gender": "m",
-                "age": 18,
-                "city": {
-                    "id": 1,
-                    "name": "Los-Angeles",
-                    "country": {
-                        "id": 1,
-                        "name": "Ukraine"
-                    }
-                },
-                "photos_showcases": [
-                    {
-                        "o": "https://kyivdate.app/photos/MXBLOrA/d9rc7.624abfb7cbc27.800x600.webp"
-                    },
-                    {
-                        "o": "https://kyivdate.app/photos/MXBLOrA/bb7xp.624abfe7a3993.800x600.webp"
-                    },
-                    {
-                        "o": "https://kyivdate.app/photos/dbE7a4n/4h2m7.624c1e9412706.800x600.webp"
-                    }
-                ],
-                "about_me": "Exploring the world one adventure at a time. Love hiking, photography, and meeting new people.",
-                "online_state": "ONLINE_STATE_RECENTLY_SEEN",
-                "occupation": "Engineer",
-                "height": {
-                    "unit": 180,
-                    "measure": 'cm',
-                },
-                "body_type": "Athletic"
-            },
-            "distance": 82
-        },
-        {
-            "labels": [
-                "LABEL_LIKES_ME"
-            ],
-            "profile": {
-                "hid": "lpB4W0j7lPkqZeM10",
-                "name": "Kitty",
-                "gender": "m",
-                "age": 27,
-                "city": {
-                    "id": 1,
-                    "name": "Kyiv",
-                    "country": {
-                        "id": 1,
-                        "name": "Ukraine"
-                    }
-                },
-                "photos_showcases": [
-                    {
-                        "o": "https://kyivdate.app/photos/dbE7a4n/4h2m7.624c1e9412706.800x600.webp"
-                    },
-                    {
-                        "o": "https://kyivdate.app/photos/MXBLOrA/3e23b.624abe1af4d18.800x600.webp"
-                    },
-                    {
-                        "o": "https://kyivdate.app/photos/MXBLOrA/ob9dd.624abe7577647.800x600.webp"
-                    }
-                ],
-                "about_me": "Lifelong learner who loves exploring new cultures and trying new foods.",
-                "online_state": "ONLINE_STATE_RECENTLY_SEEN",
-                "occupation": "Lawyer",
-                "height": {
-                    "unit": 180,
-                    "measure": 'cm',
-                },
-                "body_type": "Athletic"
-            },
-            "distance": 30
-        }
     ],
 };
 
