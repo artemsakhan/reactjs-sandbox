@@ -84,6 +84,7 @@ const textStyle = {
     lineHeight: '21px',
     textAlign: 'center',
     fontWeight: 'bold',
+    maxWidth: '70%',
 }
 
 
