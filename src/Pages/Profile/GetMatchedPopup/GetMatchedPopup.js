@@ -16,7 +16,7 @@ const GetMatchedPopup = ({handleClose}) => {
                         Get Matched & Earn Rewards
                     </p>
                     <p style={subTextStyle}>
-                        Connect with people you like and unlock your bonus!
+                        Connect with people you like and get your bonus!
                     </p>
                 </div>
                 <div style={benefitStyle}>

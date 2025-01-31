@@ -1,18 +1,105 @@
 import CloseButton from "./Components/CloseButton";
-import React from "react";
+import React, {useState} from "react";
 import PurchaseLineItem from "./Components/PurchaseLineItem";
 import UIConfig from "../../../UIConfig";
 import CheckShape from "../../../Shapes/CheckShape";
+import IntersectingWaveLayerShape from "../../../Shapes/IntersectingWaveLayerShape";
+import DiamondSimpleShape from "../../../Shapes/DiamondSimpleShape";
+import CrownShape from "../../../Shapes/CrownShape";
+import DiamondFillShape from "../../../Shapes/DiamondFillShape";
+
+
+const headerColor = 'rgb(49 26 67)'
+
+const GiftHeader = ({}) => {
+
+
+    return (
+        <div style={headerStyle}>
+            <div style={{
+                background: headerColor,
+                width: '100%',
+                height: '85px',
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'center',
+                alignItems: 'center',
+            }}>
+                <div style={{
+                    width: '38px',
+                    height: '38px',
+                    // background: '#fff',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    borderRadius: '35px',
+                }}>
+                    <DiamondFillShape width={35} height={35} fillColor={'#FFF'} style={{
+                        marginTop: '2px',
+                        transform: 'rotate(-15deg)'
+                    }}/>
+                </div>
+                <p style={{...headlineStyle, marginLeft: '5px'}}>Gifts</p>
+            </div>
+            <IntersectingWaveLayerShape width={'100%'} fillColor={headerColor}/>
+        </div>
+    )
+}
+
+const PremiumHeader = ({}) => {
+
+    return (
+        <div style={headerStyle}>
+            <div style={{
+                background: headerColor,
+                width: '100%',
+                height: '85px',
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'center',
+                alignItems: 'center',
+            }}>
+                <div style={{
+                    width: '44px',
+                    height: '44px',
+                    // background: '#fff',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    borderRadius: '35px',
+                }}>
+                    <CrownShape width={35} height={35} fillColor={'#FFF'} style={{
+                        transform: 'rotate(-15deg)'
+                    }}/>
+                </div>
+                <p style={{...headlineStyle, color: '#FFF', fontSize: '30px', marginLeft: '3px'}}>Premium</p>
+            </div>
+            <IntersectingWaveLayerShape width={'100%'} fillColor={headerColor}/>
+        </div>
+    )
+}
 
 const PayWallGiftsPopup = ({handleClose}) => {
+    const [headerIndex, setHeaderIndex] = useState(0);
+
+    const nextHeader = () => {
+        setHeaderIndex(headerIndex === 0 ? 1 : 0)
+    }
+
     return (
-        <div style={containerStyle}>
-            <div style={headerStyle}>
-                <p style={headlineStyle}>Choose your option</p>
-            </div>
-            <PurchaseLineItem unitAmount={1} price={100} style={{ marginTop: '40px'}} isPreSelected={false}/>
-            <PurchaseLineItem unitAmount={3} price={250} style={{ marginTop: '15px'}} isPreSelected={false}/>
-            <PurchaseLineItem unitAmount={6} price={450} style={{ marginTop: '15px'}} isPreSelected={true}  discountValue={25}/>
+        <div style={containerStyle} onClick={nextHeader}>
+            {
+                headerIndex === 0 ? (
+                    <GiftHeader/>
+                ) : (
+                    <PremiumHeader/>
+                )
+            }
+
+            <PurchaseLineItem unitAmount={1} price={100} style={{marginTop: '28px'}} isPreSelected={false}/>
+            <PurchaseLineItem unitAmount={3} price={250} style={{marginTop: '15px'}} isPreSelected={false}/>
+            <PurchaseLineItem unitAmount={6} price={450} style={{marginTop: '15px'}} isPreSelected={true}
+                              discountValue={25}/>
 
             <div style={{...subtextStyle, marginTop: '60px'}}>
                 Why buy Gifts?
@@ -41,25 +128,25 @@ const benefitStyle = {
     alignItems: 'center',
     justifyContent: 'flex-start',
     marginTop: '15px',
-    width: 'calc(100% / 2 + 10px)'
+    width: 'calc(100% / 2 + 10px)',
 }
 
 const headerStyle = {
-    maxWidth: '60%',
+    display: 'flex',
+    flexDirection: 'column',
+    width: '100%',
 }
 
 const headlineStyle = {
-    fontFamily: '"Helvetica Neue", Arial, sans-serif',
-    fontSize: '30px',
+    fontSize: '34px',
     fontWeight: 700,
     color: '#FFF',
-    marginBottom: '0px',
-    marginTop: '20px',
     letterSpacing: '1px',
+    marginLeft: '5px',
 };
 
 const subtextStyle = {
-    fontFamily: '"Helvetica Neue", Arial, sans-serif',
+    fontFamily: '"Linotte", sans-serif',
     fontSize: '17px',
     letterSpacing: '0.3px',
     color: UIConfig.Colors.Primary,

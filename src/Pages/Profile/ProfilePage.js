@@ -1,505 +1,364 @@
 import React, {useState} from "react";
-import {AnimatePresence, motion} from 'framer-motion';
+import CrownShape from "../../Shapes/CrownShape";
+import {AnimatePresence, motion} from "framer-motion";
+import UIConfig from "../../UIConfig";
+import DiamondFillShape from "../../Shapes/DiamondFillShape";
 import TonCoinShape from "../../Shapes/TonCoinShape";
 import ArrowRightShape from "../../Shapes/ArrowRightShape";
-import DiamondSimpleShape from "../../Shapes/DiamondSimpleShape";
-import FriendsShape from "../../Shapes/FriendsShape";
-import UIConfig from "../../UIConfig";
-import HeartRoundShape from "../../Shapes/HeartRoundShape";
-import SevenShape from "../../Shapes/SevenShape";
-import LottieAnimation from "../../Other/LottieAnimation";
-import loadingAnimationData from "../../Assets/stars_background.json";
-import IncomeShape from "../../Shapes/IncomeShape";
-import CashOutShape from "../../Shapes/CashoutShape";
 import Modal from "../../Other/Modal";
-import UnlockBonusesPopup from "./UnlockBonusesPopup/UnlockBonusesPopup";
-import GetMatchedPopup from "./GetMatchedPopup/GetMatchedPopup"
+import TonPage from "./TonPage/TonPage";
+import SettingsShape from "../../Shapes/SettingsShape";
 
 const Header = ({}) => {
     return (
         <div style={{
+            height: '40%',
             width: '100%',
-            height: '45%',
+            background: '#2c2c2c',
+            overflow: 'hidden',
+            position: 'relative',
             display: 'flex',
-            justifyContent: 'center',
             flexDirection: 'column',
+            justifyContent: 'center',
             alignItems: 'center',
-            position: 'relative', // Ensures absolute children are positioned inside this
-            overflow: 'hidden',  // Prevents overflow issues
         }}>
-            {/* Background Animation Layer */}
             <div style={{
                 position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: '100%',
-                display: 'flex',
-                opacity: 0.4,
+                top: '24px',
+                right: '24px'
+            }}>
+                <SettingsShape width={30} height={30} fillColor={'#FFF'}/>
+            </div>
+
+            <div style={{
+                width: '120px',  // Fix: Ensure proper width
+                height: '120px', // Fix: Ensure proper height
+                borderRadius: '60px', // Proper rounded corners
+                overflow: 'hidden', // Ensures image does not overflow the div
+                display: 'flex', // Optional: Centers the image if needed
                 justifyContent: 'center',
                 alignItems: 'center',
-                zIndex: 0, // Keep it behind the text but still visible
+                position: 'relative',
             }}>
-                <LottieAnimation
-                    width={300}
-                    height={300}
-                    speed={0.5}
-                    animationData={loadingAnimationData}
-                    shouldAnimate={true}
-                    loop={true}
+                <img
+                    src="https://lyranova.s3.eu-central-1.amazonaws.com/EG98Odj/adbdj.62cb2da838e93.120x120.webp"
+                    alt=""
+                    style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        display: 'block'
+                    }}
                 />
             </div>
-
-            {/* Foreground Content */}
-            <div style={{zIndex: 1}}>
-                <p style={{padding: '0px 0', margin: 0, fontWeight: 'bold', fontSize: '19px'}}>TON</p>
-                <p style={{padding: '0px 0', margin: 0, fontWeight: 'bold', fontSize: '28px'}}>0.40</p>
-                <p style={{
-                    padding: '1px 0',
-                    margin: 0,
-                    color: 'rgb(110 110 110)',
-                    fontSize: '13px'
-                }}>≈&nbsp;4.5&nbsp;USD</p>
-            </div>
-
-            {/* Button */}
             <motion.div style={{
+                marginTop: '-15px',
+                background: '#FFF',
+                borderRadius: '20px',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                zIndex: 2,
+            }}>
+                    <span style={{
+                        fontSize: '13px',
+                        padding: '10px 18px',
+                        fontWeight: 'bold',
+                        color: '#000',
+                        fontFamily: UIConfig.Fonts.Primary,
+                    }}>Edit Profile</span>
+            </motion.div>
+        </div>
+    )
+}
+
+const PremiumFeature = () => {
+    return (
+        <div style={{
+            background: '#f5f5f6',
+            borderRadius: '20px',
+            width: '100%',
+            height: '80px',
+            marginTop: '10px',
+            display: 'flex',
+            justifyContent: 'flex-start',
+            flexDirection: 'row',
+            alignItems: 'center',
+            position: 'relative',
+        }}>
+            <div style={{
+                width: '54px',
+                height: '54px',
+                background: '#242222',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                borderRadius: '35px',
+                marginLeft: '13px'
+            }}>
+                <CrownShape width={35} height={35} fillColor={UIConfig.Colors.Primary} style={{
+                    // transform: 'rotate(-15deg)'
+                }}/>
+            </div>
+            <div style={{
+                marginLeft: '13px',
+            }}>
+                <p style={{
+                    textAlign: 'left',
+                    padding: 0,
+                    margin: 0,
+                    fontWeight: 'bold',
+                    fontSize: '18px',
+                }}>Premium</p>
+                <div style={{
+                    fontSize: '14px',
+                    marginTop: '2px',
+                    color: '#000',
+                }}>
+                    Active until <b>Jan 25</b>
+                </div>
+            </div>
+            <motion.div style={{
+                position: 'absolute',
+                right: '17px',
+                top: '22px',
                 background: '#000',
                 borderRadius: '20px',
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                marginTop: '15px',
-                zIndex: 1, // Ensure it's above the animation
             }}>
-                <span style={{
-                    fontSize: '13px',
-                    padding: '10px 18px',
-                    fontWeight: 'bold',
-                    color: '#FFF',
-                    fontFamily: UIConfig.Fonts.Primary,
-                }}>Connect a wallet</span>
+                        <span style={{
+                            fontSize: '15px',
+                            padding: '10px 18px',
+                            fontWeight: 'bold',
+                            color: '#FFF',
+                            fontFamily: UIConfig.Fonts.Primary,
+                        }}
+                              onClick={() => {
+                              }}
+                        >
+                            Extend
+                        </span>
             </motion.div>
         </div>
-    );
-}
-
-const TabBar = ({activeTabIndex, setActiveTabIndex}) => {
-    return (
-        <ul style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            width: 'calc(100% - 60px)',
-            listStyleType: 'none',
-            margin: 0,
-            padding: '2px',
-            background: '#efefec',
-            borderRadius: '8px',
-        }}>
-            <li style={{
-                width: '50%',
-                padding: '10px 10px',
-                fontSize: '12px',
-                fontWeight: '500',
-                cursor: 'pointer',
-                borderRadius: '5px',
-                backgroundColor: activeTabIndex === 0 ? '#dcdcdc' : '#efefec',
-            }} onClick={() => setActiveTabIndex(0)}>Challenges
-            </li>
-            <li style={{
-                width: '50%',
-                fontSize: '12px',
-                fontWeight: '500',
-                padding: '10px 10px',
-                cursor: 'pointer',
-                borderRadius: '5px',
-                backgroundColor: activeTabIndex === 1 ? '#dcdcdc' : '#efefec',
-            }} onClick={() => setActiveTabIndex(1)}>History
-            </li>
-        </ul>
-    );
-};
-
-const GiftBonusesInfo = ({openPopup}) => {
-    return (
-        <div style={{
-            marginTop: '20px',
-            width: 'calc(100% - 60px)',
-            background: '#efefec',
-            height: '70px',
-            borderRadius: '10px',
-            display: 'flex',
-            justifyContent: 'flex-start',
-            alignItems: 'center',
-            position: 'relative',
-        }} onClick={openPopup}>
-            <div style={{
-                marginLeft: '11px',
-                display: 'flex',
-                flexDirection: 'row',
-            }}>
-                <TonCoinShape width={40} height={40} fillColor1={'#000'} fillColor2={'#fff'}/>
-                <div style={{
-                    width: '40px',
-                    height: '40px',
-                    borderRadius: '20px',
-                    marginLeft: '-14px',
-                    background: 'orange',
-                }}>
-                    <DiamondSimpleShape width={40} height={40} fillColor={'#FFF'} style={{
-                        marginTop: '-7px',
-                    }}/>
-                </div>
-            </div>
-            <div style={{
-                maxWidth: '55%',
-                textAlign: 'left',
-                marginLeft: '11px',
-            }}>
-            <span style={{
-                fontSize: '14px',
-                textAlign: 'left',
-            }}>Unlock challenges by incoming activity</span>
-            </div>
-            <div style={{
-                position: 'absolute',
-                right: '15px',
-                top: '22px',
-            }}>
-                <ArrowRightShape height={11} width={11} fillColor={'#dcdcdc'}/>
-            </div>
-        </div>
     )
 }
 
-const InviteFriendChallenge = ({}) => {
+const GiftFeature2 = ({}) => {
     return (
         <div style={{
-            marginTop: '16px',
-            width: 'calc(100% - 60px)',
-            // background: '#efefec',
-            height: '50px',
-            borderRadius: '10px',
-            display: 'flex',
-            justifyContent: 'flex-start',
-            alignItems: 'center',
-            position: 'relative',
-        }}>
-            <FriendsShape width={40} height={40} fillColor={'#000'} style={{marginLeft: '5px'}}/>
-            <div style={{
-                maxWidth: '50%',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'flex-start',
-                marginLeft: '12px',
-            }}>
-                <div>
-                    <p style={{
-                        margin: 0,
-                        padding: '3px 0px 2px',
-                        fontSize: '15px',
-                        fontWeight: 'bold',
-                        textAlign: 'left',
-                    }}>Invite a friend</p>
-                </div>
-                <div>
-                    <p style={{
-                        margin: 0,
-                        padding: '3px 0px',
-                        fontSize: '13px',
-                        fontFamily: UIConfig.Fonts.Primary,
-                        color: 'rgb(110, 110, 110)',
-                        textAlign: 'left',
-                    }}>0.05 TON</p>
-                </div>
-                <motion.div style={{
-                    position: 'absolute',
-                    right: '5px',
-                    top: '9px',
-                    background: '#000',
-                    borderRadius: '20px',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                }}>
-                    <span style={{
-                        fontSize: '13px',
-                        padding: '10px 18px',
-                        fontWeight: 'bold',
-                        color: '#FFF',
-                        fontFamily: UIConfig.Fonts.Primary,
-                    }}>Copy link</span>
-                </motion.div>
-            </div>
-        </div>
-    )
-}
-
-const ConnectionsChallenge = ({onClick}) => {
-    return (
-        <div style={{
-            marginTop: '16px',
-            width: 'calc(100% - 60px)',
-            height: '50px',
-            borderRadius: '10px',
-            display: 'flex',
-            justifyContent: 'flex-start',
-            alignItems: 'center',
-            position: 'relative',
-        }}>
-            <HeartRoundShape width={40} height={40} fillColor={'#000'} style={{marginLeft: '5px'}}/>
-            <div style={{
-                maxWidth: '50%',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'flex-start',
-                marginLeft: '12px',
-            }}>
-                <div>
-                    <p style={{
-                        margin: 0,
-                        padding: '3px 0px 2px',
-                        fontSize: '15px',
-                        fontWeight: 'bold',
-                        textAlign: 'left',
-                    }}>Get matched</p>
-                </div>
-                <div>
-                    <p style={{
-                        margin: 0,
-                        padding: '3px 0px',
-                        fontSize: '13px',
-                        fontFamily: UIConfig.Fonts.Primary,
-                        color: 'rgb(110, 110, 110)',
-                        textAlign: 'left',
-                    }}>0/10, 0.015 TON</p>
-                </div>
-                <motion.div style={{
-                    position: 'absolute',
-                    right: '5px',
-                    top: '9px',
-                    background: '#000',
-                    borderRadius: '20px',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                }}>
-                    <span style={{
-                        fontSize: '13px',
-                        padding: '10px 18px',
-                        fontWeight: 'bold',
-                        color: UIConfig.Colors.Primary,
-                        fontFamily: UIConfig.Fonts.Primary,
-                    }}
-                          onClick={onClick}
-                    >Claim</span>
-                </motion.div>
-            </div>
-        </div>
-    )
-}
-
-const BeActiveChallenge = ({}) => {
-    return (
-        <div style={{
-            marginTop: '16px',
-            width: 'calc(100% - 60px)',
-            height: '50px',
-            borderRadius: '10px',
-            display: 'flex',
-            justifyContent: 'flex-start',
-            alignItems: 'center',
-            position: 'relative',
-        }}>
-            <SevenShape width={40} height={40} fillColor={'#000'} style={{marginLeft: '5px'}}/>
-            <div style={{
-                maxWidth: '50%',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'flex-start',
-                marginLeft: '12px',
-            }}>
-                <div>
-                    <p style={{
-                        margin: 0,
-                        padding: '3px 0px 2px',
-                        fontSize: '15px',
-                        fontWeight: 'bold',
-                        textAlign: 'left',
-                    }}>7 days check-in</p>
-                </div>
-                <div>
-                    <p style={{
-                        margin: 0,
-                        padding: '3px 0px',
-                        fontSize: '13px',
-                        fontFamily: UIConfig.Fonts.Primary,
-                        color: 'rgb(110, 110, 110)',
-                        textAlign: 'left',
-                    }}>0/7, 0.015 TON</p>
-                </div>
-                <motion.div style={{
-                    position: 'absolute',
-                    right: '5px',
-                    top: '9px',
-                    background: 'rgb(220 220 220)',
-                    borderRadius: '20px',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                }}>
-                    <span style={{
-                        fontSize: '13px',
-                        padding: '10px 18px',
-                        fontWeight: 'bold',
-                        color: '#FFF',
-                        fontFamily: UIConfig.Fonts.Primary,
-                    }}>Locked</span>
-                </motion.div>
-            </div>
-        </div>
-    )
-}
-
-const TransactionsHistory = ({}) => {
-    return (
-        <div style={{
+            background: '#f5f5f6',
+            borderRadius: '20px',
+            width: '100%',
+            height: '80px',
             marginTop: '10px',
             display: 'flex',
-            flexDirection: 'column',
-            width: 'calc(100% - 62px)',
-            marginLeft: '5px',
-            marginRight: '6px',
+            justifyContent: 'flex-start',
+            flexDirection: 'row',
+            alignItems: 'center',
+            position: 'relative',
         }}>
-            <p style={{
-                textAlign: 'left',
-                fontSize: '13px',
-                color: 'rgb(106 100 100 / 93%)'
-            }}>Dec 17, 2025</p>
             <div style={{
+                width: '54px',
+                height: '54px',
+                background: '#242222',
                 display: 'flex',
-                marginTop: '10px',
-                justifyContent: 'flex-start',
+                justifyContent: 'center',
                 alignItems: 'center',
-                position: 'relative',
+                borderRadius: '35px',
+                marginLeft: '13px'
             }}>
-                <IncomeShape width={35} height={35} fillColor="rgb(93 169 93)" style={{
-                    marginRight: '10px',
-                    marginTop: '-10px',
+                <DiamondFillShape width={35} height={35} fillColor={'#FFF'} style={{
+                    marginTop: '2px',
+                    transform: 'rotate(-15deg)'
                 }}/>
-                <div style={{
-                    width: '65%',
-                    textAlign: 'left',
-                }}>
-                    <p style={{
-                        padding: '0px 0 2px',
-                        margin: '0px',
-                    }}><b>Invite a friend</b> challenge</p>
-                </div>
-                <div style={{
-                    fontSize: '12px',
-                    fontWeight: 'bold',
-                    color: '#369f36',
-                }}>
-                    <span style={{fontWeight: 'bold'}}>
-                    +0.015
-                    </span>&nbsp;TON
-                </div>
             </div>
             <div style={{
-                display: 'flex',
-                marginTop: '14px',
-                justifyContent: 'flex-start',
-                alignItems: 'center',
-                position: 'relative',
+                marginLeft: '13px',
             }}>
-                <CashOutShape width={35} height={35} fillColor={'#e76060'} style={{
-                    marginRight: '10px',
-                    marginTop: '0px',
-                }}/>
-                <div style={{
-                    width: '65%',
+                <p style={{
                     textAlign: 'left',
-                }}>
-                    <p style={{
-                        padding: '0px 0 2px',
-                        margin: '0px',
-                    }}><b>Payout</b> request</p>
-                </div>
-                <div style={{
-                    fontSize: '12px',
+                    padding: 0,
+                    margin: 0,
                     fontWeight: 'bold',
-                    color: '#e76060',
+                    fontSize: '18px',
+                }}>Gifts</p>
+                <div style={{
+                    fontSize: '14px',
+                    marginTop: '2px',
+                    color: '#000',
                 }}>
-                    <span style={{fontWeight: 'bold'}}>
-                    -0.015
-                    </span>&nbsp;TON
+                    Balance:&nbsp;<b>5</b>
                 </div>
             </div>
+            <motion.div style={{
+                position: 'absolute',
+                right: '17px',
+                top: '22px',
+                background: '#000',
+                borderRadius: '20px',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+            }}>
+                        <span style={{
+                            fontSize: '15px',
+                            padding: '10px 18px',
+                            fontWeight: 'bold',
+                            color: '#FFF',
+                            fontFamily: UIConfig.Fonts.Primary,
+                        }}
+                              onClick={() => {
+                              }}
+                        >
+                            Get more
+                        </span>
+            </motion.div>
+        </div>
+    )
+}
 
+const Content = ({openTonPage}) => {
+    return (
+        <div style={{
+            borderTopLeftRadius: '35px',
+            borderTopRightRadius: '35px',
+            background: "#FFF",
+            width: '100%',
+            height: '60%',
+            zIndex: 1,
+        }}>
+            <div style={{
+                width: 'calc(100% - 30px)',
+                marginLeft: '15px',
+                display: 'flex',
+                justifyContent: 'center',
+                flexDirection: 'column',
+                alignItems: 'center',
+            }}>
+                <TonPageBanner onClick={openTonPage}/>
+                <PremiumFeature/>
+                <GiftFeature2/>
+            </div>
+        </div>
+    )
+}
+
+const TonPageBanner = ({onClick}) => {
+    return (
+        <div
+            onClick={onClick}
+            style={{
+                background: '#2c2c2c',
+                borderRadius: '20px',
+                width: '100%',
+                height: '90px',
+                marginTop: '15px',
+                display: 'flex',
+                justifyContent: 'space-between',
+                flexDirection: 'row',
+                alignItems: 'center',
+                position: 'relative',
+            }}>
+            <div style={{
+                display: 'flex',
+                justifyContent: 'flex-start',
+                flexDirection: 'row',
+                alignItems: 'center',
+            }}>
+                <div style={{
+                    width: '54px',
+                    height: '54px',
+                    background: '#FFF',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    borderRadius: '35px',
+                    marginLeft: '15px'
+                }}>
+                    <TonCoinShape width={40} height={40} fillColor1={'#FFF'} fillColor2={'#2c2c2c'} style={{}}/>
+                </div>
+                <div style={{
+                    marginLeft: '13px',
+                }}>
+                    <p style={{
+                        textAlign: 'left',
+                        padding: 0,
+                        margin: 0,
+                        fontWeight: 'bold',
+                        color: '#FFF',
+                        fontSize: '19px',
+                    }}>Bonuses</p>
+                    <div style={{
+                        fontSize: '15px',
+                        marginTop: '4px',
+                        color: '#FFF',
+                    }}>
+                        Earn TON Coin
+                    </div>
+                </div>
+            </div>
+            <div style={{
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'center',
+                alignItems: 'center',
+            }}>
+                <div style={{
+                    width: '25px',
+                    height: '25px',
+                    background: '#ec3636',
+                    borderRadius: '17px',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    color: '#FFF',
+                    marginRight: '5px',
+                    fontWeight: 'bold',
+                    fontSize: '13px',
+                }}>
+                    1
+                </div>
+                <ArrowRightShape width={17} height={17} fillColor={'#eee'} style={{
+                    marginRight: '13px',
+                }}/>
+            </div>
         </div>
     )
 }
 
 function ProfilePage() {
-    const [unlockBonusesOpen, setUnlockBonusesOpen] = useState(false);
-    const [getMatchedOpen, setGetMatchedOpen] = useState(false);
+    const [tonPageOpen, setTonPageOpen] = useState(false);
 
-    const closeUnlockBonuses = () => setUnlockBonusesOpen(false);
-    const openUnlockBonuses = () => setUnlockBonusesOpen(true);
+    const closeTonPage = () => setTonPageOpen(false);
+    const openTonPage = () => setTonPageOpen(true);
 
-    const closeGetMatched = () => setGetMatchedOpen(false);
-    const openGetMatched = () => setGetMatchedOpen(true);
-
-
-    const [activeTabIndex, setActiveTabIndex] = useState(0)
-
-    const setNextTab = (id) => {
-        window.Telegram.WebApp.HapticFeedback.impactOccurred('rigid');
-
-        setActiveTabIndex(id)
-    }
 
     return (
         <div style={containerStyle}>
             <AnimatePresence initial={false} mode={'wait'} onExitComplete={() => null}>
-                {unlockBonusesOpen && (
-                    <Modal handleClose={closeUnlockBonuses}>
-                        <UnlockBonusesPopup handleClose={closeUnlockBonuses}/>
+                {tonPageOpen && (
+                    <Modal handleClose={closeTonPage}>
+                        <TonPage handleClose={closeTonPage}/>
                     </Modal>
                 )}
-                {getMatchedOpen && (
-                    <Modal handleClose={closeGetMatched}>
-                        <GetMatchedPopup handleClose={closeGetMatched}/>
-                    </Modal>
-                )}
-
             </AnimatePresence>
             <Header/>
-            <TabBar activeTabIndex={activeTabIndex} setActiveTabIndex={setNextTab}/>
-            {activeTabIndex === 0 ? (
-                <>
-                    <GiftBonusesInfo openPopup={openUnlockBonuses}/>
-                    <InviteFriendChallenge/>
-                    <ConnectionsChallenge onClick={openGetMatched}/>
-                    <BeActiveChallenge/>
-                </>
-            ) : (
-                <TransactionsHistory/>
-            )}
+            <Content openTonPage={openTonPage}/>
         </div>
     );
 }
 
-
 const containerStyle = {
-    background: 'white',
     width: '100%',
     height: '100%',
     display: 'flex',
     alignItems: 'center',
     flexDirection: 'column',
+    position: 'relative',
+    overflow: 'hidden',
+    background: '#2c2c2c',
 };
 
 export default ProfilePage;
