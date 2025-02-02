@@ -25,7 +25,11 @@ const MatchedPopup = ({handleClose}) => {
             className="newMatchContainer"
             style={containerStyle}
         >
-            <div style={fireworkContainerStyle}>
+            <div style={{
+                position: 'absolute',
+                marginTop: '10%',
+                zIndex: 3,
+            }}>
                 <LottieAnimation
                     width={300}
                     height={300}
@@ -106,13 +110,6 @@ const containerStyle = {
     backgroundImage: 'radial-gradient( circle farthest-corner at 10% 20%,  rgb(39 25 52) 0%, rgb(19, 27, 24) 90% )',
     zIndex: 2,
 };
-
-
-const fireworkContainerStyle = {
-    position: 'absolute',
-    marginTop: '10%',
-    zIndex: 3,
-}
 
 const photoContainerStyle = {
     display: 'flex',

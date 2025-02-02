@@ -8,13 +8,19 @@ import ArrowRightShape from "../../Shapes/ArrowRightShape";
 import Modal from "../../Other/Modal";
 import TonPage from "./TonPage/TonPage";
 import SettingsShape from "../../Shapes/SettingsShape";
+import AbBulb from "../../Shapes/Abstract/AbBulb";
+import AbHeart from "../../Shapes/Abstract/AbHeart";
+import AbFlower from "../../Shapes/Abstract/AbFlower";
+import AbCutout from "../../Shapes/Abstract/AbCutout";
+import AbDiamond from "../../Shapes/Abstract/AbDiamond";
 
 const Header = ({}) => {
+    const shapeColor = "rgb(83 82 82)"
     return (
         <div style={{
             height: '40%',
             width: '100%',
-            background: '#2c2c2c',
+            background: 'rgb(44, 44, 44)',
             overflow: 'hidden',
             position: 'relative',
             display: 'flex',
@@ -22,6 +28,66 @@ const Header = ({}) => {
             justifyContent: 'center',
             alignItems: 'center',
         }}>
+            <div style={{
+                position: 'absolute',
+                width: '100%',
+                height: '100%',
+            }}>
+                <AbBulb width={45} height={45} fillColor={shapeColor} style={{
+                    position: 'absolute',
+                    left: '30px',
+                    top: '40px',
+                }}/>
+                <AbHeart
+                    width={45} height={45} fillColor={shapeColor} style={{
+                    position: 'absolute',
+                    left: '20px',
+                    transform: 'rotate(-45deg)',
+                    bottom: '40px',
+                }}
+                />
+                <AbFlower
+                    width={65} height={65} fillColor={shapeColor} style={{
+                    position: 'absolute',
+                    left: '110px',
+                    transform: 'rotate(-45deg)',
+                    bottom: '30px',
+                }}
+                />
+                <AbCutout
+                    width={65} height={65} fillColor={shapeColor} style={{
+                    position: 'absolute',
+                    right: '110px',
+                    transform: 'rotate(-45deg)',
+                    top: '15px',
+                }}
+                />
+                <AbHeart
+                    width={95} height={95} fillColor={shapeColor} style={{
+                    position: 'absolute',
+                    right: '50px',
+                    transform: 'rotate(35deg)',
+                    bottom: '-55px'
+                }}
+                />
+                <AbCutout
+                    width={40} height={40} fillColor={shapeColor} style={{
+                    position: 'absolute',
+                    right: '20px',
+                    transform: 'rotate(-45deg)',
+                    top: '120px',
+                }}
+                />
+                <AbDiamond
+                    width={40} height={40} fillColor={shapeColor} style={{
+                    position: 'absolute',
+                    right: '1px',
+                    transform: 'rotate(-45deg)',
+                    top: '30px',
+                }}
+                />
+
+            </div>
             <div style={{
                 position: 'absolute',
                 top: '24px',
@@ -250,10 +316,10 @@ const TonPageBanner = ({onClick}) => {
         <div
             onClick={onClick}
             style={{
-                background: '#2c2c2c',
+                background: '#000',
                 borderRadius: '20px',
                 width: '100%',
-                height: '90px',
+                height: '80px',
                 marginTop: '15px',
                 display: 'flex',
                 justifyContent: 'space-between',
@@ -288,10 +354,10 @@ const TonPageBanner = ({onClick}) => {
                         margin: 0,
                         fontWeight: 'bold',
                         color: '#FFF',
-                        fontSize: '19px',
+                        fontSize: '18px',
                     }}>Bonuses</p>
                     <div style={{
-                        fontSize: '15px',
+                        fontSize: '14px',
                         marginTop: '4px',
                         color: '#FFF',
                     }}>

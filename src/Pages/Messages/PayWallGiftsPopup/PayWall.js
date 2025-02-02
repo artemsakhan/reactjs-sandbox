@@ -3,23 +3,16 @@ import React, {useState} from "react";
 import PurchaseLineItem from "./Components/PurchaseLineItem";
 import UIConfig from "../../../UIConfig";
 import CheckShape from "../../../Shapes/CheckShape";
-import IntersectingWaveLayerShape from "../../../Shapes/IntersectingWaveLayerShape";
-import DiamondSimpleShape from "../../../Shapes/DiamondSimpleShape";
 import CrownShape from "../../../Shapes/CrownShape";
 import DiamondFillShape from "../../../Shapes/DiamondFillShape";
-
-
-const headerColor = 'rgb(49 26 67)'
+import BannerBackground from "../Components/BannerBackground";
 
 const GiftHeader = ({}) => {
-
-
     return (
         <div style={headerStyle}>
             <div style={{
-                background: headerColor,
+                marginTop: '60px',
                 width: '100%',
-                height: '85px',
                 display: 'flex',
                 flexDirection: 'row',
                 justifyContent: 'center',
@@ -28,32 +21,28 @@ const GiftHeader = ({}) => {
                 <div style={{
                     width: '38px',
                     height: '38px',
-                    // background: '#fff',
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
                     borderRadius: '35px',
                 }}>
-                    <DiamondFillShape width={35} height={35} fillColor={'#FFF'} style={{
-                        marginTop: '2px',
+                    <DiamondFillShape width={32} height={32} fillColor={'#FFF'} style={{
+                        marginTop: '20px',
                         transform: 'rotate(-15deg)'
                     }}/>
                 </div>
-                <p style={{...headlineStyle, marginLeft: '5px'}}>Gifts</p>
+                <h1 style={{color: '#FFF', marginLeft: '0px', marginBottom: '6px'}}>Gifts</h1>
             </div>
-            <IntersectingWaveLayerShape width={'100%'} fillColor={headerColor}/>
         </div>
     )
 }
 
 const PremiumHeader = ({}) => {
-
     return (
         <div style={headerStyle}>
             <div style={{
-                background: headerColor,
+                marginTop: '60px',
                 width: '100%',
-                height: '85px',
                 display: 'flex',
                 flexDirection: 'row',
                 justifyContent: 'center',
@@ -62,19 +51,18 @@ const PremiumHeader = ({}) => {
                 <div style={{
                     width: '44px',
                     height: '44px',
-                    // background: '#fff',
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
                     borderRadius: '35px',
                 }}>
                     <CrownShape width={35} height={35} fillColor={'#FFF'} style={{
-                        transform: 'rotate(-15deg)'
+                        transform: 'rotate(-15deg)',
+                        marginTop: '15px',
                     }}/>
                 </div>
-                <p style={{...headlineStyle, color: '#FFF', fontSize: '30px', marginLeft: '3px'}}>Premium</p>
+                <h1 style={{color: '#FFF', marginLeft: '0px', marginBottom: '6px',}}>Premium</h1>
             </div>
-            <IntersectingWaveLayerShape width={'100%'} fillColor={headerColor}/>
         </div>
     )
 }
@@ -88,6 +76,17 @@ const PayWallGiftsPopup = ({handleClose}) => {
 
     return (
         <div style={containerStyle} onClick={nextHeader}>
+            <BannerBackground
+                width={window.innerWidth}
+                height={220}
+                style={{
+                    position: 'absolute',
+                    pointerEvents: 'none',
+                    top: 0,
+                    right: 0,
+                    opacity: 0.2,
+                }}
+            />
             {
                 headerIndex === 0 ? (
                     <GiftHeader/>
@@ -95,6 +94,13 @@ const PayWallGiftsPopup = ({handleClose}) => {
                     <PremiumHeader/>
                 )
             }
+            <h2 style={{
+                color: '#FFF',
+                padding: 0,
+                margin: 0,
+                fontWeight: 'bold',
+            }}>Choose your option</h2>
+
 
             <PurchaseLineItem unitAmount={1} price={100} style={{marginTop: '28px'}} isPreSelected={false}/>
             <PurchaseLineItem unitAmount={3} price={250} style={{marginTop: '15px'}} isPreSelected={false}/>
@@ -138,7 +144,7 @@ const headerStyle = {
 }
 
 const headlineStyle = {
-    fontSize: '34px',
+    fontSize: '30px',
     fontWeight: 700,
     color: '#FFF',
     letterSpacing: '1px',

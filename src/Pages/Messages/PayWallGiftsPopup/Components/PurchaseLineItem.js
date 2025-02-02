@@ -1,4 +1,3 @@
-
 import DiamondSimpleShape from "../../../../Shapes/DiamondSimpleShape";
 import UIConfig from "../../../../UIConfig";
 
