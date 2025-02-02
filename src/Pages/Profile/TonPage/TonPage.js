@@ -20,7 +20,7 @@ const Header = ({}) => {
     return (
         <div style={{
             width: '100%',
-            height: '45%',
+            height: '40%',
             display: 'flex',
             justifyContent: 'center',
             flexDirection: 'column',
@@ -100,22 +100,24 @@ const TabBar = ({activeTabIndex, setActiveTabIndex}) => {
         }}>
             <li style={{
                 width: '50%',
-                padding: '10px 10px',
-                fontSize: '12px',
+                padding: '12px 12px',
+                fontSize: '13px',
                 fontWeight: '500',
                 cursor: 'pointer',
-                borderRadius: '5px',
-                backgroundColor: activeTabIndex === 0 ? '#dcdcdc' : '#efefec',
+                borderRadius: '8px',
+                backgroundColor: activeTabIndex === 0 ? '#000' : '#efefec',
+                color: activeTabIndex === 0 ? '#FFF' : '#000',
             }} onClick={() => setActiveTabIndex(0)}>Challenges
             </li>
             <li style={{
                 width: '50%',
-                fontSize: '12px',
+                fontSize: '13px',
                 fontWeight: '500',
-                padding: '10px 10px',
+                padding: '12px 12px',
                 cursor: 'pointer',
-                borderRadius: '5px',
-                backgroundColor: activeTabIndex === 1 ? '#dcdcdc' : '#efefec',
+                borderRadius: '8px',
+                backgroundColor: activeTabIndex === 1 ? '#000' : '#efefec',
+                color: activeTabIndex === 1 ? '#FFF' : '#000',
             }} onClick={() => setActiveTabIndex(1)}>History
             </li>
         </ul>
@@ -128,7 +130,7 @@ const GiftBonusesInfo = ({openPopup}) => {
             marginTop: '20px',
             width: 'calc(100% - 60px)',
             background: '#efefec',
-            height: '70px',
+            height: '80px',
             borderRadius: '10px',
             display: 'flex',
             justifyContent: 'flex-start',
@@ -140,15 +142,15 @@ const GiftBonusesInfo = ({openPopup}) => {
                 display: 'flex',
                 flexDirection: 'row',
             }}>
-                <TonCoinShape width={40} height={40} fillColor1={'#000'} fillColor2={'#fff'}/>
+                <TonCoinShape width={45} height={45} fillColor1={'#000'} fillColor2={'#fff'}/>
                 <div style={{
-                    width: '40px',
-                    height: '40px',
-                    borderRadius: '20px',
+                    width: '45px',
+                    height: '45px',
+                    borderRadius: '23px',
                     marginLeft: '-14px',
                     background: 'orange',
                 }}>
-                    <DiamondSimpleShape width={40} height={40} fillColor={'#FFF'} style={{
+                    <DiamondSimpleShape width={45} height={45} fillColor={'#FFF'} style={{
                         marginTop: '-7px',
                     }}/>
                 </div>

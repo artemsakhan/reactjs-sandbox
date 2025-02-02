@@ -8,20 +8,15 @@ import ArrowRightShape from "../../Shapes/ArrowRightShape";
 import Modal from "../../Other/Modal";
 import TonPage from "./TonPage/TonPage";
 import SettingsShape from "../../Shapes/SettingsShape";
-import AbBulb from "../../Shapes/Abstract/AbBulb";
-import AbHeart from "../../Shapes/Abstract/AbHeart";
-import AbFlower from "../../Shapes/Abstract/AbFlower";
-import AbCutout from "../../Shapes/Abstract/AbCutout";
-import AbDiamond from "../../Shapes/Abstract/AbDiamond";
+import LottieAnimation from "../../Other/LottieAnimation";
+import loadingAnimationData from "../../Assets/profile_background_animation_v2.json";
+import ArcDividerShape from "../../Shapes/ArcDividerShape";
 
 const Header = ({}) => {
-    const shapeColor = "rgb(83 82 82)"
     return (
         <div style={{
             height: '40%',
             width: '100%',
-            background: 'rgb(44, 44, 44)',
-            overflow: 'hidden',
             position: 'relative',
             display: 'flex',
             flexDirection: 'column',
@@ -30,68 +25,8 @@ const Header = ({}) => {
         }}>
             <div style={{
                 position: 'absolute',
-                width: '100%',
-                height: '100%',
-            }}>
-                <AbBulb width={45} height={45} fillColor={shapeColor} style={{
-                    position: 'absolute',
-                    left: '30px',
-                    top: '40px',
-                }}/>
-                <AbHeart
-                    width={45} height={45} fillColor={shapeColor} style={{
-                    position: 'absolute',
-                    left: '20px',
-                    transform: 'rotate(-45deg)',
-                    bottom: '40px',
-                }}
-                />
-                <AbFlower
-                    width={65} height={65} fillColor={shapeColor} style={{
-                    position: 'absolute',
-                    left: '110px',
-                    transform: 'rotate(-45deg)',
-                    bottom: '30px',
-                }}
-                />
-                <AbCutout
-                    width={65} height={65} fillColor={shapeColor} style={{
-                    position: 'absolute',
-                    right: '110px',
-                    transform: 'rotate(-45deg)',
-                    top: '15px',
-                }}
-                />
-                <AbHeart
-                    width={95} height={95} fillColor={shapeColor} style={{
-                    position: 'absolute',
-                    right: '50px',
-                    transform: 'rotate(35deg)',
-                    bottom: '-55px'
-                }}
-                />
-                <AbCutout
-                    width={40} height={40} fillColor={shapeColor} style={{
-                    position: 'absolute',
-                    right: '20px',
-                    transform: 'rotate(-45deg)',
-                    top: '120px',
-                }}
-                />
-                <AbDiamond
-                    width={40} height={40} fillColor={shapeColor} style={{
-                    position: 'absolute',
-                    right: '1px',
-                    transform: 'rotate(-45deg)',
-                    top: '30px',
-                }}
-                />
-
-            </div>
-            <div style={{
-                position: 'absolute',
                 top: '24px',
-                right: '24px'
+                right: '24px',
             }}>
                 <SettingsShape width={30} height={30} fillColor={'#FFF'}/>
             </div>
@@ -124,7 +59,7 @@ const Header = ({}) => {
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                zIndex: 2,
+                zIndex: 1,
             }}>
                     <span style={{
                         fontSize: '13px',
@@ -134,6 +69,7 @@ const Header = ({}) => {
                         fontFamily: UIConfig.Fonts.Primary,
                     }}>Edit Profile</span>
             </motion.div>
+
         </div>
     )
 }
@@ -288,16 +224,19 @@ const GiftFeature2 = ({}) => {
 const Content = ({openTonPage}) => {
     return (
         <div style={{
-            borderTopLeftRadius: '35px',
-            borderTopRightRadius: '35px',
-            background: "#FFF",
             width: '100%',
+            background: '#FFF',
             height: '60%',
-            zIndex: 1,
+            display: 'flex',
+            justifyContent: 'flex-start',
+            flexDirection: 'column',
+            alignItems: 'center',
+            zIndex: 2,
         }}>
+            <ArcDividerShape style={{}} />
             <div style={{
-                width: 'calc(100% - 30px)',
-                marginLeft: '15px',
+                width: 'calc(100% - 60px)',
+                // marginLeft: '30px',
                 display: 'flex',
                 justifyContent: 'center',
                 flexDirection: 'column',
@@ -316,7 +255,7 @@ const TonPageBanner = ({onClick}) => {
         <div
             onClick={onClick}
             style={{
-                background: '#000',
+                background: '#2c2c2c',
                 borderRadius: '20px',
                 width: '100%',
                 height: '80px',
@@ -336,14 +275,14 @@ const TonPageBanner = ({onClick}) => {
                 <div style={{
                     width: '54px',
                     height: '54px',
-                    background: '#FFF',
+                    background: '#000',
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
                     borderRadius: '35px',
                     marginLeft: '15px'
                 }}>
-                    <TonCoinShape width={40} height={40} fillColor1={'#FFF'} fillColor2={'#2c2c2c'} style={{}}/>
+                    <TonCoinShape width={40} height={40} fillColor1={'#000'} fillColor2={'#FFF'} style={{}}/>
                 </div>
                 <div style={{
                     marginLeft: '13px',
@@ -386,7 +325,7 @@ const TonPageBanner = ({onClick}) => {
                 }}>
                     1
                 </div>
-                <ArrowRightShape width={17} height={17} fillColor={'#eee'} style={{
+                <ArrowRightShape width={14} height={14} fillColor={'#f5f5f6'} style={{
                     marginRight: '13px',
                 }}/>
             </div>
@@ -403,6 +342,23 @@ function ProfilePage() {
 
     return (
         <div style={containerStyle}>
+            <div style={{
+                position: 'absolute',
+                width: '100%',
+                height: '100%',
+                background: '#000',
+                top: 0,
+                left: 0,
+            }}>
+                <LottieAnimation
+                    width={window.innerWidth}
+                    height={window.innerHeight}
+                    animationData={loadingAnimationData}
+                    shouldAnimate={false}
+                    loop={true}
+                    speed={0.2}
+                />
+            </div>
             <AnimatePresence initial={false} mode={'wait'} onExitComplete={() => null}>
                 {tonPageOpen && (
                     <Modal handleClose={closeTonPage}>
@@ -424,7 +380,7 @@ const containerStyle = {
     flexDirection: 'column',
     position: 'relative',
     overflow: 'hidden',
-    background: '#2c2c2c',
+    background: '#red',
 };
 
 export default ProfilePage;

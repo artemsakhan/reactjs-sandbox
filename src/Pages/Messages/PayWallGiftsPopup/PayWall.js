@@ -18,6 +18,7 @@ const GiftHeader = ({}) => {
                 justifyContent: 'center',
                 alignItems: 'center',
             }}>
+                <h1 style={{color: '#FFF', marginLeft: '0px', marginBottom: '6px'}}>Gifts</h1>
                 <div style={{
                     width: '38px',
                     height: '38px',
@@ -27,11 +28,10 @@ const GiftHeader = ({}) => {
                     borderRadius: '35px',
                 }}>
                     <DiamondFillShape width={32} height={32} fillColor={'#FFF'} style={{
-                        marginTop: '20px',
-                        transform: 'rotate(-15deg)'
+                        marginTop: '22px',
+                        transform: 'rotate(15deg)'
                     }}/>
                 </div>
-                <h1 style={{color: '#FFF', marginLeft: '0px', marginBottom: '6px'}}>Gifts</h1>
             </div>
         </div>
     )

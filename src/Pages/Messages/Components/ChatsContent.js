@@ -16,7 +16,7 @@ const dialogs = [
     {
         id: 1,
         name: 'Olesia',
-        imgUrl: 'https://kyivdate.app/photos/MXBLOrA/b0y0d.624abf5ef198c.120x120.webp',
+        imgUrl: 'https://lyranova.s3.eu-central-1.amazonaws.com/EG98Odj/adbdj.62cb2da838e93.120x120.webp',
         isUnread: false,
         isNewMatch: false,
         isPendingGift: true,
@@ -26,25 +26,9 @@ const dialogs = [
     {
         id: 2,
         name: 'Katya',
-        imgUrl: 'https://kyivdate.app/photos/MXBLOrA/ob9dd.624abe7577647.120x120.webp',
+        imgUrl: 'https://lyranova.s3.eu-central-1.amazonaws.com/EG98Odj/adbdj.62cb2da838e93.120x120.webp',
         isUnread: false,
         isNewMatch: true,
-        lastMessageText: 'Hey buddy',
-    },
-    {
-        id: 3,
-        name: 'Valeria',
-        imgUrl: 'https://kyivdate.app/photos/MXBLOrA/yr7g4.624abf3505902.120x120.webp',
-        isUnread: true,
-        isNewMatch: false,
-        lastMessageText: 'Hey buddy',
-    },
-    {
-        id: 4,
-        name: 'Olesia',
-        imgUrl: 'https://kyivdate.app/photos/MXBLOrA/b0y0d.624abf5ef198c.120x120.webp',
-        isUnread: false,
-        isNewMatch: false,
         lastMessageText: 'Hey buddy',
     },
 
