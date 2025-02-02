@@ -233,7 +233,7 @@ const Content = ({openTonPage}) => {
             alignItems: 'center',
             zIndex: 2,
         }}>
-            <ArcDividerShape style={{}} />
+            <ArcDividerShape style={{}} fillColor={'#362846'}/>
             <div style={{
                 width: 'calc(100% - 60px)',
                 // marginLeft: '30px',
@@ -346,7 +346,7 @@ function ProfilePage() {
                 position: 'absolute',
                 width: '100%',
                 height: '100%',
-                background: '#000',
+                background: '#362846',
                 top: 0,
                 left: 0,
             }}>

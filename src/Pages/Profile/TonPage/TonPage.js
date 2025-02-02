@@ -217,7 +217,7 @@ const InviteFriendChallenge = ({}) => {
                     }}>0.05 TON</p>
                 </div>
                 <motion.div style={{
-                    position: 'absolute',
+                    position: 'absolute', // @TODO USE FLEX INSTEAD OF ABS POS!!
                     right: '5px',
                     top: '9px',
                     background: '#000',
@@ -279,7 +279,7 @@ const ConnectionsChallenge = ({onClick}) => {
                     }}>0/10, 0.015 TON</p>
                 </div>
                 <motion.div style={{
-                    position: 'absolute',
+                    position: 'absolute', // @TODO USE FLEX INSTEAD OF ABS POS
                     right: '5px',
                     top: '9px',
                     background: '#000',
@@ -343,7 +343,7 @@ const BeActiveChallenge = ({}) => {
                     }}>0/7, 0.015 TON</p>
                 </div>
                 <motion.div style={{
-                    position: 'absolute',
+                    position: 'absolute', // @TODO USE FLEX INSTEAD OF ABS POS
                     right: '5px',
                     top: '9px',
                     background: 'rgb(220 220 220)',
