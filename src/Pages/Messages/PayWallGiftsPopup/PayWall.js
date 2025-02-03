@@ -18,20 +18,7 @@ const GiftHeader = ({}) => {
                 justifyContent: 'center',
                 alignItems: 'center',
             }}>
-                <h1 style={{color: '#FFF', marginLeft: '0px', marginBottom: '6px'}}>Gifts</h1>
-                <div style={{
-                    width: '38px',
-                    height: '38px',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    borderRadius: '35px',
-                }}>
-                    <DiamondFillShape width={32} height={32} fillColor={'#FFF'} style={{
-                        marginTop: '22px',
-                        transform: 'rotate(15deg)'
-                    }}/>
-                </div>
+                <h1 style={{color: '#FFF', marginLeft: '0px', marginBottom: '12px'}}>Get Gifts</h1>
             </div>
         </div>
     )
@@ -48,20 +35,7 @@ const PremiumHeader = ({}) => {
                 justifyContent: 'center',
                 alignItems: 'center',
             }}>
-                <div style={{
-                    width: '44px',
-                    height: '44px',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    borderRadius: '35px',
-                }}>
-                    <CrownShape width={35} height={35} fillColor={'#FFF'} style={{
-                        transform: 'rotate(-15deg)',
-                        marginTop: '15px',
-                    }}/>
-                </div>
-                <h1 style={{color: '#FFF', marginLeft: '0px', marginBottom: '6px',}}>Premium</h1>
+                <h1 style={{color: '#FFF', marginLeft: '0px', marginBottom: '12px',}}>Go Premium</h1>
             </div>
         </div>
     )
@@ -94,14 +68,13 @@ const PayWallGiftsPopup = ({handleClose}) => {
                     <PremiumHeader/>
                 )
             }
-            <h2 style={{
+            <p style={{
                 color: '#FFF',
                 padding: 0,
                 margin: 0,
-                fontWeight: 'bold',
-            }}>Choose your option</h2>
-
-
+                fontSize: '18px',
+                letterSpacing: '0.3px',
+            }}>Choose your option</p>
             <PurchaseLineItem unitAmount={1} price={100} style={{marginTop: '28px'}} isPreSelected={false}/>
             <PurchaseLineItem unitAmount={3} price={250} style={{marginTop: '15px'}} isPreSelected={false}/>
             <PurchaseLineItem unitAmount={6} price={450} style={{marginTop: '15px'}} isPreSelected={true}
