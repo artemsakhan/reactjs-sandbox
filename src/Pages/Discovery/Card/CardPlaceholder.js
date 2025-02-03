@@ -38,7 +38,7 @@ const CardPlaceholder = ({children, zIndex = 1}) => {
                                             margin: 0,
                                             maxWidth: '65%',
                                             color: '#a6a7ab',
-                                        }}>Looks like no one’s here. Expand your search for more options.</p>
+                                        }}>Looks like no one’s here.<br/>Expand your search for more options.</p>
                                         <motion.div style={{
                                             background: UIConfig.Colors.Primary,
                                             borderRadius: '20px',
@@ -49,7 +49,7 @@ const CardPlaceholder = ({children, zIndex = 1}) => {
                                         }}>
                                             <span style={{
                                                 fontSize: '15px',
-                                                padding: '10px 18px',
+                                                padding: '11px 18px',
                                                 fontWeight: 'bold',
                                                 color: '#000',
                                                 fontFamily: UIConfig.Fonts.Primary,
@@ -64,7 +64,7 @@ const CardPlaceholder = ({children, zIndex = 1}) => {
                                         margin: 0,
                                         maxWidth: '70%',
                                         color: '#a6a7ab',
-                                    }}>Looks like no one’s here. Try coming back later.</p>
+                                    }}>Looks like no one’s here.<br/> Try coming back later.</p>
                                 )
                             }
                         </div>
