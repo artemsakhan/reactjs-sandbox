@@ -40,8 +40,9 @@ const CardPlaceholder = ({children, zIndex = 1}) => {
                                             color: '#a6a7ab',
                                         }}>Looks like no one’s here.<br/>Expand your search for more options.</p>
                                         <motion.div style={{
-                                            background: UIConfig.Colors.Primary,
+                                            // background: UIConfig.Colors.Primary,
                                             borderRadius: '20px',
+                                            border: `1px solid ${UIConfig.Colors.Primary}`,
                                             display: 'flex',
                                             justifyContent: 'center',
                                             alignItems: 'center',
@@ -51,7 +52,7 @@ const CardPlaceholder = ({children, zIndex = 1}) => {
                                                 fontSize: '15px',
                                                 padding: '11px 18px',
                                                 fontWeight: 'bold',
-                                                color: '#000',
+                                                color: UIConfig.Colors.Primary,
                                                 fontFamily: UIConfig.Fonts.Primary,
                                             }}>
                                                 Expand

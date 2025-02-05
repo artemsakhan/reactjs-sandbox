@@ -1,4 +1,4 @@
-import React, {forwardRef, useImperativeHandle, useRef} from 'react';
+    import React, {forwardRef, useImperativeHandle, useRef} from 'react';
 import {motion, useAnimationControls, useMotionValue} from 'framer-motion';
 import Content from "./Components/Content";
 import ActionButtons from "./Components/ActionButtons";
@@ -23,8 +23,6 @@ const Card = forwardRef((props, ref) => {
     const cardRef = useRef(null); // Ref for card element
 
     const swipeRight = (candidate, type = null) => {
-        window.Telegram.WebApp.HapticFeedback.impactOccurred('rigid');
-
         const duration = type === 'slow' ? 0.6 : 0.4;
         cardRef.current.classList.add('swiping');
 
@@ -91,104 +89,75 @@ const Card = forwardRef((props, ref) => {
             }}
         >
             <div className="cardContent" style={contentStyle}>
-
-                {/* Recently active label */}
                 <div style={{
-                    height: '30px',
-                    background: '#feebd8',
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    borderRadius: '15px',
                     position: 'absolute',
-                    left: '12px',
-                    top: '45px',
-                    zIndex: 1,
-                }}>
-                    <TimeShape
-                        width={18}
-                        height={18}
-                        styles={{
-                            marginLeft: '5px',
-                        }}
-                        fillColor={'#e54d09'}
-                    />
-                    <span style={{
-                        fontFamily: '"Inter", sans-serif',
-                        fontWeight: 500,
-                        fontSize: '13px',
-                        color: '#e54d09',
-                        marginLeft: '5px',
-                        marginRight: '8px',
-                        letterSpacing: '0.3px'
-                    }}>Recently seen</span>
-                </div>
-
-                {/* New label */}
-                <div style={{
-                    height: '30px',
-                    background: 'rgb(246 228 235)',
+                    top: '44px',
+                    left: '10px',
                     display: 'flex',
                     justifyContent: 'center',
-                    alignItems: 'center',
-                    borderRadius: '15px',
-                    position: 'absolute',
-                    left: '12px',
-                    top: '83px',
-                    zIndex: 1,
+                    alignItems: 'flex-start',
+                    flexDirection: 'column',
                 }}>
-                    <LabelNewShape
-                        width={18}
-                        height={18}
-                        fillColor={'rgb(182 53 104)'}
-                        styles={{
-                            marginLeft: '5px',
-                        }}
-                    />
-                    <span style={{
-                        fontFamily: '"Inter", sans-serif',
-                        fontWeight: 500,
-                        fontSize: '13px',
-                        color: 'rgb(182 53 104)',
-                        marginLeft: '5px',
-                        marginRight: '8px',
-                        letterSpacing: '0.3px'
-                    }}>Just joined</span>
+                    {/* Active now */}
+                    <div style={{
+                        height: '35px',
+                        background: '#feebd8',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        borderRadius: '19px',
+                        marginBottom: '5px',
+                        zIndex: 1,
+                    }}>
+                        <LabelActiveShape
+                            width={20}
+                            height={20}
+                            fillColor={'#e54d09'}
+                            styles={{
+                                marginLeft: '6px',
+                            }}
+                        />
+                        <span style={{
+                            fontFamily: '"Inter", sans-serif',
+                            fontWeight: 500,
+                            fontSize: '14px',
+                            color: '#e54d09',
+                            marginLeft: '3px',
+                            marginRight: '8px',
+                            letterSpacing: '0.3px'
+                        }}>Active now</span>
+                    </div>
+
+                    {/* New label */}
+                    <div style={{
+                        height: '35px',
+                        background: 'rgb(246 228 235)',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        borderRadius: '19px',
+                        zIndex: 1,
+                    }}>
+                        <LabelNewShape
+                            width={20}
+                            height={20}
+                            fillColor={'rgb(182 53 104)'}
+                            styles={{
+                                marginLeft: '5px',
+                                transform: 'rotate(-15deg)'
+                            }}
+                        />
+                        <span style={{
+                            fontFamily: '"Inter", sans-serif',
+                            fontWeight: 500,
+                            fontSize: '14px',
+                            color: 'rgb(182 53 104)',
+                            marginLeft: '4px',
+                            marginRight: '8px',
+                            letterSpacing: '0.3px'
+                        }}>Just joined</span>
+                    </div>
                 </div>
-
-                {/* Active now */}
-                <div style={{
-                    height: '30px',
-                    background: 'rgb(249 222 251)',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    borderRadius: '15px',
-                    position: 'absolute',
-                    left: '12px',
-                    top: '118px',
-                    zIndex: 1,
-                }}>
-                    <LabelActiveShape
-                        width={18}
-                        height={18}
-                        fillColor={'rgb(145 73 148)'}
-                        styles={{
-                            marginLeft: '5px',
-                        }}
-                    />
-                    <span style={{
-                        fontFamily: '"Inter", sans-serif',
-                        fontWeight: 500,
-                        fontSize: '13px',
-                        color: 'rgb(145 73 148)',
-                        marginLeft: '5px',
-                        marginRight: '8px',
-                        letterSpacing: '0.3px'
-                    }}>Active now</span>
-                </div>
-
-
                 <Content
                     matchCandidate={matchCandidate}
                     openSendGiftPopup={openSendGiftPopup}

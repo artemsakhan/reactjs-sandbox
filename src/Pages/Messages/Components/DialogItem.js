@@ -1,6 +1,8 @@
-import React, {useEffect, useState} from "react";
-import LottieAnimation from "../../../Other/LottieAnimation";
-import giftSentAnimationData from "../../../Assets/gift_sent_v2.json";
+import React from "react";
+import {motion} from "framer-motion";
+import UIConfig from "../../../UIConfig";
+import GiftShape from "../../../Shapes/GiftShape";
+import DiamondFillShape from "../../../Shapes/DiamondFillShape";
 
 const DialogItem = ({item, openClaimGift}) => {
     const {
@@ -38,27 +40,47 @@ const DialogItem = ({item, openClaimGift}) => {
                     style={{
                         ...imageStyle,
                         ...(isPendingGift ? {
-                            boxShadow: 'rgba(191, 124, 238, 0.3) 0px 0px 11px 2px',
-                        }: null)
+                            // boxShadow: 'rgba(191, 124, 238, 0.3) 0px 0px 11px 2px',
+                        } : null)
                     }}
                     src={imgUrl}
                     alt=""
                 />
                 {isActive && <div style={activeIndicatorStyle}/>}
+                {isPendingGift && (
+                    <div style={{
+                        position: 'absolute',
+                        width: '30px',
+                        height: '30px',
+                        borderRadius: '17px',
+                        background: '#000',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        right: '7px',
+                        top: '42px',
+                    }}>
+                        <DiamondFillShape width={18} height={18} fillColor={'#FFF'} style={{
+                            marginTop: '2px',
+                        }}/>
+                        {/*<GiftShape width={18} height={18} fill={'#FFF'}/>*/}
+                    </div>
+                )}
             </div>
             <div style={dialogContainerStyle}>
                 <div style={nameStyle}>
                     {name}
                     {isPendingGift && (
-                        <div style={specialIconContainerStyle}>
-                            <LottieAnimation
-                                width={35}
-                                height={35}
-                                shouldAnimate={false}
-                                loop={false}
-                                animationData={giftSentAnimationData}
-                            />
-                        </div>
+                        <></>
+                        // <div style={specialIconContainerStyle}>
+                        //     <LottieAnimation
+                        //         width={35}
+                        //         height={35}
+                        //         shouldAnimate={false}
+                        //         loop={false}
+                        //         animationData={giftSentAnimationData}
+                        //     />
+                        // </div>
                     )}
                 </div>
                 <p style={{
@@ -68,7 +90,31 @@ const DialogItem = ({item, openClaimGift}) => {
                     {textContent}
                 </p>
             </div>
-            {(isUnread || isPendingGift || isNewMatch) && (
+            {isPendingGift && (
+                <>
+                    <motion.div style={{
+                        position: 'absolute',
+                        top: '20px',
+                        right: '20px',
+                        background: '#000',
+                        borderRadius: '20px',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                    }}>
+                        <span style={{
+                            fontSize: '12px',
+                            padding: '8px 15px',
+                            fontWeight: 'bold',
+                            color: '#FFF',
+                            fontFamily: UIConfig.Fonts.Primary,
+                        }}>
+                            View
+                        </span>
+                    </motion.div>
+                </>
+            )}
+            {(isUnread || isNewMatch) && (
                 <div style={unreadIndicatorStyle}/>
             )}
         </div>

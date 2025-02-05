@@ -34,158 +34,158 @@ const serverData = {
             },
             "distance": 22
         },
-        {
-            "labels": [
-                "LABEL_LIKES_ME"
-            ],
-            "profile": {
-                "hid": "lpB4W0j7lPkqZeM1",
-                "name": "Alice",
-                "gender": "m",
-                "age": 33,
-                "city": {
-                    "id": 1,
-                    "name": "San-Francisco",
-                    "country": {
-                        "id": 1,
-                        "name": "Ukraine"
-                    }
-                },
-                "photos_showcases": [
-                    {
-                        "o": "https://lyranova.s3.eu-central-1.amazonaws.com/EG98Odj/adbdj.62cb2da838e93.800x600.webp"
-                    },
-                    {
-                        "o": "https://lyranova.s3.eu-central-1.amazonaws.com/EG98Odj/adbdj.62cb2da838e93.800x600.webp"
-                    },
-                    {
-                        "o": "https://lyranova.s3.eu-central-1.amazonaws.com/EG98Odj/adbdj.62cb2da838e93.800x600.webp"
-                    },
-                ],
-                "about_me": "Fitness junkie who enjoys yoga, running, and discovering healthy recipes to share with friends.",
-                "online_state": "ONLINE_STATE_RECENTLY_SEEN",
-                "occupation": "Doctor",
-                "height": {
-                    "unit": 180,
-                    "measure": 'cm',
-                },
-                "body_type": "Athletic"
-            },
-            "distance": 30
-        },
-        {
-            "labels": [],
-            "profile": {
-                "hid": "lpB4W0j7lPkqZeM2",
-                "name": "Olga",
-                "gender": "m",
-                "age": 18,
-                "city": {
-                    "id": 1,
-                    "name": "Los-Angeles",
-                    "country": {
-                        "id": 1,
-                        "name": "Ukraine"
-                    }
-                },
-                "photos_showcases": [
-                    {
-                        "o": "https://lyranova.s3.eu-central-1.amazonaws.com/EG98Odj/adbdj.62cb2da838e93.800x600.webp"
-                    },
-                    {
-                        "o": "https://lyranova.s3.eu-central-1.amazonaws.com/EG98Odj/adbdj.62cb2da838e93.800x600.webp"
-                    },
-                    {
-                        "o": "https://lyranova.s3.eu-central-1.amazonaws.com/EG98Odj/adbdj.62cb2da838e93.800x600.webp"
-                    },
-                ],
-                "about_me": "Exploring the world one adventure at a time. Love hiking, photography, and meeting new people.",
-                "online_state": "ONLINE_STATE_RECENTLY_SEEN",
-                "occupation": "Engineer",
-                "height": {
-                    "unit": 180,
-                    "measure": 'cm',
-                },
-                "body_type": "Athletic"
-            },
-            "distance": 84
-        },
-        {
-            "labels": [],
-            "profile": {
-                "hid": "lpB4W0j7lPkqZeM3",
-                "name": "Vlad",
-                "gender": "m",
-                "age": 44,
-                "city": {
-                    "id": 1,
-                    "name": "Barcelona",
-                    "country": {
-                        "id": 1,
-                        "name": "Ukraine"
-                    }
-                },
-                "photos_showcases": [
-                    {
-                        "o": "https://lyranova.s3.eu-central-1.amazonaws.com/EG98Odj/adbdj.62cb2da838e93.800x600.webp"
-                    },
-                    {
-                        "o": "https://lyranova.s3.eu-central-1.amazonaws.com/EG98Odj/adbdj.62cb2da838e93.800x600.webp"
-                    },
-                    {
-                        "o": "https://lyranova.s3.eu-central-1.amazonaws.com/EG98Odj/adbdj.62cb2da838e93.800x600.webp"
-                    },
-                ],
-                "about_me": "Digital nomad navigating life through travel, technology, and a passion for capturing moments on camera.",
-                "online_state": "ONLINE_STATE_RECENTLY_SEEN",
-                "occupation": "Data Scientist",
-                "height": {
-                    "unit": 180,
-                    "measure": 'cm',
-                },
-                "body_type": "Athletic"
-            },
-            "distance": 16
-        },
-        {
-            "labels": [
-                "LABEL_LIKES_ME"
-            ],
-            "profile": {
-                "hid": "lpB4W0j7lPkqZeM4",
-                "name": "Britany",
-                "gender": "m",
-                "age": 44,
-                "city": {
-                    "id": 1,
-                    "name": "Pryazovske",
-                    "country": {
-                        "id": 1,
-                        "name": "Ukraine"
-                    }
-                },
-                "photos_showcases": [
-                    {
-                        "o": "https://lyranova.s3.eu-central-1.amazonaws.com/EG98Odj/adbdj.62cb2da838e93.800x600.webp"
-                    },
-                    {
-                        "o": "https://lyranova.s3.eu-central-1.amazonaws.com/EG98Odj/adbdj.62cb2da838e93.800x600.webp"
-                    },
-                    {
-                        "o": "https://lyranova.s3.eu-central-1.amazonaws.com/EG98Odj/adbdj.62cb2da838e93.800x600.webp"
-                    },
-                ],
-                "about_me": "Just me",
-                "online_state": "ONLINE_STATE_RECENTLY_SEEN",
-                "occupation": "Project Manager",
-                "height": {
-                    "unit": 180,
-                    "measure": 'cm',
-                },
-                "body_type": "Athletic"
-            },
-            "distance": 28
-        },
+        // {
+        //     "labels": [
+        //         "LABEL_LIKES_ME"
+        //     ],
+        //     "profile": {
+        //         "hid": "lpB4W0j7lPkqZeM1",
+        //         "name": "Alice",
+        //         "gender": "m",
+        //         "age": 33,
+        //         "city": {
+        //             "id": 1,
+        //             "name": "San-Francisco",
+        //             "country": {
+        //                 "id": 1,
+        //                 "name": "Ukraine"
+        //             }
+        //         },
+        //         "photos_showcases": [
+        //             {
+        //                 "o": "https://lyranova.s3.eu-central-1.amazonaws.com/EG98Odj/adbdj.62cb2da838e93.800x600.webp"
+        //             },
+        //             {
+        //                 "o": "https://lyranova.s3.eu-central-1.amazonaws.com/EG98Odj/adbdj.62cb2da838e93.800x600.webp"
+        //             },
+        //             {
+        //                 "o": "https://lyranova.s3.eu-central-1.amazonaws.com/EG98Odj/adbdj.62cb2da838e93.800x600.webp"
+        //             },
+        //         ],
+        //         "about_me": "Fitness junkie who enjoys yoga, running, and discovering healthy recipes to share with friends.",
+        //         "online_state": "ONLINE_STATE_RECENTLY_SEEN",
+        //         "occupation": "Doctor",
+        //         "height": {
+        //             "unit": 180,
+        //             "measure": 'cm',
+        //         },
+        //         "body_type": "Athletic"
+        //     },
+        //     "distance": 30
+        // },
+        // {
+        //     "labels": [],
+        //     "profile": {
+        //         "hid": "lpB4W0j7lPkqZeM2",
+        //         "name": "Olga",
+        //         "gender": "m",
+        //         "age": 18,
+        //         "city": {
+        //             "id": 1,
+        //             "name": "Los-Angeles",
+        //             "country": {
+        //                 "id": 1,
+        //                 "name": "Ukraine"
+        //             }
+        //         },
+        //         "photos_showcases": [
+        //             {
+        //                 "o": "https://lyranova.s3.eu-central-1.amazonaws.com/EG98Odj/adbdj.62cb2da838e93.800x600.webp"
+        //             },
+        //             {
+        //                 "o": "https://lyranova.s3.eu-central-1.amazonaws.com/EG98Odj/adbdj.62cb2da838e93.800x600.webp"
+        //             },
+        //             {
+        //                 "o": "https://lyranova.s3.eu-central-1.amazonaws.com/EG98Odj/adbdj.62cb2da838e93.800x600.webp"
+        //             },
+        //         ],
+        //         "about_me": "Exploring the world one adventure at a time. Love hiking, photography, and meeting new people.",
+        //         "online_state": "ONLINE_STATE_RECENTLY_SEEN",
+        //         "occupation": "Engineer",
+        //         "height": {
+        //             "unit": 180,
+        //             "measure": 'cm',
+        //         },
+        //         "body_type": "Athletic"
+        //     },
+        //     "distance": 84
+        // },
+        // {
+        //     "labels": [],
+        //     "profile": {
+        //         "hid": "lpB4W0j7lPkqZeM3",
+        //         "name": "Vlad",
+        //         "gender": "m",
+        //         "age": 44,
+        //         "city": {
+        //             "id": 1,
+        //             "name": "Barcelona",
+        //             "country": {
+        //                 "id": 1,
+        //                 "name": "Ukraine"
+        //             }
+        //         },
+        //         "photos_showcases": [
+        //             {
+        //                 "o": "https://lyranova.s3.eu-central-1.amazonaws.com/EG98Odj/adbdj.62cb2da838e93.800x600.webp"
+        //             },
+        //             {
+        //                 "o": "https://lyranova.s3.eu-central-1.amazonaws.com/EG98Odj/adbdj.62cb2da838e93.800x600.webp"
+        //             },
+        //             {
+        //                 "o": "https://lyranova.s3.eu-central-1.amazonaws.com/EG98Odj/adbdj.62cb2da838e93.800x600.webp"
+        //             },
+        //         ],
+        //         "about_me": "Digital nomad navigating life through travel, technology, and a passion for capturing moments on camera.",
+        //         "online_state": "ONLINE_STATE_RECENTLY_SEEN",
+        //         "occupation": "Data Scientist",
+        //         "height": {
+        //             "unit": 180,
+        //             "measure": 'cm',
+        //         },
+        //         "body_type": "Athletic"
+        //     },
+        //     "distance": 16
+        // },
+        // {
+        //     "labels": [
+        //         "LABEL_LIKES_ME"
+        //     ],
+        //     "profile": {
+        //         "hid": "lpB4W0j7lPkqZeM4",
+        //         "name": "Britany",
+        //         "gender": "m",
+        //         "age": 44,
+        //         "city": {
+        //             "id": 1,
+        //             "name": "Pryazovske",
+        //             "country": {
+        //                 "id": 1,
+        //                 "name": "Ukraine"
+        //             }
+        //         },
+        //         "photos_showcases": [
+        //             {
+        //                 "o": "https://lyranova.s3.eu-central-1.amazonaws.com/EG98Odj/adbdj.62cb2da838e93.800x600.webp"
+        //             },
+        //             {
+        //                 "o": "https://lyranova.s3.eu-central-1.amazonaws.com/EG98Odj/adbdj.62cb2da838e93.800x600.webp"
+        //             },
+        //             {
+        //                 "o": "https://lyranova.s3.eu-central-1.amazonaws.com/EG98Odj/adbdj.62cb2da838e93.800x600.webp"
+        //             },
+        //         ],
+        //         "about_me": "Just me",
+        //         "online_state": "ONLINE_STATE_RECENTLY_SEEN",
+        //         "occupation": "Project Manager",
+        //         "height": {
+        //             "unit": 180,
+        //             "measure": 'cm',
+        //         },
+        //         "body_type": "Athletic"
+        //     },
+        //     "distance": 28
+        // },
     ],
 };
 

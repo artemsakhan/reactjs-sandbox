@@ -54,8 +54,9 @@ const GiftFeature = ({handleOpen}) => {
                 position: 'absolute', // @TODO AVOID USING ABS POS HERE
                 right: '8px',
                 top: '27px',
-                background: UIConfig.Colors.Primary,
+                // background: UIConfig.Colors.Primary,
                 borderRadius: '20px',
+                border: `1px solid ${UIConfig.Colors.Primary}`,
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
@@ -64,13 +65,13 @@ const GiftFeature = ({handleOpen}) => {
                             fontSize: '15px',
                             padding: '10px 18px',
                             fontWeight: 'bold',
-                            color: '#000',
+                            color: UIConfig.Colors.Primary,
                             fontFamily: UIConfig.Fonts.Primary,
                         }}
                               onClick={() => {
                               }}
                         >
-                            Get
+                            Get more
                         </span>
             </motion.div>
         </div>

@@ -4,24 +4,24 @@ import ApiGateway from "../api";
 
 const useMatchCandidates = (fetchLimit) => {
     const [isLoading, setIsLoading] = useState(true);
-    const [isEmpty, setIsEmpty] = useState(true);
+    const [isEmpty, setIsEmpty] = useState(false);
     const [matchCandidates, setMatchCandidates] = useState([]);
 
     useEffect(() => {
         // Initial fetch for match candidates
-        // CachedApiGateway.queryMatchCandidates(fetchLimit)
-        //     .then((data) => {
-        //         if (data.length === 0) {
-        //             setIsLoading(false);
-        //             setIsEmpty(true);
-        //         } else {
-        //             setMatchCandidates(data);
-        //             setTimeout(() => setIsLoading(false), 500);
-        //         }
-        //     })
-        //     .catch((error) => {
-        //         console.error(error);
-        //     });
+        CachedApiGateway.queryMatchCandidates(fetchLimit)
+            .then((data) => {
+                if (data.length === 0) {
+                    setIsLoading(false);
+                    setIsEmpty(true);
+                } else {
+                    setMatchCandidates(data);
+                    setTimeout(() => setIsLoading(false), 500);
+                }
+            })
+            .catch((error) => {
+                console.error(error);
+            });
     }, [fetchLimit]);
 
     const removeCandidate = useCallback((hid) => {
