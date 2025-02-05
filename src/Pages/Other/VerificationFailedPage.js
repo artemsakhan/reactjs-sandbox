@@ -1,5 +1,5 @@
 import ErrorShape from "../../Shapes/ErrorShape";
-import UploadShape from "../../Shapes/UploadShape";
+import PhotoShape from "../../Shapes/PhotoShape";
 
 const VerificationFailedPage = ({}) => {
     return (
@@ -55,11 +55,12 @@ const VerificationFailedPage = ({}) => {
                 fontWeight: 500,
                 marginBottom: '10px',
             }}>
-                <span>Re-Upload</span>
-                <UploadShape width={27} height={27} fillColor={'#FFF'} styles={{
+                <PhotoShape width={27} height={27} fillColor={'#FFF'} styles={{
                     marginTop: '2px',
-                    marginLeft: '8px',
                 }}/>
+                <span style={{
+                    marginLeft: '8px',
+                }}>Upload</span>
             </div>
         </div>
     )

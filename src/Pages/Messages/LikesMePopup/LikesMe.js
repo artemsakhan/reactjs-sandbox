@@ -52,7 +52,7 @@ const LikesMeContent = ({handleClose}) => {
 
 const LikesMePopup = ({handleClose}) => {
     return (
-        <VerifiedPage/>
+        <VerificationFailedPage/>
     )
 }
 
