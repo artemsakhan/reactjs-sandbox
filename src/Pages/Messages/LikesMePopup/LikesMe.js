@@ -1,6 +1,10 @@
 import CloseButton from "./Components/CloseButton";
 import PersonsList from "./Components/PersonsList";
 import PremiumButton from "./Components/PremiumButton";
+import React from "react";
+import NetworkErrorPage from "../../Other/NetworkErrorPage";
+import VerifiedPage from "../../Other/VerifiedPage";
+import VerificationFailedPage from "../../Other/VerificationFailedPage";
 
 const data = [
     {
@@ -36,25 +40,20 @@ const data = [
 
 ];
 
-const LikesMePopup = ({handleClose}) => {
+const LikesMeContent = ({handleClose}) => {
     return (
-        <div style={containerStyle}>
+        <>
             <CloseButton handleClose={handleClose}/>
-            <PersonsList persons={data} style={{ marginTop: '60px'}}/>
+            <PersonsList persons={data} style={{marginTop: '60px'}}/>
             <PremiumButton/>
-        </div>
+        </>
     )
 }
 
-const containerStyle = {
-    width: '100%',
-    height: '100%',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    position: 'relative',
-    background: '#FFF',
-    zIndex: 2,
-};
+const LikesMePopup = ({handleClose}) => {
+    return (
+        <VerifiedPage/>
+    )
+}
 
 export default LikesMePopup;
