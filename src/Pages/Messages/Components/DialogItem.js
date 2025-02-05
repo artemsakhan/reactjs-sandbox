@@ -2,7 +2,6 @@ import React from "react";
 import {motion} from "framer-motion";
 import UIConfig from "../../../UIConfig";
 import GiftShape from "../../../Shapes/GiftShape";
-import DiamondFillShape from "../../../Shapes/DiamondFillShape";
 
 const DialogItem = ({item, openClaimGift}) => {
     const {
@@ -38,55 +37,31 @@ const DialogItem = ({item, openClaimGift}) => {
             <div style={imageContainerStyle}>
                 <img
                     style={{
-                        ...imageStyle,
-                        ...(isPendingGift ? {
-                            // boxShadow: 'rgba(191, 124, 238, 0.3) 0px 0px 11px 2px',
-                        } : null)
+                        ...imageStyle
                     }}
                     src={imgUrl}
                     alt=""
                 />
                 {isActive && <div style={activeIndicatorStyle}/>}
-                {isPendingGift && (
-                    <div style={{
-                        position: 'absolute',
-                        width: '30px',
-                        height: '30px',
-                        borderRadius: '17px',
-                        background: '#000',
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        right: '7px',
-                        top: '42px',
-                    }}>
-                        <DiamondFillShape width={18} height={18} fillColor={'#FFF'} style={{
-                            marginTop: '2px',
-                        }}/>
-                        {/*<GiftShape width={18} height={18} fill={'#FFF'}/>*/}
-                    </div>
-                )}
             </div>
             <div style={dialogContainerStyle}>
                 <div style={nameStyle}>
                     {name}
-                    {isPendingGift && (
-                        <></>
-                        // <div style={specialIconContainerStyle}>
-                        //     <LottieAnimation
-                        //         width={35}
-                        //         height={35}
-                        //         shouldAnimate={false}
-                        //         loop={false}
-                        //         animationData={giftSentAnimationData}
-                        //     />
-                        // </div>
-                    )}
                 </div>
                 <p style={{
                     ...messageTextStyle,
                     fontWeight: fontWeight,
+                    display: 'flex',
+                    justifyContent: 'flex-start',
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    marginTop: isPendingGift ? '2px' : '0px',
                 }}>
+                    {isPendingGift && (
+                        <GiftShape width={20} height={20} fill={'#000'} style={{
+                            marginRight: '3px',
+                        }}/>
+                    )}
                     {textContent}
                 </p>
             </div>
