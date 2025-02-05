@@ -60,7 +60,7 @@ const VerificationFailedPage = ({}) => {
                 }}/>
                 <span style={{
                     marginLeft: '8px',
-                }}>Upload</span>
+                }}>Re-Upload</span>
             </div>
         </div>
     )
