@@ -110,11 +110,11 @@ const Card = forwardRef((props, ref) => {
                         zIndex: 1,
                     }}>
                         <LabelActiveShape
-                            width={20}
-                            height={20}
+                            width={23}
+                            height={23}
                             fillColor={'#e54d09'}
                             styles={{
-                                marginLeft: '6px',
+                                marginLeft: '4px',
                             }}
                         />
                         <span style={{
