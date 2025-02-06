@@ -1,9 +1,10 @@
 import React from 'react';
 
-const CloseShape = ({width = 24, height = 24, strokeWidth = 2, fillColor = '#000000'}) => (
+const CloseShape = ({width = 24, height = 24, strokeWidth = 2, fillColor = '#000000', style}) => (
     <svg
         width={width}
         height={height}
+        style={style}
         viewBox="0 0 24 24"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
