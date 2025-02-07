@@ -6,7 +6,101 @@ import SearchShape from "../../../Shapes/SearchShape";
 import SadSmileShape from "../../../Shapes/SadSmileShape";
 import PhotoShape from "../../../Shapes/PhotoShape";
 import CloseShape from "../../../Shapes/CloseShape";
+import GhostShape from "../../../Shapes/GhostShape";
+import LockShape from "../../../Shapes/LockShape";
 
+const ProfileHiddenLock = () => {
+    return (
+        <>
+            <div style={{
+                width: '94px',
+                height: '94px',
+                borderRadius: '60px',
+                background: '#2f333d',
+                position: 'relative',
+                marginBottom: '15px',
+            }}>
+                <GhostShape width={100} height={100} fillColor={'#686f85'} style={{
+                    marginTop: '0px',
+                    marginLeft: '-2px',
+                }}/>
+                <div style={{
+                    position: 'absolute',
+                    width: '30px',
+                    height: '30px',
+                    borderRadius: '18px',
+                    background: '#d9e0ec',
+                    bottom: '-5px',
+                    left: '33px',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                }}>
+                    <LockShape width={25} height={25} fillColor={'#2f333d'} strokeWidth={3} style={{
+                        // transform: 'rotate(45deg)'
+                    }}/>
+                </div>
+                <div style={{
+                    position: 'absolute',
+                    width: '10px',
+                    height: '10px',
+                    borderRadius: '5px',
+                    background: '#2f333d',
+                    left: '-25px',
+                    top: '92px',
+                }}>
+                </div>
+                <div style={{
+                    position: 'absolute',
+                    width: '20px',
+                    height: '20px',
+                    borderRadius: '10px',
+                    background: '#2f333d',
+                    left: '-30px',
+                    top: '32px',
+                }}>
+                </div>
+                <div style={{
+                    position: 'absolute',
+                    width: '10px',
+                    height: '10px',
+                    borderRadius: '5px',
+                    background: '#2f333d',
+                    right: '-25px',
+                    top: '12px',
+                }}>
+                </div>
+            </div>
+            <h2 style={{
+                margin: '10px 0px 14px',
+            }}>Incognito</h2>
+            <p style={{
+                margin: 0,
+                maxWidth: '65%',
+                color: '#a6a7ab',
+            }}>Enable private browsing.<br/> Only people you like will see you.</p>
+            <motion.div style={{
+                borderRadius: '20px',
+                border: `1px solid ${UIConfig.Colors.Primary}`,
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                marginTop: '40px',
+            }}>
+                    <span style={{
+                        fontSize: '15px',
+                        padding: '11px 18px',
+                        fontWeight: 'bold',
+                        color: UIConfig.Colors.Primary,
+                        fontFamily: UIConfig.Fonts.Primary,
+                    }}>
+                        {/* NOT TRANSLATED */}
+                        Go Premium
+                    </span>
+            </motion.div>
+        </>
+    )
+}
 const InsufficientData = () => {
     return (
         <>
@@ -174,7 +268,7 @@ const NoResults = () => {
                 margin: 0,
                 maxWidth: '70%',
                 color: '#a6a7ab',
-            }}>Seems like you're ahead<br/> of the crowd! Try checking back later.  </p>
+            }}>Seems like you're ahead<br/> of the crowd! Try checking back later. </p>
         </>
     )
 }
@@ -189,7 +283,7 @@ const CardPlaceholder = ({children, zIndex = 1}) => {
             }}
         >
             <div style={contentStyle}>
-            <div style={{width: '100%', height: '100%', position: 'relative'}}>
+                <div style={{width: '100%', height: '100%', position: 'relative'}}>
                     {children || (
                         <div style={{
                             color: '#FFF',
@@ -200,7 +294,7 @@ const CardPlaceholder = ({children, zIndex = 1}) => {
                             width: '100%',
                             height: '100%',
                         }}>
-                            <NoResults/>
+                            <ProfileHiddenLock/>
                         </div>
                     )}
                 </div>
