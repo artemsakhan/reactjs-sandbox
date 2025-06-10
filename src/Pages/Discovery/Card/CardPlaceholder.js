@@ -11,6 +11,10 @@ import LockShape from "../../../Shapes/LockShape";
 import HeartRoundShape from "../../../Shapes/HeartRoundShape";
 import CheckShape from "../../../Shapes/CheckShape";
 import SadShape from "../../../Shapes/SadShape";
+import HeartSimpleShape from "../../../Shapes/HeartSimpleShape";
+import HeartIcon from "../../../Shapes/HeartIcon";
+import HeartExploadingLottie from "../../../Other/HeartExploadingLottie";
+import RocketShape from "../../../Shapes/RocketShape";
 
 const NoLikesPage = () => {
     return (
@@ -170,65 +174,62 @@ const NoResults = () => {
               background: '#2f333d',
               position: 'relative',
               marginBottom: '15px',
+              border: '3px solid #fff',
+              // overflow: 'hidden',
           }}>
-              <PageShape width={100} height={100} fillColor={'#686f85'} style={{
-                  marginTop: '0px',
-                  transform: 'rotate(15deg)'
-              }}/>
-              <SearchShape width={60} height={60} fillColor={'#d9e0ec'} style={{
-                  position: 'absolute',
-                  left: '26px',
-                  top: '26px',
-              }}/>
-              <div style={{
-                  position: 'absolute',
-                  width: '36px',
-                  height: '36px',
-                  borderRadius: '20px',
-                  background: '#686f85',
-                  top: '33px',
-                  left: '33px',
-              }}></div>
-              <SadSmileShape width={35} height={35} fillColor={'#b2b7c9'} style={{
-                  position: 'absolute',
-                  top: '33px',
-                  left: '33px',
-              }}/>
-              <div style={{
-                  position: 'absolute',
-                  width: '10px',
-                  height: '10px',
-                  borderRadius: '5px',
-                  background: '#2f333d',
-                  left: '-25px',
-                  top: '92px',
-              }}>
-              </div>
-              <div style={{
-                  position: 'absolute',
-                  width: '20px',
-                  height: '20px',
-                  borderRadius: '10px',
-                  background: '#2f333d',
-                  left: '-30px',
-                  top: '32px',
-              }}>
-              </div>
-              <div style={{
-                  position: 'absolute',
-                  width: '10px',
-                  height: '10px',
-                  borderRadius: '5px',
-                  background: '#2f333d',
-                  right: '-25px',
-                  top: '12px',
-              }}>
-              </div>
+              <img
+                src="https://lyranova.s3.eu-central-1.amazonaws.com/9qje02W/anmvl.6365458b6f4ae.800x600.webp"
+                   alt=""
+                style={{
+                    position: 'relative',
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    borderRadius: '50%',
+                }}
+              />
 
+              <HeartSimpleShape width={14} height={14} fill={'rgb(255 255 255 / 50%)'} style={{
+                  position: 'absolute',
+                  borderRadius: '5px',
+                  left: '-16px',
+                  top: '85px',
+                  transform: 'rotate(-16deg)',
+              }}/>
+              <HeartSimpleShape width={30} height={30} fill={'rgb(255 255 255 / 50%)'} style={{
+                  position: 'absolute',
+                  borderRadius: '10px',
+                  left: '-40px',
+                  top: '32px',
+                  transform: 'rotate(-26deg)',
+              }}/>
+              <HeartSimpleShape width={20} height={20} fill={'rgb(255 255 255 / 50%)'} style={{
+                  position: 'absolute',
+                  borderRadius: '5px',
+                  right: '-25px',
+                  top: '0px',
+                  transform: 'rotate(16deg)',
+              }}/>
+              <div style={{
+                  width: '40px',
+                  height: '40px',
+                  background: '#FFF',
+                  position: 'absolute',
+                  top: '67px',
+                  left: '64px',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  borderRadius: '50%',
+              }}>
+                  <RocketShape width={21} height={21} fill={'#911e85'}/>
+
+              </div>
           </div>
+
           <h2 style={{
               margin: '10px 0px 14px',
-          }}>Это все</h2>
+          }}>Твої лайки <br/>у перших рядах</h2>
           {/*<p style={{*/}
           {/*    margin: 0,*/}
           {/*    maxWidth: '70%',*/}
@@ -237,29 +238,29 @@ const NoResults = () => {
           <p style={{
               margin: 0,
               maxWidth: '70%',
-              color: '#a6a7ab',
+              color: '#fff',
               fontSize: '14px',
           }}>
-              Вы впереди всех.
-              Попробуйте<br/> расширить возрастной диапазон.
+              Обирай <b>Premium</b> і твоя симпатія не залишиться непоміченою.
           </p>
 
           <motion.div style={{
               borderRadius: '20px',
-              border: `1px solid ${UIConfig.Colors.Primary}`,
+              // border: `1px solid ${UIConfig.Colors.Primary}`,
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
               marginTop: '40px',
+              background: "#fff",
           }}>
                     <span style={{
                         fontSize: '15px',
                         padding: '11px 18px',
                         fontWeight: 'bold',
-                        color: UIConfig.Colors.Primary,
+                        color: '#000',
                         fontFamily: UIConfig.Fonts.Primary,
                     }}>
-                        Расширить
+                        Go Premium
                     </span>
           </motion.div>
       </>
@@ -276,7 +277,11 @@ const CardPlaceholder = ({children, zIndex = 1}) => {
         }}
       >
           <div style={contentStyle}>
-              <div style={{width: '100%', height: '100%', position: 'relative'}}>
+              <div style={{
+                  width: '100%',
+                  height: '100%',
+                  position: 'relative',
+              }}>
                   {children || (
                     <div style={{
                         color: '#FFF',
@@ -286,6 +291,8 @@ const CardPlaceholder = ({children, zIndex = 1}) => {
                         flexDirection: 'column',
                         width: '100%',
                             height: '100%',
+                        borderRadius: '35px',
+                        backgroundImage: 'radial-gradient(circle at 10% 20%, rgb(123 134 255) 0%, rgb(221 106 210) 90%)',
                         }}>
                             <NoResults/>
                         </div>

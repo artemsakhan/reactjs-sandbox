@@ -103,7 +103,7 @@ const DiscoveryPage = () => {
                     openSendGiftPopup={() => setGiftedCandidate(candidate)}
                 />
             ))}
-            {/*{isEmpty && <CardPlaceholder/>}*/}
+            {isEmpty && <CardPlaceholder/>}
         </>
     );
 };
