@@ -1,13 +1,14 @@
 import { motion } from 'framer-motion';
 import React from "react";
 import DiamondShape from "../../../../Shapes/DiamondShape";
+import UIConfig from "../../../../UIConfig";
 
 const GiftButton = ({ openSendGiftPopup }) => {
     return (
         <motion.div
             style={{
-                background: 'white',
-                marginRight: '11px',
+                background: UIConfig.Colors.Primary,
+                // marginRight: '11px',
                 ...buttonStyle,
             }}
             whileTap={{scale: 0.9}}
@@ -19,11 +20,12 @@ const GiftButton = ({ openSendGiftPopup }) => {
 }
 
 const buttonStyle = {
-    position: 'absolute',
-    bottom: '74px',
-    right: '5px',
-    width: '70px',
-    height: '70px',
+    // position: 'absolute',
+    // bottom: '74px',
+    // right: '5px',
+    width: '64px',
+    height: '64px',
+    marginBottom: '4px',
     color: '#272e3a',
     border: 'none',
     borderRadius: '35px',

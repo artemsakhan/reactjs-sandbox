@@ -1,6 +1,7 @@
 import React from 'react';
 import BodyShape from "../../../../Shapes/BodyShape";
 import RulerShape from "../../../../Shapes/RulerShape";
+import UIConfig from "../../../../UIConfig";
 
 const LabelStack = ({height, bodyType}) => {
     if (!height && !bodyType) {
@@ -9,6 +10,7 @@ const LabelStack = ({height, bodyType}) => {
 
     return (
         <div className="cardLabelStack" style={containerStyle}>
+
             {
                 bodyType && (
                     <span className="cardLabelItem" style={{

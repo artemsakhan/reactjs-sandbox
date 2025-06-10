@@ -7,6 +7,8 @@ import UIConfig from "../../../UIConfig";
 import TimeShape from "../../../Shapes/TimeShape";
 import LabelNewShape from "../../../Shapes/LabelNewShape";
 import LabelActiveShape from "../../../Shapes/LabelActiveShape";
+    import {SwipeAnimation} from "./Components/SwipeAnimation";
+    import HeartSimpleOutlineShape from "../../../Shapes/HeartSimpleOutlineShape";
 
 const Card = forwardRef((props, ref) => {
     const {
@@ -88,75 +90,78 @@ const Card = forwardRef((props, ref) => {
                 }
             }}
         >
+            {/*{isFrontCard && <SwipeAnimation x={x} />}*/}
             <div className="cardContent" style={contentStyle}>
                 <div style={{
                     position: 'absolute',
-                    top: '44px',
+                    top: '13px',
                     left: '10px',
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'flex-start',
                     flexDirection: 'column',
                 }}>
-                    {/* Active now */}
                     <div style={{
-                        height: '35px',
-                        background: '#feebd8',
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        borderRadius: '19px',
-                        marginBottom: '5px',
+                        // height: '25px',
+                        // background: '#feebd8',
+                        // display: 'flex',
+                        // justifyContent: 'center',
+                        // alignItems: 'center',
+                        // borderRadius: '19px',
+                        // marginBottom: '5px',
                         zIndex: 1,
                     }}>
-                        <LabelActiveShape
-                            width={23}
-                            height={23}
-                            fillColor={'#e54d09'}
-                            styles={{
-                                marginLeft: '4px',
-                            }}
-                        />
-                        <span style={{
-                            fontFamily: '"Inter", sans-serif',
-                            fontWeight: 500,
-                            fontSize: '14px',
-                            color: '#e54d09',
-                            marginLeft: '3px',
-                            marginRight: '8px',
-                            letterSpacing: '0.3px'
-                        }}>Active now</span>
+
+                                    <span style={{
+                                        // fontFamily: "'Roboto', sans-serif"
+                                        backgroundColor: UIConfig.Colors.Primary,
+                                        color: '#000',
+                                        fontFamily: '"SF Pro Rounded", "SF Pro Text", "San Francisco", system-ui, sans-serif',
+                                        fontSize: '13px',
+                                        // fontWeight: '600',
+                                        padding: '7px 12px',
+                                        borderRadius: '7px',
+                                        borderTopLeftRadius: '20px',
+                                        borderBottomRightRadius: '20px',
+                                        lineHeight: 1,
+                                        // display: 'flex',
+                                        // justifyContent: 'center',
+                                        // alignItems: 'center',
+                                    }}>
+                                        {/*<HeartSimpleOutlineShape width={13} height={13} style={{marginRight: '4px'}} fillColor={'#FFF'}/>*/}
+                                        Just joined
+                                    </span>
                     </div>
 
                     {/* New label */}
-                    <div style={{
-                        height: '35px',
-                        background: 'rgb(246 228 235)',
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        borderRadius: '19px',
-                        zIndex: 1,
-                    }}>
-                        <LabelNewShape
-                            width={20}
-                            height={20}
-                            fillColor={'rgb(182 53 104)'}
-                            styles={{
-                                marginLeft: '5px',
-                                transform: 'rotate(-15deg)'
-                            }}
-                        />
-                        <span style={{
-                            fontFamily: '"Inter", sans-serif',
-                            fontWeight: 500,
-                            fontSize: '14px',
-                            color: 'rgb(182 53 104)',
-                            marginLeft: '4px',
-                            marginRight: '8px',
-                            letterSpacing: '0.3px'
-                        }}>Just joined</span>
-                    </div>
+                    {/*<div style={{*/}
+                    {/*    height: '35px',*/}
+                    {/*    background: 'rgb(246 228 235)',*/}
+                    {/*    display: 'flex',*/}
+                    {/*    justifyContent: 'center',*/}
+                    {/*    alignItems: 'center',*/}
+                    {/*    borderRadius: '19px',*/}
+                    {/*    zIndex: 1,*/}
+                    {/*}}>*/}
+                    {/*    <LabelNewShape*/}
+                    {/*        width={20}*/}
+                    {/*        height={20}*/}
+                    {/*        fillColor={'rgb(182 53 104)'}*/}
+                    {/*        styles={{*/}
+                    {/*            marginLeft: '5px',*/}
+                    {/*            transform: 'rotate(-15deg)'*/}
+                    {/*        }}*/}
+                    {/*    />*/}
+                    {/*    <span style={{*/}
+                    {/*        fontFamily: '"Inter", sans-serif',*/}
+                    {/*        fontWeight: 500,*/}
+                    {/*        fontSize: '14px',*/}
+                    {/*        color: 'rgb(182 53 104)',*/}
+                    {/*        marginLeft: '4px',*/}
+                    {/*        marginRight: '8px',*/}
+                    {/*        letterSpacing: '0.3px'*/}
+                    {/*    }}>Just joined</span>*/}
+                    {/*</div>*/}
                 </div>
                 <Content
                     matchCandidate={matchCandidate}
@@ -166,27 +171,28 @@ const Card = forwardRef((props, ref) => {
                 <ActionButtons
                     handleLike={() => isFrontCard && swipeRight(matchCandidate, 'slow')}
                     handlePass={() => isFrontCard && swipeLeft(matchCandidate, 'slow')}
+                    handleGift={openSendGiftPopup}
                 />
             </div>
         </motion.div>
     );
 });
 
-const containerStyle = {
-    position: 'absolute',
-    width: '100%',
-    height: '100%',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    touchAction: "none",
-    background: 'transparent',
-    overflow: 'hidden',
-};
+    const containerStyle = {
+        position: 'absolute',
+        width: '100%',
+        height: '100%',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        touchAction: "none",
+        background: 'transparent',
+        overflow: 'hidden',
+    };
 
-const contentStyle = {
-    width: 'calc(100% - 25px)',
-    height: 'calc(100% - 25px)',
+    const contentStyle = {
+        width: 'calc(100% - 25px)',
+        height: 'calc(100% - 25px)',
     background: UIConfig.Card.Content.background,
     borderRadius: UIConfig.Card.Content.borderRadius,
     position: "relative",

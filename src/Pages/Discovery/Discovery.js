@@ -1,7 +1,7 @@
 import {AnimatePresence} from "framer-motion";
 import Modal from "../../Other/Modal";
 import Card from "./Card/Card";
-import React, {useRef, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import ApiGateway from "../../api";
 import CardPlaceholder from "./Card/CardPlaceholder";
 import MatchedPopup from "./MatchedPopup/MatchedPopup";
@@ -67,6 +67,10 @@ const DiscoveryPage = () => {
         }
     };
 
+    useEffect(() => {
+        window.Telegram.WebApp.setHeaderColor('#131313')
+    }, []);
+
     // Layout only 2 cards at once
     const subCandidates = matchCandidates.slice(-3);
 
@@ -99,7 +103,7 @@ const DiscoveryPage = () => {
                     openSendGiftPopup={() => setGiftedCandidate(candidate)}
                 />
             ))}
-            {isEmpty && <CardPlaceholder/>}
+            {/*{isEmpty && <CardPlaceholder/>}*/}
         </>
     );
 };

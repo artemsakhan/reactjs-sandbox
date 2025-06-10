@@ -20,6 +20,12 @@ const MatchedPopup = ({handleClose}) => {
         return () => clearTimeout(timer);
     }, []);
 
+    useEffect(() => {
+        window.Telegram.WebApp.setHeaderColor('#221a2d')
+        // window.Telegram.WebApp.setHeaderColor('#131313')
+
+    }, []);
+
     return (
         <div
             className="newMatchContainer"
@@ -47,7 +53,7 @@ const MatchedPopup = ({handleClose}) => {
                 >
                     <img
                         style={photoItemStyle}
-                        src="https://kyivdate.app/photos/MXBLOrA/3e23b.624abe1af4d18.800x600.webp"
+                        src="https://lyranova.s3.eu-central-1.amazonaws.com/e9z4PQ7/tqz7d.63592e71a67e2.800x600.webp"
                         alt=""
                     />
                 </motion.div>
@@ -60,7 +66,7 @@ const MatchedPopup = ({handleClose}) => {
                 >
                     <img
                         style={photoItemStyle}
-                        src="https://kyivdate.app/photos/MXBLOrA/ob9dd.624abe7577647.800x600.webp"
+                        src="https://lyranova.s3.eu-central-1.amazonaws.com/e2wb0Ny/srkrv.635b56a309cd7.800x600.webp"
                         alt=""
                     />
                 </motion.div>
@@ -87,7 +93,7 @@ const MatchedPopup = ({handleClose}) => {
                         It's a match
                     </p>
                     <p style={subTextStyle}>
-                        You and Alice like each other
+                        You and Jake like each other
                     </p>
                 </div>
                 <SendMessageButton/>
@@ -95,7 +101,7 @@ const MatchedPopup = ({handleClose}) => {
                 <KeepSwipingButton handleClose={handleClose}/>
             </div>
 
-            <CloseButton handleClose={handleClose}/>
+            {/*<CloseButton handleClose={handleClose}/>*/}
         </div>
     );
 };
@@ -108,7 +114,11 @@ const containerStyle = {
     alignItems: 'center',
     position: 'relative',
     backgroundImage: 'radial-gradient( circle farthest-corner at 10% 20%,  rgb(39 25 52) 0%, rgb(19, 27, 24) 90% )',
+    // backgroundImage: 'radial-gradient( circle farthest-corner at 10% 20%,  #131313 0%, rgb(39 25 52) 90% )',
     zIndex: 2,
+    borderTopLeftRadius: '35px',
+    borderTopRightRadius: '35px',
+    marginTop: '5px',
 };
 
 const photoContainerStyle = {
@@ -155,7 +165,7 @@ const subTextStyle = {
 };
 
 const textStyle = {
-    fontSize: '35px',
+    fontSize: '45px',
     color: '#fff',
     margin: '0px 0px 0px 0px',
     textAlign: 'center',

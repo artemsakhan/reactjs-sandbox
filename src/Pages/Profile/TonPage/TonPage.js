@@ -16,19 +16,94 @@ import UnlockBonusesPopup from "../UnlockBonusesPopup/UnlockBonusesPopup";
 import GetMatchedPopup from "../GetMatchedPopup/GetMatchedPopup"
 import CloseShape from "../../../Shapes/CloseShape";
 
+const WalletBalance = () => {
+    return (
+      <div className="">
+          <div
+            className="cpHh IqPa PmUA NH9b rpx1"
+            style={{
+                fontSize: '16px',
+                fontFamily: 'Roboto, system-ui, sans-serif',
+                fontWeight: 400,
+                columnGap: 4,
+                color: 'rgb(112, 117, 121)',
+
+            }}
+          >Wallet Balance</div>
+          <div>
+              <div
+                style={{
+                    maxWidth: '100%',
+                    whiteSpace: 'nowrap',
+                    display: 'flex',
+                    justifyContent: 'center',
+                }}
+              >
+                  <div
+                    style={{
+                        transformOrigin: 'center center',
+                        flexGrow: 'initial',
+                        transform: 'scale(1)',
+                    }}
+                  >
+                      <div className="YWSF">
+                          <div className="JLFu htWJ">
+                              <span
+                                style={{
+                                    color: 'rgb(112, 117, 121)',
+                                    fontSize: '44px',
+                                    fontWeight: 500,
+                                    lineHeight: '56px',
+                                    boxSizing: 'border-box',
+                                    fontFamily: 'Roboto, system-ui, sans-serif',
+                                }}
+                              >TON</span>
+                              <span
+                                style={{
+                                    color: '#000',
+                                    fontSize: '44px',
+                                    fontWeight: 500,
+                                    lineHeight: '56px',
+                                    boxSizing: 'border-box',
+                                    fontFamily: 'Roboto, system-ui, sans-serif',
+                                }}
+                              >0</span>
+                              <span  style={{
+                                  color: '#000',
+                                  fontSize: '32px',
+                                  fontWeight: 500,
+                                  lineHeight: '40px',
+                                  boxSizing: 'border-box',
+                                  fontFamily: 'Roboto, system-ui, sans-serif',
+                              }}>.</span>
+                              <span style={{
+                                  color: '#000',
+                                  fontSize: '32px',
+                                  fontWeight: 500,
+                                  lineHeight: '40px',
+                                  boxSizing: 'border-box',
+                                  fontFamily: 'Roboto, system-ui, sans-serif',
+                              }}>00</span></div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    )
+}
 const Header = ({}) => {
     return (
-        <div style={{
-            width: '100%',
-            height: '40%',
-            display: 'flex',
-            justifyContent: 'center',
-            flexDirection: 'column',
-            alignItems: 'center',
-            position: 'relative', // Ensures absolute children are positioned inside this
-            overflow: 'hidden',  // Prevents overflow issues
-        }}>
-            {/* Background Animation Layer */}
+      <div style={{
+          width: '100%',
+          height: '40%',
+          display: 'flex',
+          justifyContent: 'center',
+          flexDirection: 'column',
+          alignItems: 'center',
+          position: 'relative', // Ensures absolute children are positioned inside this
+          overflow: 'hidden',  // Prevents overflow issues
+      }}>
+          {/* Background Animation Layer */}
             <div style={{
                 position: 'absolute',
                 top: 0,
@@ -51,17 +126,8 @@ const Header = ({}) => {
                 />
             </div>
 
-            {/* Foreground Content */}
-            <div style={{zIndex: 1}}>
-                <p style={{padding: '0px 0', margin: 0, fontWeight: 'bold', fontSize: '19px'}}>TON</p>
-                <p style={{padding: '0px 0', margin: 0, fontWeight: 'bold', fontSize: '28px'}}>0.40</p>
-                <p style={{
-                    padding: '1px 0',
-                    margin: 0,
-                    color: 'rgb(110 110 110)',
-                    fontSize: '13px'
-                }}>≈&nbsp;4.5&nbsp;USD</p>
-            </div>
+            <WalletBalance/>
+
 
             {/* Button */}
             <motion.div style={{

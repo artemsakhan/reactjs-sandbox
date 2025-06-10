@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import CrownShape from "../../Shapes/CrownShape";
 import {AnimatePresence, motion} from "framer-motion";
 import UIConfig from "../../UIConfig";
@@ -233,7 +233,7 @@ const Content = ({openTonPage}) => {
             alignItems: 'center',
             zIndex: 2,
         }}>
-            <ArcDividerShape style={{}} fillColor={'#362846'}/>
+            <ArcDividerShape style={{}} fillColor={'#594174'}/>
             <div style={{
                 width: 'calc(100% - 60px)',
                 // marginLeft: '30px',
@@ -339,6 +339,9 @@ function ProfilePage() {
     const closeTonPage = () => setTonPageOpen(false);
     const openTonPage = () => setTonPageOpen(true);
 
+    useEffect(() => {
+        window.Telegram.WebApp.setHeaderColor('#594174')
+    }, []);
 
     return (
         <div style={containerStyle}>
@@ -346,7 +349,7 @@ function ProfilePage() {
                 position: 'absolute',
                 width: '100%',
                 height: '100%',
-                background: '#362846',
+                background: '#5761b3',
                 top: 0,
                 left: 0,
             }}>

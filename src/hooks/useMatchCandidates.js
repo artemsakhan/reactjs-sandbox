@@ -7,20 +7,20 @@ const useMatchCandidates = (fetchLimit) => {
     const [matchCandidates, setMatchCandidates] = useState([]);
 
     useEffect(() => {
-        // Initial fetch for match candidates
-        // CachedApiGateway.queryMatchCandidates(fetchLimit)
-        //     .then((data) => {
-        //         if (data.length === 0) {
-        //             setIsLoading(false);
-        //             setIsEmpty(true);
-        //         } else {
-        //             setMatchCandidates(data);
-        //             setTimeout(() => setIsLoading(false), 500);
-        //         }
-        //     })
-        //     .catch((error) => {
-        //         console.error(error);
-        //     });
+        ApiGateway.fetchMatchCandidates(10)
+            .then((data) => {
+                console.log('got data', data)
+                if (data.length === 0) {
+                    setIsLoading(false);
+                    setIsEmpty(true);
+                } else {
+                    setMatchCandidates(data);
+                    setTimeout(() => setIsLoading(false), 500);
+                }
+            })
+            .catch((error) => {
+                console.error(error);
+            });
     }, [fetchLimit]);
 
     const removeCandidate = useCallback((hid) => {

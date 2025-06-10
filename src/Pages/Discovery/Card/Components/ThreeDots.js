@@ -24,7 +24,7 @@ const ThreeDots = ({activeIndex, imagesCount}) => {
 
 const containerStyle = {
     position: 'absolute',
-    left: '25px',
+    right: '25px',
     top: '25px',
     display: 'flex',
     justifyContent: 'center',

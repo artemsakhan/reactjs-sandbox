@@ -8,44 +8,31 @@ import PhotoShape from "../../../Shapes/PhotoShape";
 import CloseShape from "../../../Shapes/CloseShape";
 import GhostShape from "../../../Shapes/GhostShape";
 import LockShape from "../../../Shapes/LockShape";
+import HeartRoundShape from "../../../Shapes/HeartRoundShape";
+import CheckShape from "../../../Shapes/CheckShape";
+import SadShape from "../../../Shapes/SadShape";
 
-const ProfileHiddenLock = () => {
+const NoLikesPage = () => {
     return (
         <>
             <div style={{
                 width: '94px',
                 height: '94px',
                 borderRadius: '60px',
-                background: '#2f333d',
+                background: '#fff',
                 position: 'relative',
                 marginBottom: '15px',
             }}>
-                <GhostShape width={100} height={100} fillColor={'#686f85'} style={{
+                <HeartRoundShape width={100} height={100} fillColor={'rgb(202 204 211)'} style={{
                     marginTop: '0px',
                     marginLeft: '-2px',
                 }}/>
                 <div style={{
                     position: 'absolute',
-                    width: '30px',
-                    height: '30px',
-                    borderRadius: '18px',
-                    background: '#d9e0ec',
-                    bottom: '-5px',
-                    left: '33px',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                }}>
-                    <LockShape width={25} height={25} fillColor={'#2f333d'} strokeWidth={3} style={{
-                        // transform: 'rotate(45deg)'
-                    }}/>
-                </div>
-                <div style={{
-                    position: 'absolute',
                     width: '10px',
                     height: '10px',
                     borderRadius: '5px',
-                    background: '#2f333d',
+                    background: 'rgb(202 204 211)',
                     left: '-25px',
                     top: '92px',
                 }}>
@@ -55,7 +42,7 @@ const ProfileHiddenLock = () => {
                     width: '20px',
                     height: '20px',
                     borderRadius: '10px',
-                    background: '#2f333d',
+                    background: 'rgb(202 204 211)',
                     left: '-30px',
                     top: '32px',
                 }}>
@@ -65,7 +52,7 @@ const ProfileHiddenLock = () => {
                     width: '10px',
                     height: '10px',
                     borderRadius: '5px',
-                    background: '#2f333d',
+                    background: 'rgb(202 204 211)',
                     right: '-25px',
                     top: '12px',
                 }}>
@@ -73,34 +60,12 @@ const ProfileHiddenLock = () => {
             </div>
             <h2 style={{
                 margin: '10px 0px 14px',
-            }}>Incognito</h2>
-            <p style={{
-                margin: 0,
-                maxWidth: '65%',
-                color: '#a6a7ab',
-            }}>Enable private browsing.<br/> Only people you like will see you.</p>
-            <motion.div style={{
-                borderRadius: '20px',
-                border: `1px solid ${UIConfig.Colors.Primary}`,
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                marginTop: '40px',
-            }}>
-                    <span style={{
-                        fontSize: '15px',
-                        padding: '11px 18px',
-                        fontWeight: 'bold',
-                        color: UIConfig.Colors.Primary,
-                        fontFamily: UIConfig.Fonts.Primary,
-                    }}>
-                        {/* NOT TRANSLATED */}
-                        Go Premium
-                    </span>
-            </motion.div>
+                color: '#000',
+            }}></h2>
         </>
     )
 }
+
 const InsufficientData = () => {
     return (
         <>
@@ -197,104 +162,132 @@ const NoResults = () => {
     const canExtendSearch = true
 
     return (
-        <>
-            <div style={{
-                width: '98px',
-                height: '98px',
-                borderRadius: '60px',
-                background: '#2f333d',
-                position: 'relative',
-                marginBottom: '15px',
-            }}>
-                <PageShape width={100} height={100} fillColor={'#686f85'} style={{
-                    marginTop: '0px',
-                    transform: 'rotate(15deg)'
-                }}/>
-                <SearchShape width={60} height={60} fillColor={'#d9e0ec'} style={{
-                    position: 'absolute',
-                    left: '26px',
-                    top: '26px',
-                }}/>
-                <div style={{
-                    position: 'absolute',
-                    width: '36px',
-                    height: '36px',
-                    borderRadius: '20px',
-                    background: '#686f85',
-                    top: '33px',
-                    left: '33px',
-                }}></div>
-                <SadSmileShape width={35} height={35} fillColor={'#b2b7c9'} style={{
-                    position: 'absolute',
-                    top: '33px',
-                    left: '33px',
-                }}/>
-                <div style={{
-                    position: 'absolute',
-                    width: '10px',
-                    height: '10px',
-                    borderRadius: '5px',
-                    background: '#2f333d',
-                    left: '-25px',
-                    top: '92px',
-                }}>
-                </div>
-                <div style={{
-                    position: 'absolute',
-                    width: '20px',
-                    height: '20px',
-                    borderRadius: '10px',
-                    background: '#2f333d',
-                    left: '-30px',
-                    top: '32px',
-                }}>
-                </div>
-                <div style={{
-                    position: 'absolute',
-                    width: '10px',
-                    height: '10px',
-                    borderRadius: '5px',
-                    background: '#2f333d',
-                    right: '-25px',
-                    top: '12px',
-                }}>
-                </div>
+      <>
+          <div style={{
+              width: '98px',
+              height: '98px',
+              borderRadius: '60px',
+              background: '#2f333d',
+              position: 'relative',
+              marginBottom: '15px',
+          }}>
+              <PageShape width={100} height={100} fillColor={'#686f85'} style={{
+                  marginTop: '0px',
+                  transform: 'rotate(15deg)'
+              }}/>
+              <SearchShape width={60} height={60} fillColor={'#d9e0ec'} style={{
+                  position: 'absolute',
+                  left: '26px',
+                  top: '26px',
+              }}/>
+              <div style={{
+                  position: 'absolute',
+                  width: '36px',
+                  height: '36px',
+                  borderRadius: '20px',
+                  background: '#686f85',
+                  top: '33px',
+                  left: '33px',
+              }}></div>
+              <SadSmileShape width={35} height={35} fillColor={'#b2b7c9'} style={{
+                  position: 'absolute',
+                  top: '33px',
+                  left: '33px',
+              }}/>
+              <div style={{
+                  position: 'absolute',
+                  width: '10px',
+                  height: '10px',
+                  borderRadius: '5px',
+                  background: '#2f333d',
+                  left: '-25px',
+                  top: '92px',
+              }}>
+              </div>
+              <div style={{
+                  position: 'absolute',
+                  width: '20px',
+                  height: '20px',
+                  borderRadius: '10px',
+                  background: '#2f333d',
+                  left: '-30px',
+                  top: '32px',
+              }}>
+              </div>
+              <div style={{
+                  position: 'absolute',
+                  width: '10px',
+                  height: '10px',
+                  borderRadius: '5px',
+                  background: '#2f333d',
+                  right: '-25px',
+                  top: '12px',
+              }}>
+              </div>
 
-            </div>
-            <h2 style={{
-                margin: '10px 0px 14px',
-            }}>Quiet here</h2>
-            <p style={{
-                margin: 0,
-                maxWidth: '70%',
-                color: '#a6a7ab',
-            }}>Seems like you're ahead<br/> of the crowd! Try checking back later. </p>
-        </>
+          </div>
+          <h2 style={{
+              margin: '10px 0px 14px',
+          }}>Это все</h2>
+          {/*<p style={{*/}
+          {/*    margin: 0,*/}
+          {/*    maxWidth: '70%',*/}
+          {/*    color: '#a6a7ab',*/}
+          {/*}}>Seems like you're ahead<br/> of the crowd! Try increasing your search filters age range. </p>*/}
+          <p style={{
+              margin: 0,
+              maxWidth: '70%',
+              color: '#a6a7ab',
+              fontSize: '14px',
+          }}>
+              Вы впереди всех.
+              Попробуйте<br/> расширить возрастной диапазон.
+          </p>
+
+          <motion.div style={{
+              borderRadius: '20px',
+              border: `1px solid ${UIConfig.Colors.Primary}`,
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              marginTop: '40px',
+          }}>
+                    <span style={{
+                        fontSize: '15px',
+                        padding: '11px 18px',
+                        fontWeight: 'bold',
+                        color: UIConfig.Colors.Primary,
+                        fontFamily: UIConfig.Fonts.Primary,
+                    }}>
+                        Расширить
+                    </span>
+          </motion.div>
+      </>
     )
 }
 
 const CardPlaceholder = ({children, zIndex = 1}) => {
     let canExtendSearch = true;
     return (
-        <div
-            style={{
-                ...cardStyles,
-                zIndex,
-            }}
-        >
-            <div style={contentStyle}>
-                <div style={{width: '100%', height: '100%', position: 'relative'}}>
-                    {children || (
-                        <div style={{
-                            color: '#FFF',
-                            display: 'flex',
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                            flexDirection: 'column',
-                            width: '100%',
+      <div
+        style={{
+            ...cardStyles,
+            zIndex,
+        }}
+      >
+          <div style={contentStyle}>
+              <div style={{width: '100%', height: '100%', position: 'relative'}}>
+                  {children || (
+                    <div style={{
+                        color: '#FFF',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        flexDirection: 'column',
+                        width: '100%',
                             height: '100%',
                         }}>
-                            <ProfileHiddenLock/>
+                            <NoResults/>
                         </div>
                     )}
                 </div>

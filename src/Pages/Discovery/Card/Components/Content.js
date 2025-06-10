@@ -105,7 +105,7 @@ const Content = ({ matchCandidate, openSendGiftPopup }) => {
                 totalSections={photos.length}
             />
             {contentBottom}
-            <GiftButton openSendGiftPopup={openSendGiftPopup}/>
+            {/*<GiftButton openSendGiftPopup={openSendGiftPopup}/>*/}
         </div>
     );
 };

@@ -6,9 +6,9 @@ const serverData = {
             ],
             "profile": {
                 "hid": "lpB4W0j7lPkqZeM0",
-                "name": "Kitty",
-                "gender": "m",
-                "age": 27,
+                "name": "Олена",
+                "gender": "f",
+                "age": 28,
                 "city": {
                     "id": 1,
                     "name": "Kyiv",
@@ -18,21 +18,33 @@ const serverData = {
                     }
                 },
                 "photos_showcases": [
+                    // {
+                        // o: 'https://lyranova.s3.eu-central-1.amazonaws.com/9qje02W/anmvl.6365458b6f4ae.800x600.webp',
+                        // o: 'https://lyranova.s3.eu-central-1.amazonaws.com/e2wb0Ny/w3rvz.635b7ae5d3a99.800x600.webp',
+                        // o: 'https://lyranova.s3.eu-central-1.amazonaws.com/e2wb0Ny/srkrv.635b56a309cd7.800x600.webp',
+                        // o: 'https://lyranova.s3.eu-central-1.amazonaws.com/e2wb0Ny/rvu9n.635b523ad6b29.800x600.webp',
+                        // o: 'https://lyranova.s3.eu-central-1.amazonaws.com/e2wb0Ny/p2atx.635b5077f7f9f.800x600.webp',
+                        // o: 'https://lyranova.s3.eu-central-1.amazonaws.com/Q1Rj0oz/dr555.635ab4ed78811.800x600.webp',
+                        // o: 'https://lyranova.s3.eu-central-1.amazonaws.com/Q1Rj0oz/t38xf.635aab11dbc4a.800x600.webp',
+                        // o: 'https://lyranova.s3.eu-central-1.amazonaws.com/Q1Rj0oz/5v9us.635aaad425c1f.800x600.webp',
+                      // o: 'https://lyranova.s3.eu-central-1.amazonaws.com/Q1Rj0oz/aro7j.635aa8c0922f7.800x600.webp',
+                    // },
                     {
-                        "o": "https://lyranova.s3.eu-central-1.amazonaws.com/EG98Odj/adbdj.62cb2da838e93.800x600.webp"
+                        "o": "https://lyranova.s3.eu-central-1.amazonaws.com/e9z4PQ7/tqz7d.63592e71a67e2.800x600.webp"
                     },
                     {
-                        "o": "https://lyranova.s3.eu-central-1.amazonaws.com/EG98Odj/adbdj.62cb2da838e93.800x600.webp"
-                    },
-                    {
-                        "o": "https://lyranova.s3.eu-central-1.amazonaws.com/EG98Odj/adbdj.62cb2da838e93.800x600.webp"
+                        "o": "https://lyranova.s3.eu-central-1.amazonaws.com/x2dN0V7/e6ha1.632ba1feb83ce.800x600.webp"
                     },
                 ],
-                "about_me": "Lifelong learner who loves exploring new cultures and trying new foods.",
-                "online_state": "ONLINE_STATE_RECENTLY_SEEN",
-                "body_type": "Athletic"
+                "about_me": "Your mom will totally approve.",
+                "online_state": "ONLINE_STATE_UNSPECIFIED",
+                // "body_type": "Athletic",
+                "height": {
+                    "unit": 176,
+                    "measure": "cm",
+                },
             },
-            "distance": 22
+            "distance": 2
         },
         // {
         //     "labels": [
@@ -211,7 +223,7 @@ function mapToModel(v)  {
             aboutMe: v.profile.about_me,
             bodyType: v.profile.body_type,
             occupation: v.profile.occupation,
-            height: v.profile.height ? `${v.profile.height.unit} ${v.profile.height.measure}` : null,
+            height: v.profile.height ? `${v.profile.height.unit}${v.profile.height.measure}` : null,
             photos: v.profile.photos_showcases.map((p) => p.o),
             cityName: v.profile.city?.name,
         }

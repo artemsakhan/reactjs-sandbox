@@ -5,8 +5,8 @@ const colorPrimary = 'rgba(241, 255, 10, 1)'
 const colorBackgroundLight = 'rgba(176, 176, 176, 1)';
 // const colorBackgroundMedium = 'rgba(55, 63, 76, 1)';
 
-const colorBackgroundDark = 'linear-gradient(rgb(22 22 34) 10%, rgb(19 27 24) 80%)'//'#1e1e25';
-const colorBackgroundMedium = 'rgb(31 34 45)';//'rgb(43 43 45)';//'rgb(56 56 67)'//'#2d2d36';
+const colorBackgroundDark = '#131313';//'linear-gradient(rgb(22 22 34) 10%, rgb(19 27 24) 80%)'//'#1e1e25';
+const colorBackgroundMedium = 'rgb(24 26 35)';//'rgb(31 34 45)';//'rgb(43 43 45)';//'rgb(56 56 67)'//'#2d2d36';
 // const colorBackgroundLight = 'white';
 
 const primaryFontFamily = "'Roboto', sans-serif";
@@ -20,6 +20,7 @@ const UIConfig = {
         BackgroundMedium: colorBackgroundMedium,
         BackgroundLight: colorBackgroundLight,
         BackgroundDark: colorBackgroundDark,
+        BackgroundMediumDisabled: 'rgb(35 38 52)',
         BackgroundWhite: 'rgb(245 245 245)',
     },
     TabBar: {
@@ -48,16 +49,17 @@ const UIConfig = {
             background: colorBackgroundMedium,
         },
         LikeButton: {
-            background: colorPrimary,
+            background: 'rgb(35 38 52)',//'rgb(47 52 70)',
             borderRadius: '35px',
-            color: "#000",
+            color: "#fff",
             fontSize: '24px',
             height: '55px',
         },
         PassButton: {
-            background: "#FFF",
-            color: "#000",
-            borderRadius: "35px"
+            // background: "#232427",
+            color: "#fff",
+            borderRadius: "35px",
+            // border: '1px solid #fff',
         },
         Header: {
             background: colorBackgroundDark,
@@ -67,7 +69,7 @@ const UIConfig = {
     Typography: {
         Card: {
             Title: {
-                fontSize: '19px',
+                fontSize: '21px',
                 fontFamily: primaryFontFamily,
                 fontWeight: 'bold',
                 color: '#FFFFFF',
