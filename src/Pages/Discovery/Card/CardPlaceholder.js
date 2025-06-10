@@ -257,7 +257,7 @@ const NoResults = () => {
                         fontSize: '15px',
                         padding: '11px 18px',
                         fontWeight: 'bold',
-                        color: '#000',
+                        color: 'rgb(145 30 133)',
                         fontFamily: UIConfig.Fonts.Primary,
                     }}>
                         Go Premium
